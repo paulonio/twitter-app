@@ -1,16 +1,17 @@
 import React, { FC } from 'react';
-import './MenuLink.css';
+import { Icon, SidebarLink, Wrapper } from './styled';
 
 interface MenuLinkProps {
   text: string;
+  bold?: boolean;
 }
 
-const MenuLink: FC<MenuLinkProps> = ({ text }) => {
+const MenuLink: FC<MenuLinkProps> = ({ text, bold }) => {
   return (
-    <div className="link-wrapper">
-      <img className="image" src={`/assets/icons/${text}.svg`} alt={text} />
-      <div className="link">{text}</div>
-    </div>
+    <Wrapper>
+      <Icon text={text} />
+      <SidebarLink bold={bold}>{text}</SidebarLink>
+    </Wrapper>
   );
 };
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import Menu from '../Menu/Menu';
-import './Profile.css';
+import { Wrapper } from './styled';
 
 const Profile = () => {
   return (
-    <div className="wrapper">
+    <Wrapper>
       <Menu />
-    </div>
+    </Wrapper>
   );
 };
 

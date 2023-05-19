@@ -1,19 +1,21 @@
 import React from 'react';
 import MenuLink from '../MenuLink/MenuLink';
-import './Menu.css';
+import { Wrapper, Logo, Button } from './styled';
 
 const Menu = () => {
   return (
-    <aside className="menu">
+    <Wrapper>
+      <Logo />
       <MenuLink text="Home" />
       <MenuLink text="Explore" />
       <MenuLink text="Notifications" />
       <MenuLink text="Messages" />
       <MenuLink text="Bookmarks" />
       <MenuLink text="Lists" />
-      <MenuLink text="Profile" />
+      <MenuLink text="Profile" bold />
       <MenuLink text="More" />
-    </aside>
+      <Button>Twitter</Button>
+    </Wrapper>
   );
 };
 
