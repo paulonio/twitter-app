@@ -5,7 +5,7 @@ interface ImageProps {
 }
 
 interface SidebarLinkProps {
-  bold?: boolean;
+  isBold?: boolean;
 }
 
 export const Wrapper = styled.div`
@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
 export const SidebarLink = styled.div<SidebarLinkProps>`
   font-size: 18px;
   line-height: 24px;
-  font-weight: ${({ bold }) => (bold ? 700 : 500)};
+  font-weight: ${({ isBold }) => (isBold ? 700 : 600)};
   transition: font-weight 0.3s;
   &:hover {
     font-weight: 700;

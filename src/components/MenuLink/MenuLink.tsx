@@ -3,14 +3,14 @@ import { Icon, SidebarLink, Wrapper } from './styled';
 
 interface MenuLinkProps {
   text: string;
-  bold?: boolean;
+  isBold?: boolean;
 }
 
-const MenuLink: FC<MenuLinkProps> = ({ text, bold }) => {
+const MenuLink: FC<MenuLinkProps> = ({ text, isBold }) => {
   return (
     <Wrapper>
       <Icon text={text} />
-      <SidebarLink bold={bold}>{text}</SidebarLink>
+      <SidebarLink isBold={isBold}>{text}</SidebarLink>
     </Wrapper>
   );
 };

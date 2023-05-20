@@ -1,10 +1,18 @@
 import { styled } from 'styled-components';
 
 export const Wrapper = styled.aside`
-  width: 155px;
+  width: 281px;
+  margin-top: 31px;
   display: flex;
   flex-direction: column;
   align-items: start;
+`;
+
+export const Navigation = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 76px;
 `;
 
 export const Logo = styled.img.attrs({
