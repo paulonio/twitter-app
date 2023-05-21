@@ -1,6 +1,7 @@
 import React from 'react';
-import { SecondaryButton, UsersButton, UsersTitle, UsersWrapper, UserWrapper } from './styled';
+import { SecondaryButton, UsersTitle, UsersWrapper, UserWrapper } from './styled';
 import MenuUser from '../MenuUser/MenuUser';
+import Button from '../Button/Button';
 
 const SidebarUsers = () => {
   return (
@@ -8,7 +9,7 @@ const SidebarUsers = () => {
       <UsersTitle>You might like</UsersTitle>
       <UserWrapper>
         <MenuUser />
-        <UsersButton>Follow</UsersButton>
+        <Button buttonType="secondary">Follow</Button>
       </UserWrapper>
       <SecondaryButton>Show more</SecondaryButton>
     </UsersWrapper>

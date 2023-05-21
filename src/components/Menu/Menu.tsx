@@ -1,7 +1,8 @@
 import React from 'react';
 import MenuLink from '../MenuLink/MenuLink';
-import { Wrapper, Logo, Button, Navigation } from './styled';
 import MenuUser from '../MenuUser/MenuUser';
+import Button from '../Button/Button';
+import { Wrapper, Logo, Navigation } from './styled';
 
 const Menu = () => {
   return (
@@ -16,7 +17,7 @@ const Menu = () => {
         <MenuLink text="Lists" />
         <MenuLink text="Profile" isBold />
         <MenuLink text="More" />
-        <Button>Twitter</Button>
+        <Button buttonType="primary">Tweet</Button>
       </Navigation>
       <MenuUser />
     </Wrapper>

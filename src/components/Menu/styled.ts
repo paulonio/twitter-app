@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 export const Wrapper = styled.aside`
-  width: 281px;
+  width: 250px;
   margin-top: 31px;
   display: flex;
   flex-direction: column;
@@ -9,6 +9,8 @@ export const Wrapper = styled.aside`
 `;
 
 export const Navigation = styled.div`
+  width: 100%;
+  max-width: 230px;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -22,24 +24,4 @@ export const Logo = styled.img.attrs({
   width: 40px;
   height: 33px;
   margin-bottom: 49px;
-`;
-
-export const Button = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 230px;
-  padding: 15px 90px;
-  color: #ffffff;
-  background-color: #1d9bf0;
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 700;
-  border: none;
-  border-radius: 27.5px;
-  transition: background-color 0.3s;
-  &:hover {
-    background-color: #1da1f2;
-    cursor: pointer;
-  }
 `;
