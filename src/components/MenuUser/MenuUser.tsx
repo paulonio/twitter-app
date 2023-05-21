@@ -1,12 +1,13 @@
 import React from 'react';
-import { Avatar, Image, Nickname, UserInfo, Username, Wrapper } from './styled';
+import { AvatarWrapper, Nickname, UserInfo, Username, Wrapper } from './styled';
+import Avatar from '../Avatar/Avatar';
 
 const MenuUser = () => {
   return (
     <Wrapper>
-      <Avatar>
-        <Image />
-      </Avatar>
+      <AvatarWrapper>
+        <Avatar />
+      </AvatarWrapper>
       <UserInfo>
         <Username>Bobur</Username>
         <Nickname>@bobur_mavlonov</Nickname>

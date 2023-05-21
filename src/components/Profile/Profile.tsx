@@ -1,14 +1,18 @@
 import React from 'react';
-import Menu from '../Menu/Menu';
-import { Wrapper } from './styled';
-import Sidebar from '../Sidebar/Sidebar';
+import { HeaderTweets, HeaderUsername, ProfileImage, ProfileWrapper } from './styled';
+import Header from '../Header/Header';
+import ProfileUser from '../ProfileUser/ProfileUser';
 
 const Profile = () => {
   return (
-    <Wrapper>
-      <Menu />
-      <Sidebar />
-    </Wrapper>
+    <ProfileWrapper>
+      <Header>
+        <HeaderUsername>Bobur</HeaderUsername>
+        <HeaderTweets>1,070 Tweets</HeaderTweets>
+      </Header>
+      <ProfileImage />
+      <ProfileUser />
+    </ProfileWrapper>
   );
 };
 

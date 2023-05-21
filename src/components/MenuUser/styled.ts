@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const Avatar = styled.div`
+export const AvatarWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
