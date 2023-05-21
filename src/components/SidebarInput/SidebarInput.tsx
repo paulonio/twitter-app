@@ -1,10 +1,13 @@
 import React from 'react';
-import { SearchField, Wrapper } from './styled';
+import { Label, SearchField, SearchIcon, Wrapper } from './styled';
 
 const SidebarInput = () => {
   return (
     <Wrapper>
-      <SearchField />
+      <Label>
+        <SearchIcon />
+        <SearchField />
+      </Label>
     </Wrapper>
   );
 };
