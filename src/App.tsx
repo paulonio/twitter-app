@@ -1,12 +1,12 @@
 import React from 'react';
-import ProfilePage from './components/ProfilePage/ProfilePage';
 import Global from './styles/Global';
+import RouterElement from './routes';
 
 const App = () => {
   return (
     <>
       <Global />
-      <ProfilePage />
+      <RouterElement />
     </>
   );
 };
