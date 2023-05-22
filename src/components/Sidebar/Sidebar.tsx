@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrapper } from './styled';
+import { FixedWrapper, Wrapper } from './styled';
 import SidebarInput from '../SidebarInput/SidebarInput';
 import SidebarPosts from '../SidebarPosts/SidebarPosts';
 import SidebarUsers from '../SidebarUsers/SidebarUsers';
@@ -7,9 +7,11 @@ import SidebarUsers from '../SidebarUsers/SidebarUsers';
 const Sidebar = () => {
   return (
     <Wrapper>
-      <SidebarInput />
-      <SidebarPosts />
-      <SidebarUsers />
+      <FixedWrapper>
+        <SidebarInput />
+        <SidebarPosts />
+        <SidebarUsers />
+      </FixedWrapper>
     </Wrapper>
   );
 };

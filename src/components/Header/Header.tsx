@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { FixedWrapper } from '../Sidebar/styled';
 import { HeaderWrapper } from './styled';
 
 interface HeaderProps {
@@ -6,7 +7,11 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({ children }) => {
-  return <HeaderWrapper>{children}</HeaderWrapper>;
+  return (
+    <FixedWrapper>
+      <HeaderWrapper>{children}</HeaderWrapper>
+    </FixedWrapper>
+  );
 };
 
 export default Header;

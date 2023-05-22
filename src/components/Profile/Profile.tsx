@@ -2,6 +2,8 @@ import React from 'react';
 import { HeaderTweets, HeaderUsername, ProfileImage, ProfileWrapper } from './styled';
 import Header from '../Header/Header';
 import ProfileUser from '../ProfileUser/ProfileUser';
+import TweetBlock from '../TweetBlock/TweetBlock';
+import Tweets from '../Tweets/Tweets';
 
 const Profile = () => {
   return (
@@ -12,6 +14,8 @@ const Profile = () => {
       </Header>
       <ProfileImage />
       <ProfileUser />
+      <TweetBlock />
+      <Tweets />
     </ProfileWrapper>
   );
 };
