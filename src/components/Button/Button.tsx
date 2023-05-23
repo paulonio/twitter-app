@@ -8,8 +8,12 @@ interface ButtonProps {
   buttonType: ButtonType;
 }
 
-const Button: FC<ButtonProps> = ({ children, buttonType }) => {
-  return <StyledButton buttonType={buttonType}>{children}</StyledButton>;
+const Button: FC<ButtonProps> = ({ children, buttonType }, props) => {
+  return (
+    <StyledButton buttonType={buttonType} {...props}>
+      {children}
+    </StyledButton>
+  );
 };
 
 export default Button;
