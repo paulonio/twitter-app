@@ -6,8 +6,9 @@ export interface Route {
 }
 
 export const routes: Route[] = [
-  { path: '/', element: lazyLoadRoutes('Home') },
+  { path: '/', element: lazyLoadRoutes('Welcome') },
   { path: '/profile', element: lazyLoadRoutes('Profile') },
   { path: '/signin', element: lazyLoadRoutes('SignIn') },
   { path: '/signup', element: lazyLoadRoutes('SignUp') },
+  { path: '/feed', element: lazyLoadRoutes('Home') },
 ];

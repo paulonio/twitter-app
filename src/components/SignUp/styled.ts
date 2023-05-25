@@ -25,6 +25,7 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
+  width: 100%;
   margin-top: 25px;
   padding: 23px 20px;
   font-size: 18px;
