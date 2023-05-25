@@ -71,22 +71,22 @@ const SignUp = () => {
     setPassword(value);
   };
 
-  const verifyOTP = (e: ChangeEvent<HTMLInputElement>) => {
+  const verifyOTP = async (e: ChangeEvent<HTMLInputElement>) => {
     const otp = e.target.value;
     setOTP(otp);
 
     if (otp.length === 6) {
       const confirmationResult = window.confirmationResult;
-      confirmationResult
+      await confirmationResult
         .confirm(otp)
         .then((result) => {
           const user = result.user;
           updateProfile(user, { displayName: name }).catch(() => {});
         })
         .catch(() => {});
-    }
 
-    setState('password');
+      setState('password');
+    }
   };
 
   const handleAddPassword = () => {
