@@ -1,30 +1,24 @@
 import React, { useState, ChangeEvent, FormEventHandler } from 'react';
-import { RecaptchaVerifier, ConfirmationResult, signInWithPhoneNumber } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { Form } from './styled';
 import { WelcomeSubtitle } from '../Welcome/styled';
 import { Input, RecaptchaContainer } from '../SignUp/styled';
 import Button from '../Button/Button';
 import { SecondaryButton } from '../SidebarUsers/styled';
-import { generateRecaptcha } from '../SignUp/SignUp';
 import { auth } from '../../../firebase';
-
-declare const window: Window &
-  typeof globalThis & {
-    recaptchaVerifier: RecaptchaVerifier;
-    confirmationResult: ConfirmationResult;
-  };
+import { login } from '../../store/slices/authSlice';
 
 const Login = () => {
   const navigate = useNavigate();
-  // TODO names
-  const [phone, setPhone] = useState<string>('');
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const [OTP, setOTP] = useState<string>('');
 
-  const handlePhoneChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    setPhone(value);
+    setEmail(value);
   };
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -32,34 +26,22 @@ const Login = () => {
     setPassword(value);
   };
 
-  const handleOTPChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const otp = e.target.value;
-    setOTP(otp);
-
-    if (otp.length === 6) {
-      const confirmationResult = window.confirmationResult;
-      confirmationResult
-        .confirm(otp)
-        .then((result) => {
-          const user = result.user;
-          if (user) {
-            navigate('/feed');
-          }
-        })
-        .catch(() => {});
-    }
-  };
-
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    generateRecaptcha();
-    const appVerifier = window.recaptchaVerifier;
 
-    await signInWithPhoneNumber(auth, phone, appVerifier)
-      .then((confirmationResult: ConfirmationResult) => {
-        window.confirmationResult = confirmationResult;
-      })
-      .catch(() => {});
+    try {
+      const userAuth = await signInWithEmailAndPassword(auth, email, password);
+      dispatch(
+        login({
+          email: userAuth.user.email,
+          uid: userAuth.user.uid,
+          displayName: userAuth.user.displayName,
+        })
+      );
+      navigate('/feed');
+    } catch (error) {
+      dispatch(login(null));
+    }
   };
 
   const handleNavigateToWelcomePage = () => {
@@ -70,8 +52,7 @@ const Login = () => {
     <Form onSubmit={onSubmit}>
       <RecaptchaContainer id="recaptcha-container" />
       <WelcomeSubtitle>Log in to Twitter</WelcomeSubtitle>
-      <Input type="text" placeholder="Phone number" value={phone} onChange={handlePhoneChange} />
-      <Input type="text" placeholder="OTP" value={OTP} onChange={handleOTPChange} />
+      <Input type="text" placeholder="Email" value={email} onChange={handleEmailChange} />
       <Input
         type="password"
         placeholder="Password"
