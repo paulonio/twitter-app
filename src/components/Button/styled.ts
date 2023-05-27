@@ -2,8 +2,7 @@ import { css, styled } from 'styled-components';
 import type { ButtonType } from './Button';
 
 interface StyledButtonProps {
-  children?: string;
-  buttonType: ButtonType;
+  $buttonType: ButtonType;
 }
 
 export const StyledButton = styled.button<StyledButtonProps>`
@@ -21,7 +20,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
     cursor: pointer;
   }
   ${(props) => {
-    switch (props.buttonType) {
+    switch (props.$buttonType) {
       case 'primary':
         return css`
           padding: 15px 0;

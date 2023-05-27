@@ -1,13 +1,14 @@
 import React, { ChangeEvent, FormEventHandler, useState } from 'react';
-import { createUserWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { ButtonWrapper, Form, FormTitle, Input, SignUpWrapper } from './styled';
 import Button from '../Button/Button';
-import { auth } from '../../../firebase';
 import { SecondaryButton } from '../SidebarUsers/styled';
+import { signUpWithEmail } from '../../store/slices/authSlice';
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -18,17 +19,7 @@ const SignUp = () => {
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-
-    try {
-      const userAuth = await createUserWithEmailAndPassword(auth, email, password);
-      await updateProfile(userAuth.user, { displayName: name });
-      await signOut(auth);
-      navigate('/signin');
-    } catch (error) {
-      setEmail('');
-      setName('');
-      setPassword('');
-    }
+    dispatch(signUpWithEmail({ email, password, name }));
   };
 
   const handleNameChange = (e: ChangeEvent<HTMLInputElement>) => {

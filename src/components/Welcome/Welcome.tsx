@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import {
   WelcomeContent,
   WelcomeImage,
@@ -10,10 +11,11 @@ import {
 } from './styled';
 import { BorderedButton } from '../ProfileUserHeader/styled';
 import { SecondaryButton } from '../SidebarUsers/styled';
-import { signInWithGoogle } from '../../../firebase';
+import { signUpWithGoogle } from '../../store/slices/authSlice';
 
 const Welcome = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleNavigateToSignUp = () => {
     navigate('/signup');
@@ -23,10 +25,8 @@ const Welcome = () => {
     navigate('/signin');
   };
 
-  const handleSignInWithGoogle = () => {
-    signInWithGoogle()
-      .then((result) => result.user && navigate('/feed'))
-      .catch(() => {});
+  const handleSignInWithGoogle = async () => {
+    dispatch(signUpWithGoogle());
   };
 
   return (
