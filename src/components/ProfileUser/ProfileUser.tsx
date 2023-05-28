@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { User } from 'firebase/auth';
+import type { User } from '../../store/slices/authSlice';
 import { Nickname, UserBio, UserWrapper, Username } from './styled';
 import Followers from '../Followers/Followers';
 import ProfileUserHeader from '../ProfileUserHeader/ProfileUserHeader';

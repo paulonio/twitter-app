@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Avatar from '../Avatar/Avatar';
 import TweetHeader from '../TweetHeader/TweetHeader';
 import {
@@ -11,7 +11,11 @@ import {
   TweetWrapper,
 } from './styled';
 
-const Tweet = () => {
+interface TweetProps {
+  text: string;
+}
+
+const Tweet: FC<TweetProps> = ({ text }) => {
   return (
     <TweetWrapper>
       <TweetAvatar>
@@ -19,10 +23,7 @@ const Tweet = () => {
       </TweetAvatar>
       <TweetContent>
         <TweetHeader />
-        <TweetText>
-          {`4-kursni tugatgunimcha kamida bitta biznesim bo'lishini, uylanish uchun moddiy jihatdan
-          to'la-to'kis tayyor bo'lishni, sog'lik va jismoniy holatni normallashtirishni reja qildim`}
-        </TweetText>
+        <TweetText>{text}</TweetText>
         <TweetLike>
           <LikeIcon />
           <LikeAmount>8</LikeAmount>

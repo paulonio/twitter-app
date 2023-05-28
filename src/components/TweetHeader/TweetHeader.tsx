@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { User } from 'firebase/auth';
+import type { User } from '../../store/slices/authSlice';
 import { TweetHeaderWrapper, TweetTitle, EditButton, EditIcon } from './styled';
 import { Nickname, Username } from '../MenuUser/styled';
 import { StoreType } from '../../store';
