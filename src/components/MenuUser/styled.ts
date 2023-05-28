@@ -5,7 +5,6 @@ export const Wrapper = styled.div`
   max-width: 220px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
 `;
 
 export const AvatarWrapper = styled.div`
@@ -19,7 +18,9 @@ export const AvatarWrapper = styled.div`
 
 export const Image = styled.img.attrs({ src: '/assets/icons/Avatar.svg', alt: 'Avatar' })``;
 
-export const UserInfo = styled.div``;
+export const UserInfo = styled.div`
+  margin-left: 8px;
+`;
 
 export const Username = styled.h4`
   font-size: 16px;

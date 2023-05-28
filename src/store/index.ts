@@ -15,4 +15,6 @@ const store = configureStore({
 
 sagaMiddleware.run(rootWatcher);
 
+export type StoreType = ReturnType<typeof store.getState>;
+
 export default store;

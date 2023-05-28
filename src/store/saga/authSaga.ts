@@ -35,7 +35,7 @@ function* loginWorker({ payload }: ReturnType<typeof loginRequest>) {
     yield put(
       loginSuccess({
         email: userAuth.user.email,
-        dislayName: userAuth.user.displayName,
+        displayName: userAuth.user.displayName,
         uid: userAuth.user.uid,
       })
     );
@@ -61,7 +61,7 @@ function* signUpWithEmailWorker({ payload }: ReturnType<typeof signUpWithEmailRe
     yield put(
       signUpWithEmailSuccess({
         email: userAuth.user.email,
-        dislayName: userAuth.user.displayName,
+        displayName: userAuth.user.displayName,
         uid: userAuth.user.uid,
       })
     );
