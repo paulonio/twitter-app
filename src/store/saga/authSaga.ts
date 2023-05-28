@@ -1,3 +1,5 @@
+import { createAction } from '@reduxjs/toolkit';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import {
   UserCredential,
   createUserWithEmailAndPassword,
@@ -5,22 +7,24 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth';
-import { call, put, takeEvery } from 'redux-saga/effects';
 import { FirebaseError } from 'firebase/app';
 import { auth, signInWithGoogle } from '../../../firebase';
 import {
   loginFailure,
   loginSuccess,
-  login,
-  signUpWithEmail,
   signUpWithEmailFailure,
   signUpWithEmailSuccess,
-  signUpWithGoogle,
   signUpWithGoogleSuccess,
   signUpWithGoogleFailure,
 } from '../slices/authSlice';
+import type { LoginForm } from '../../components/Login/Login';
+import type { SignUpForm } from '../../components/SignUp/SignUp';
 
-function* loginWorker({ payload }: ReturnType<typeof login>) {
+export const loginRequest = createAction<LoginForm>('auth/loginRequest');
+export const signUpWithEmailRequest = createAction<SignUpForm>('auth/signUpWithEmailRequest');
+export const signUpWithGoogleRequest = createAction('auth/signUpWithGoogleRequest');
+
+function* loginWorker({ payload }: ReturnType<typeof loginRequest>) {
   try {
     const userAuth: UserCredential = yield call(
       signInWithEmailAndPassword,
@@ -36,11 +40,14 @@ function* loginWorker({ payload }: ReturnType<typeof login>) {
       })
     );
   } catch (error) {
-    yield put(loginFailure(error));
+    if (error instanceof FirebaseError) {
+      const { code, message } = error;
+      yield put(loginFailure({ code, message }));
+    }
   }
 }
 
-function* signUpWithEmailWorker({ payload }: ReturnType<typeof signUpWithEmail>) {
+function* signUpWithEmailWorker({ payload }: ReturnType<typeof signUpWithEmailRequest>) {
   const { email, password, name } = payload;
   try {
     const userAuth: UserCredential = yield call(
@@ -85,7 +92,7 @@ function* signUpWithGoogleWorker() {
 }
 
 export function* authWatcher() {
-  yield takeEvery(login, loginWorker);
-  yield takeEvery(signUpWithEmail, signUpWithEmailWorker);
-  yield takeEvery(signUpWithGoogle, signUpWithGoogleWorker);
+  yield takeEvery(loginRequest, loginWorker);
+  yield takeEvery(signUpWithEmailRequest, signUpWithEmailWorker);
+  yield takeEvery(signUpWithGoogleRequest, signUpWithGoogleWorker);
 }

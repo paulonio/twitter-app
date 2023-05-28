@@ -11,7 +11,7 @@ import {
 } from './styled';
 import { BorderedButton } from '../ProfileUserHeader/styled';
 import { SecondaryButton } from '../SidebarUsers/styled';
-import { signUpWithGoogle } from '../../store/slices/authSlice';
+import { signUpWithGoogleRequest } from '../../store/saga/authSaga';
 
 const Welcome = () => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const Welcome = () => {
   };
 
   const handleSignInWithGoogle = async () => {
-    dispatch(signUpWithGoogle());
+    dispatch(signUpWithGoogleRequest());
   };
 
   return (

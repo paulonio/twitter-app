@@ -1,9 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { User } from 'firebase/auth';
 
-interface InitialState {
+type FirebaseError = { code: string; message: string };
+
+export interface InitialState {
   user: User | null;
-  error: Error | null;
+  error: FirebaseError | null;
 }
 
 const initialState: InitialState = {
@@ -15,28 +17,22 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    login: (state, action) => {
-      state.error = action.payload;
-    },
     loginSuccess: (state, action) => {
+      state.error = null;
       state.user = action.payload;
     },
     loginFailure: (state, action) => {
       state.error = action.payload;
     },
-    signUpWithEmail: (state, action) => {
-      state.error = action.payload;
-    },
     signUpWithEmailSuccess: (state, action) => {
+      state.error = null;
       state.user = action.payload;
     },
     signUpWithEmailFailure: (state, action) => {
       state.error = action.payload;
     },
-    signUpWithGoogle: (state) => {
-      return state;
-    },
     signUpWithGoogleSuccess: (state, action) => {
+      state.error = null;
       state.user = action.payload;
     },
     signUpWithGoogleFailure: (state, action) => {
@@ -49,15 +45,12 @@ const authSlice = createSlice({
 });
 
 export const {
-  login,
   loginSuccess,
-  logout,
   loginFailure,
-  signUpWithEmail,
   signUpWithEmailSuccess,
   signUpWithEmailFailure,
-  signUpWithGoogle,
   signUpWithGoogleSuccess,
   signUpWithGoogleFailure,
+  logout,
 } = authSlice.actions;
 export default authSlice.reducer;

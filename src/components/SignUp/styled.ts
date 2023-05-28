@@ -26,7 +26,7 @@ export const Form = styled.form`
 
 export const Input = styled.input`
   width: 100%;
-  margin-top: 25px;
+  margin-top: 5px;
   padding: 23px 20px;
   font-size: 18px;
   line-height: 24px;
@@ -37,7 +37,13 @@ export const Input = styled.input`
 `;
 
 export const ButtonWrapper = styled.div`
-  margin-top: 35px;
+  margin-top: 15px;
 `;
 
-export const RecaptchaContainer = styled.div``;
+export const Error = styled.p`
+  height: 21px;
+  padding-left: 8px;
+  font-size: 16px;
+  line-height: 21px;
+  color: red;
+`;
