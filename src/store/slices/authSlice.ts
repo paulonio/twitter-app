@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-type FirebaseError = { code: string; message: string };
+export type FirebaseError = { code: string; message: string };
 
 export interface Tweet {
   userUid: string;
@@ -12,7 +12,6 @@ export interface User {
   email: string;
   displayName: string;
   uid: string;
-  tweets: Tweet[];
 }
 
 export interface InitialState {
@@ -53,12 +52,8 @@ const authSlice = createSlice({
     logout: (state) => {
       state.user = null;
     },
-    addTweet: (state, action) => {
-      if (state.user && !state.user.tweets) {
-        state.user.tweets = [action.payload];
-      } else if (state.user) {
-        state.user.tweets.push(action.payload);
-      }
+    getCurrentUser: (state, action) => {
+      state.user = action.payload;
     },
   },
 });
@@ -71,6 +66,6 @@ export const {
   signUpWithGoogleSuccess,
   signUpWithGoogleFailure,
   logout,
-  addTweet,
+  getCurrentUser,
 } = authSlice.actions;
 export default authSlice.reducer;

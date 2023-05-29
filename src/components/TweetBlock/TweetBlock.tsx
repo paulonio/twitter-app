@@ -11,7 +11,9 @@ import {
   TweetWrapper,
 } from './styled';
 import { StoreType } from '../../store';
-import { Tweet, User, addTweet } from '../../store/slices/authSlice';
+import type { User } from '../../store/slices/authSlice';
+import { addTweetRequest } from '../../store/saga/tweetSaga';
+import { TweetType } from '../../store/slices/tweetSlice';
 
 const TweetBlock = () => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);
@@ -23,14 +25,14 @@ const TweetBlock = () => {
     setTweet(value);
   };
 
-  const handleAddTweet = () => {
+  const handleAddTweet = async () => {
     if (user) {
       const { uid } = user;
-      const userTweet: Tweet = {
+      const userTweet: TweetType = {
         userUid: uid,
         text: tweet,
       };
-      dispatch(addTweet(userTweet));
+      dispatch(addTweetRequest(userTweet));
     }
   };
 
