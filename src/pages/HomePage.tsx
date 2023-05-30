@@ -2,12 +2,13 @@ import React from 'react';
 import { Wrapper } from '../components/ProfilePage/styled';
 import Menu from '../components/Menu/Menu';
 import Sidebar from '../components/Sidebar/Sidebar';
+import Home from '../components/Home/Home';
 
 const HomePage = () => {
   return (
     <Wrapper>
       <Menu />
-      <div>Home page</div>
+      <Home />
       <Sidebar />
     </Wrapper>
   );

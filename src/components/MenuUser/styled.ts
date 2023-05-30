@@ -32,5 +32,6 @@ export const Nickname = styled.div`
   font-size: 16px;
   line-height: 21px;
   font-weight: 400;
-  opacity: 0.6;
+  color: rgba(0, 0, 0, 0.6);
+  /* opacity: 0.6; */
 `;

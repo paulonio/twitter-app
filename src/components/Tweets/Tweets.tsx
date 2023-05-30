@@ -11,7 +11,7 @@ interface TweetsProps {
 
 const Tweets: FC<TweetsProps> = ({ type }) => {
   const tweets = useSelector<StoreType, TweetType[]>((state) =>
-    type === 'profile' ? state.tweet.profileTweets : state.tweet.profileTweets
+    type === 'profile' ? state.tweet.profileTweets : state.tweet.tweets
   );
 
   return (
