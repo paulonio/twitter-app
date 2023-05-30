@@ -1,21 +1,24 @@
 import {
-  ApplicationVerifier,
-  ConfirmationResult,
-  RecaptchaVerifier,
-  signInWithPhoneNumber,
-} from 'firebase/auth';
-import { auth } from '../../firebase';
+  doc,
+  DocumentSnapshot,
+  DocumentData,
+  getDoc,
+  collection,
+  updateDoc,
+  arrayUnion,
+} from 'firebase/firestore';
+import { db } from '../../firebase';
+import { TweetType } from '../store/slices/tweetSlice';
 
-declare const window: Window &
-  typeof globalThis & {
-    recaptchaVerifier: RecaptchaVerifier;
-    confirmationResult: ConfirmationResult;
-  };
+export const getDocument = async (column: string, document: string) => {
+  const docRef = doc(db, column, document);
+  const docSnap: DocumentSnapshot<DocumentData> = await getDoc(docRef);
+  return docSnap;
+};
 
-export const signInWithPhone = async (phone: string, appVerifier: ApplicationVerifier) => {
-  await signInWithPhoneNumber(auth, phone, appVerifier)
-    .then((confirmationResult: ConfirmationResult) => {
-      window.confirmationResult = confirmationResult;
-    })
-    .catch(() => {});
+export const updateDocument = async (column: string, document: string, payload: TweetType) => {
+  const twitterRef = collection(db, column);
+  await updateDoc(doc(twitterRef, document), { tweets: arrayUnion(payload) });
+  const docSnap: DocumentSnapshot<DocumentData> = await getDocument(column, document);
+  return docSnap;
 };

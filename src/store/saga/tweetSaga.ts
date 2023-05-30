@@ -1,14 +1,6 @@
 import { FirebaseError } from 'firebase/app';
 import { call, put, takeEvery } from 'redux-saga/effects';
-import {
-  DocumentData,
-  DocumentSnapshot,
-  arrayUnion,
-  collection,
-  doc,
-  getDoc,
-  updateDoc,
-} from 'firebase/firestore';
+import { DocumentData, DocumentSnapshot } from 'firebase/firestore';
 import { createAction } from '@reduxjs/toolkit';
 import {
   TweetType,
@@ -18,8 +10,8 @@ import {
   syncTweetsFailure,
   syncTweetsSuccess,
 } from '../slices/tweetSlice';
-import { db } from '../../../firebase';
 import type { User } from '../slices/authSlice';
+import { getDocument, updateDocument } from '../../utils/utils';
 
 const TWITTER = 'twitter';
 const TWEETS = 'tweets';
@@ -29,10 +21,12 @@ export const syncTweetsRequest = createAction<User>('tweet/syncTweetsRequest');
 
 function* addTweetWorker({ payload }: ReturnType<typeof addTweetRequest>) {
   try {
-    const twitterRef = collection(db, TWITTER);
-    const docRef = doc(db, TWITTER, TWEETS);
-    yield call(() => updateDoc(doc(twitterRef, TWEETS), { tweets: arrayUnion(payload) }));
-    const docSnap: DocumentSnapshot<DocumentData> = yield call(() => getDoc(docRef));
+    const docSnap: DocumentSnapshot<DocumentData> = yield call(
+      updateDocument,
+      TWITTER,
+      TWEETS,
+      payload
+    );
     if (docSnap.exists()) {
       const result: TweetType[] = yield call(() => docSnap.data().tweets);
       const profileTweets = result.filter((tweet) => tweet.userEmail === payload.userEmail);
@@ -51,8 +45,7 @@ function* addTweetWorker({ payload }: ReturnType<typeof addTweetRequest>) {
 
 function* syncTweetsWorker({ payload }: ReturnType<typeof syncTweetsRequest>) {
   try {
-    const docRef = doc(db, TWITTER, TWEETS);
-    const docSnap: DocumentSnapshot<DocumentData> = yield call(() => getDoc(docRef));
+    const docSnap: DocumentSnapshot<DocumentData> = yield call(getDocument, TWITTER, TWEETS);
     if (docSnap.exists()) {
       const result: TweetType[] = yield call(() => docSnap.data().tweets);
       const profileTweets = result.filter((tweet) => tweet.userEmail === payload.email);
