@@ -2,15 +2,23 @@ import { createSlice } from '@reduxjs/toolkit';
 import { FirebaseError } from './authSlice';
 
 export interface TweetType {
-  text: string;
+  tweet: string;
+  urlToImage?: string;
+  userEmail: string;
+  displayName: string;
+  urlToAvatar?: string;
   userUid: string;
-  UrlToImage?: string;
 }
 
-export type InitialState = { tweets: TweetType[]; error: FirebaseError | null };
+export type InitialState = {
+  tweets: TweetType[];
+  profileTweets: TweetType[];
+  error: FirebaseError | null;
+};
 
 const initialState: InitialState = {
   tweets: [],
+  profileTweets: [],
   error: null,
 };
 
@@ -30,10 +38,18 @@ const tweetSlice = createSlice({
     syncTweetsFailure: (state, action) => {
       state.error = action.payload;
     },
+    setProfileTweets: (state, action) => {
+      state.profileTweets = action.payload;
+    },
   },
 });
 
-export const { addTweetSuccess, addTweetFailure, syncTweetsSuccess, syncTweetsFailure } =
-  tweetSlice.actions;
+export const {
+  addTweetSuccess,
+  addTweetFailure,
+  syncTweetsSuccess,
+  syncTweetsFailure,
+  setProfileTweets,
+} = tweetSlice.actions;
 
 export default tweetSlice.reducer;

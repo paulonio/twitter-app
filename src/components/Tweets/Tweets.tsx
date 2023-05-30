@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { TweetsHeader, TweetsWrapper } from './styled';
 import Tweet from '../Tweet/Tweet';
 import { StoreType } from '../../store';
 import { TweetType } from '../../store/slices/tweetSlice';
 
-const Tweets = () => {
-  const tweets = useSelector<StoreType, TweetType[]>((state) => state.tweet.tweets);
+interface TweetsProps {
+  type: 'profile' | 'feed';
+}
+
+const Tweets: FC<TweetsProps> = ({ type }) => {
+  const tweets = useSelector<StoreType, TweetType[]>((state) =>
+    type === 'profile' ? state.tweet.profileTweets : state.tweet.profileTweets
+  );
 
   return (
     <TweetsWrapper>
       <TweetsHeader>Tweets</TweetsHeader>
-      {tweets && tweets.map(({ text }, id) => <Tweet key={id} text={text} />)}
+      {tweets &&
+        tweets.map(({ tweet, displayName, userEmail }, id) => (
+          <Tweet key={id} tweet={tweet} displayName={displayName} userEmail={userEmail} />
+        ))}
     </TweetsWrapper>
   );
 };

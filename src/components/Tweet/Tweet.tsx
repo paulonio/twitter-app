@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Avatar from '../Avatar/Avatar';
 import TweetHeader from '../TweetHeader/TweetHeader';
+import type { TweetType } from '../../store/slices/tweetSlice';
 import {
   LikeAmount,
   LikeIcon,
@@ -11,19 +12,17 @@ import {
   TweetWrapper,
 } from './styled';
 
-interface TweetProps {
-  text: string;
-}
+type TweetProps = Omit<TweetType, 'userUid'>;
 
-const Tweet: FC<TweetProps> = ({ text }) => {
+const Tweet: FC<TweetProps> = ({ tweet, userEmail, displayName }) => {
   return (
     <TweetWrapper>
       <TweetAvatar>
         <Avatar />
       </TweetAvatar>
       <TweetContent>
-        <TweetHeader />
-        <TweetText>{text}</TweetText>
+        <TweetHeader userEmail={userEmail} displayName={displayName} />
+        <TweetText>{tweet}</TweetText>
         <TweetLike>
           <LikeIcon />
           <LikeAmount>8</LikeAmount>

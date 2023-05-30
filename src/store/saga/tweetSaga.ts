@@ -14,16 +14,18 @@ import {
   TweetType,
   addTweetFailure,
   addTweetSuccess,
+  setProfileTweets,
   syncTweetsFailure,
   syncTweetsSuccess,
 } from '../slices/tweetSlice';
 import { db } from '../../../firebase';
+import type { User } from '../slices/authSlice';
 
 const TWITTER = 'twitter';
 const TWEETS = 'tweets';
 
 export const addTweetRequest = createAction<TweetType>('tweet/addTweetRequest');
-export const syncTweetsRequest = createAction('tweet/syncTweetsRequest');
+export const syncTweetsRequest = createAction<User>('tweet/syncTweetsRequest');
 
 function* addTweetWorker({ payload }: ReturnType<typeof addTweetRequest>) {
   try {
@@ -33,6 +35,8 @@ function* addTweetWorker({ payload }: ReturnType<typeof addTweetRequest>) {
     const docSnap: DocumentSnapshot<DocumentData> = yield call(() => getDoc(docRef));
     if (docSnap.exists()) {
       const result: TweetType[] = yield call(() => docSnap.data().tweets);
+      const profileTweets = result.filter((tweet) => tweet.userEmail === payload.userEmail);
+      yield put(setProfileTweets(profileTweets));
       yield put(addTweetSuccess(result));
     } else {
       yield put(addTweetSuccess([]));
@@ -45,12 +49,14 @@ function* addTweetWorker({ payload }: ReturnType<typeof addTweetRequest>) {
   }
 }
 
-function* syncTweetsWorker() {
+function* syncTweetsWorker({ payload }: ReturnType<typeof syncTweetsRequest>) {
   try {
     const docRef = doc(db, TWITTER, TWEETS);
     const docSnap: DocumentSnapshot<DocumentData> = yield call(() => getDoc(docRef));
     if (docSnap.exists()) {
       const result: TweetType[] = yield call(() => docSnap.data().tweets);
+      const profileTweets = result.filter((tweet) => tweet.userEmail === payload.email);
+      yield put(setProfileTweets(profileTweets));
       yield put(syncTweetsSuccess(result));
     }
   } catch (error) {

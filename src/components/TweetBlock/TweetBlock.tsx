@@ -27,10 +27,12 @@ const TweetBlock = () => {
 
   const handleAddTweet = async () => {
     if (user) {
-      const { uid } = user;
+      const { uid, displayName, email } = user;
       const userTweet: TweetType = {
+        tweet,
+        userEmail: email,
+        displayName,
         userUid: uid,
-        text: tweet,
       };
       dispatch(addTweetRequest(userTweet));
     }

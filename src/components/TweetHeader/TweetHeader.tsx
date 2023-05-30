@@ -1,18 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import type { User } from '../../store/slices/authSlice';
+import React, { FC } from 'react';
 import { TweetHeaderWrapper, TweetTitle, EditButton, EditIcon } from './styled';
 import { Nickname, Username } from '../MenuUser/styled';
-import { StoreType } from '../../store';
+import { TweetType } from '../../store/slices/tweetSlice';
 
-const TweetHeader = () => {
-  const user = useSelector<StoreType, User | null>((state) => state.auth.user);
+type TweetHeaderProps = Pick<TweetType, 'displayName' | 'userEmail'>;
 
+const TweetHeader: FC<TweetHeaderProps> = ({ displayName, userEmail }) => {
   return (
     <TweetHeaderWrapper>
       <TweetTitle>
-        <Username>{user?.displayName || 'Bobur'}</Username>
-        <Nickname>@{user?.email?.split('@')[0] || '@bobur'} · Apr 1</Nickname>
+        <Username>{displayName}</Username>
+        <Nickname>@{userEmail.split('@')[0]} · Apr 1</Nickname>
       </TweetTitle>
       <EditButton>
         <EditIcon />
