@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 export const Wrapper = styled.div`
   width: 100%;
   max-width: 373px;
+  position: relative;
 `;
 
 export const Label = styled.label`
@@ -34,4 +35,18 @@ export const SearchField = styled.input.attrs({ placeholder: 'Search Twitter' })
   font-weight: 400;
   border: none;
   border-radius: 50px;
+`;
+
+export const SearchResults = styled.div`
+  width: 100%;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  padding: 10px;
+  background-color: #eff3f4;
+  border-radius: 8px;
+`;
+
+export const SearchResult = styled.p`
+  color: #5c6c79;
 `;
