@@ -14,7 +14,7 @@ const SidebarInput = () => {
   };
 
   const filterTweets = useMemo(
-    () => tweets.filter((data) => data.tweet.includes(filterValue)).slice(0, 3),
+    () => tweets.filter(({ tweet }) => tweet.includes(filterValue)).slice(0, 3),
     [filterValue]
   );
 
@@ -25,8 +25,8 @@ const SidebarInput = () => {
         <SearchField value={filterValue} onChange={handleChangeFilterValue} />
         {filterValue && filterTweets.length > 0 && (
           <SearchResults>
-            {filterTweets.map((data) => (
-              <SearchResult>{data.tweet}</SearchResult>
+            {filterTweets.map(({ tweet }, id) => (
+              <SearchResult key={id}>{tweet}</SearchResult>
             ))}
           </SearchResults>
         )}

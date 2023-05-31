@@ -12,6 +12,7 @@ export interface User {
   email: string;
   displayName: string;
   uid: string;
+  bio: string;
 }
 
 export interface InitialState {
@@ -55,6 +56,9 @@ const authSlice = createSlice({
     getCurrentUser: (state, action) => {
       state.user = action.payload;
     },
+    updateUserBio: (state, action) => {
+      state.user!.bio = action.payload;
+    },
   },
 });
 
@@ -67,5 +71,6 @@ export const {
   signUpWithGoogleFailure,
   logout,
   getCurrentUser,
+  updateUserBio,
 } = authSlice.actions;
 export default authSlice.reducer;
