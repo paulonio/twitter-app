@@ -24,7 +24,7 @@ export const Nickname = styled.div`
   color: rgba(0, 0, 0, 0.6);
 `;
 
-export const UserBio = styled.div`
+export const UserBio = styled.p`
   margin-top: 15px;
   font-size: 18px;
   line-height: 24px;

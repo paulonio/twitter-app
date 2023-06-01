@@ -20,8 +20,8 @@ const Modal: FC<ModalProps> = ({ children, isActive, setActive }) => {
   return (
     <>
       {createPortal(
-        <Overlay isActive={isActive} onClick={handleCloseModal}>
-          <ModalWindow isActive={isActive} onClick={handleModalClick}>
+        <Overlay $isActive={isActive} onClick={handleCloseModal}>
+          <ModalWindow $isActive={isActive} onClick={handleModalClick}>
             {children}
           </ModalWindow>
         </Overlay>,

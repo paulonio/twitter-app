@@ -12,6 +12,8 @@ export interface User {
   email: string;
   displayName: string;
   uid: string;
+  gender?: 'male' | 'female';
+  telegram?: string;
 }
 
 export interface InitialState {
@@ -51,6 +53,7 @@ const authSlice = createSlice({
     },
     logout: (state) => {
       state.user = null;
+      state.error = null;
     },
     getCurrentUser: (state, action) => {
       state.user = action.payload;

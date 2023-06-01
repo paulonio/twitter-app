@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 
 interface ModalProps {
-  isActive: boolean;
+  $isActive: boolean;
 }
 
 export const Overlay = styled.div<ModalProps>`
@@ -16,8 +16,8 @@ export const Overlay = styled.div<ModalProps>`
   justify-content: center;
   overflow-y: hidden;
   z-index: 100;
-  opacity: ${({ isActive }) => (isActive ? '1' : '0')};
-  pointer-events: ${({ isActive }) => (isActive ? 'all' : 'none')};
+  opacity: ${({ $isActive }) => ($isActive ? '1' : '0')};
+  pointer-events: ${({ $isActive }) => ($isActive ? 'all' : 'none')};
   transition: opacity 0.5s;
 `;
 
@@ -26,6 +26,6 @@ export const ModalWindow = styled.div<ModalProps>`
   background-color: rgba(255, 255, 255, 1);
   padding: 12px;
   border-radius: 8px;
-  transform: ${({ isActive }) => (isActive ? 'scale(1)' : 'scale(0.3)')};
+  transform: ${({ $isActive }) => ($isActive ? 'scale(1)' : 'scale(0.3)')};
   transition: transform 0.5s;
 `;

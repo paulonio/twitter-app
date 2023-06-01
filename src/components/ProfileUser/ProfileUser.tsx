@@ -12,9 +12,10 @@ const ProfileUser = () => {
   return (
     <UserWrapper>
       <ProfileUserHeader />
-      <Username>{user?.displayName || 'Bobur'}</Username>
-      <Nickname>@{user?.email?.split('@')[0] || '@bobur'}</Nickname>
-      <UserBio>UX&UI designer at @abutechuz</UserBio>
+      <Username>{user?.displayName}</Username>
+      <Nickname>@{user?.email?.split('@')[0]}</Nickname>
+      {user?.gender && <UserBio>Gender: {user.gender}</UserBio>}
+      {user?.telegram && <UserBio>Telegram: {user?.telegram}</UserBio>}
       <Followers />
     </UserWrapper>
   );

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { HeaderTweets, HeaderUsername, ProfileImage, ProfileWrapper } from './styled';
 import Header from '../Header/Header';
 import ProfileUser from '../ProfileUser/ProfileUser';
@@ -18,6 +19,10 @@ const Profile = () => {
       dispatch(syncTweetsRequest(user));
     }
   }, []);
+
+  if (!user) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <ProfileWrapper>

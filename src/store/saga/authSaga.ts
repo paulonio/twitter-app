@@ -1,13 +1,18 @@
 import { createAction } from '@reduxjs/toolkit';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import {
+  EmailAuthCredential,
+  EmailAuthProvider,
   UserCredential,
   createUserWithEmailAndPassword,
+  reauthenticateWithCredential,
   signInWithEmailAndPassword,
   signOut,
+  updatePassword,
   updateProfile,
 } from 'firebase/auth';
 import { FirebaseError } from 'firebase/app';
+import { DocumentData, DocumentSnapshot } from 'firebase/firestore';
 import { auth, signInWithGoogle } from '../../../firebase';
 import {
   loginFailure,
@@ -16,29 +21,35 @@ import {
   signUpWithEmailSuccess,
   signUpWithGoogleSuccess,
   signUpWithGoogleFailure,
+  User,
+  logout,
 } from '../slices/authSlice';
 import type { LoginForm } from '../../components/Login/Login';
 import type { SignUpForm } from '../../components/SignUp/SignUp';
+import type { EditUserForm } from '../../components/EditUser/EditUser';
+import { getDocument, updateUsers } from '../../utils/utils';
+import type { ChangePasswordForm } from '../../components/ChangePassword/ChangePassword';
 
 export const loginRequest = createAction<LoginForm>('auth/loginRequest');
 export const signUpWithEmailRequest = createAction<SignUpForm>('auth/signUpWithEmailRequest');
 export const signUpWithGoogleRequest = createAction('auth/signUpWithGoogleRequest');
+export const setCurrentUserRequest = createAction('auth/setCurrentUserRequest');
+export const updateUserRequest = createAction<EditUserForm>('auth/updateUserRequest');
+export const changePasswordRequest = createAction<ChangePasswordForm>('auth/updatePasswordRequest');
 
 function* loginWorker({ payload }: ReturnType<typeof loginRequest>) {
+  const { email, password } = payload;
   try {
-    const userAuth: UserCredential = yield call(
-      signInWithEmailAndPassword,
-      auth,
-      payload.email,
-      payload.password
-    );
-    yield put(
-      loginSuccess({
-        email: userAuth.user.email,
-        displayName: userAuth.user.displayName,
-        uid: userAuth.user.uid,
-      })
-    );
+    const { user }: UserCredential = yield call(signInWithEmailAndPassword, auth, email, password);
+    const userData: User = {
+      email: user.email!,
+      displayName: user.displayName!,
+      uid: user.uid,
+      gender: 'male',
+      telegram: '',
+    };
+    yield call(updateUsers, 'twitter', 'users', userData);
+    yield put(loginSuccess(userData));
   } catch (error) {
     if (error instanceof FirebaseError) {
       const { code, message } = error;
@@ -50,19 +61,27 @@ function* loginWorker({ payload }: ReturnType<typeof loginRequest>) {
 function* signUpWithEmailWorker({ payload }: ReturnType<typeof signUpWithEmailRequest>) {
   const { email, password, name } = payload;
   try {
-    const userAuth: UserCredential = yield call(
+    const { user }: UserCredential = yield call(
       createUserWithEmailAndPassword,
       auth,
       email,
       password
     );
-    yield call(updateProfile, userAuth.user, { displayName: name });
+    const userData: User = {
+      email: user.email!,
+      displayName: user.displayName!,
+      uid: user.uid,
+      gender: 'male',
+      telegram: '',
+    };
+    yield call(updateProfile, user, { displayName: name });
+    yield call(updateUsers, 'twitter', 'users', userData);
     yield call(signOut, auth);
     yield put(
       signUpWithEmailSuccess({
-        email: userAuth.user.email,
-        displayName: userAuth.user.displayName,
-        uid: userAuth.user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        uid: user.uid,
       })
     );
   } catch (error) {
@@ -75,12 +94,20 @@ function* signUpWithEmailWorker({ payload }: ReturnType<typeof signUpWithEmailRe
 
 function* signUpWithGoogleWorker() {
   try {
-    const userAuth: UserCredential = yield call(signInWithGoogle);
+    const { user }: UserCredential = yield call(signInWithGoogle);
+    const userData: User = {
+      email: user.email!,
+      displayName: user.displayName!,
+      uid: user.uid,
+      gender: 'male',
+      telegram: '',
+    };
+    yield call(updateUsers, 'twitter', 'users', userData);
     yield put(
       signUpWithGoogleSuccess({
-        email: userAuth.user.email,
-        displayName: userAuth.user.displayName,
-        uid: userAuth.user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        uid: user.uid,
       })
     );
   } catch (error) {
@@ -91,8 +118,79 @@ function* signUpWithGoogleWorker() {
   }
 }
 
+function* setCurrentUserWorker() {
+  const userAuth = auth.currentUser;
+  const docSnap: DocumentSnapshot<DocumentData> = yield call(getDocument, 'twitter', 'users');
+  const users: User[] = docSnap.exists() && docSnap.data().users;
+  const [currentUser] = users.filter((user) => user.uid === userAuth?.uid);
+  try {
+    if (currentUser) {
+      yield put(loginSuccess(currentUser));
+    }
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      const { code, message } = error;
+      yield put(loginFailure({ code, message }));
+    }
+  }
+}
+
+function* updateUserInfoWorker({ payload }: ReturnType<typeof updateUserRequest>) {
+  const { name, lastName, gender, telegram } = payload;
+  const userAuth = auth.currentUser;
+  const docSnap: DocumentSnapshot<DocumentData> = yield call(getDocument, 'twitter', 'users');
+  const users: User[] = docSnap.exists() && docSnap.data().users;
+  const [currentUser] = users.filter((user) => user.uid === userAuth?.uid);
+  const restUsers = users.filter((user) => user.uid !== userAuth?.uid);
+  try {
+    if (currentUser && userAuth) {
+      const userData: User = {
+        email: currentUser.email,
+        displayName: `${name} ${lastName}`,
+        uid: currentUser.uid,
+        gender,
+        telegram,
+      };
+      yield call(updateProfile, userAuth, { displayName: `${name} ${lastName}` });
+      yield call(updateUsers, 'twitter', 'users', [...restUsers, userData]);
+      yield put(loginSuccess(userData));
+    }
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      const { code, message } = error;
+      yield put(loginFailure({ code, message }));
+    }
+  }
+}
+
+function* updatePasswordRequest({ payload }: ReturnType<typeof changePasswordRequest>) {
+  const user = auth.currentUser;
+  const { oldPassword, newPassword } = payload;
+  try {
+    if (user && user.email) {
+      const creds: EmailAuthCredential = yield call(
+        EmailAuthProvider.credential,
+        user?.email,
+        oldPassword
+      );
+      yield call(reauthenticateWithCredential, user, creds);
+      yield call(updatePassword, user, newPassword);
+      yield put(logout());
+      yield call(auth.signOut);
+    }
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      const { code, message } = error;
+      yield put(loginFailure({ code, message }));
+    }
+  }
+}
+
 export function* authWatcher() {
   yield takeEvery(loginRequest, loginWorker);
   yield takeEvery(signUpWithEmailRequest, signUpWithEmailWorker);
   yield takeEvery(signUpWithGoogleRequest, signUpWithGoogleWorker);
+  yield takeEvery(setCurrentUserRequest, setCurrentUserWorker);
+  yield takeEvery(updateUserRequest, updateUserInfoWorker);
+  yield takeEvery(changePasswordRequest, updatePasswordRequest);
 }
