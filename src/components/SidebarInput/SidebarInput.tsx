@@ -1,30 +1,22 @@
-import React, { ChangeEvent, useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { ChangeEvent, FC } from 'react';
 import { Label, SearchField, SearchIcon, Wrapper } from './styled';
-import { StoreType } from '../../store';
-import { TweetType } from '../../store/slices/tweetSlice';
+import type { TweetType } from '../../store/slices/tweetSlice';
+import type { User } from '../../store/slices/authSlice';
 import SidebarResults from '../SidebarResults/SidebarResults';
 
-const SidebarInput = () => {
-  const tweets = useSelector<StoreType, TweetType[]>((state) => state.tweet.tweets);
-  const [filterValue, setFilterValue] = useState<string>('');
+interface SidebarInputProps {
+  value: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  data: TweetType[] | User[];
+}
 
-  const handleChangeFilterValue = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setFilterValue(value);
-  };
-
-  const filterTweets = useMemo(
-    () => tweets.filter(({ tweet }) => tweet.includes(filterValue)).slice(0, 3),
-    [filterValue]
-  );
-
+const SidebarInput: FC<SidebarInputProps> = ({ value, onChange, data }) => {
   return (
     <Wrapper>
       <Label>
         <SearchIcon />
-        <SearchField value={filterValue} onChange={handleChangeFilterValue} />
-        {filterValue && filterTweets.length > 0 && <SidebarResults data={filterTweets} />}
+        <SearchField value={value} onChange={onChange} />
+        {data && value && <SidebarResults data={data} />}
       </Label>
     </Wrapper>
   );

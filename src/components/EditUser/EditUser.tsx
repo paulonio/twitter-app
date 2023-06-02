@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Modal from '../Modal/Modal';
 import { Input } from '../SignUp/styled';
-import Button from '../Button/Button';
 import { ButtonWrapper, EditForm, RadioLabel, ControlsWrapper } from './styled';
 import ChangePassword from '../ChangePassword/ChangePassword';
 import { updateUserRequest } from '../../store/saga/authSaga';
 import { User, logout } from '../../store/slices/authSlice';
 import { StoreType } from '../../store';
+import { StyledButton } from '../Button/styled';
 
 interface EditUserProps {
   isActive: boolean;
@@ -54,7 +54,7 @@ const EditUser: FC<EditUserProps> = ({ isActive, setActive }) => {
             Female
           </RadioLabel>
           <ButtonWrapper>
-            <Button buttonType="primary">Submit</Button>
+            <StyledButton $buttonType="primary">Submit</StyledButton>
           </ButtonWrapper>
         </ControlsWrapper>
       </EditForm>

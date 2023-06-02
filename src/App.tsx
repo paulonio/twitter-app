@@ -8,7 +8,7 @@ import { User, logout } from './store/slices/authSlice';
 import { syncTweetsRequest } from './store/saga/tweetSaga';
 import { auth } from '../firebase';
 import { StoreType } from './store';
-import { setCurrentUserRequest } from './store/saga/authSaga';
+import { setCurrentUserRequest, syncUsers } from './store/saga/authSaga';
 
 const App = () => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);
@@ -28,6 +28,7 @@ const App = () => {
     onAuthStateChanged(auth, (userAuth) => {
       if (userAuth) {
         dispatch(setCurrentUserRequest());
+        dispatch(syncUsers());
       } else {
         dispatch(logout());
       }

@@ -1,21 +1,21 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { FC } from 'react';
 import { AvatarWrapper, Nickname, UserInfo, Username, Wrapper } from './styled';
 import Avatar from '../Avatar/Avatar';
-import { StoreType } from '../../store';
 import { User } from '../../store/slices/authSlice';
 
-const MenuUser = () => {
-  const user = useSelector<StoreType, User | null>((state) => state.auth.user);
+interface MenuUserProps {
+  user: User;
+}
 
+const MenuUser: FC<MenuUserProps> = ({ user }) => {
   return (
     <Wrapper>
       <AvatarWrapper>
         <Avatar />
       </AvatarWrapper>
       <UserInfo>
-        <Username>{user?.displayName || 'Bobur'}</Username>
-        <Nickname>@{user?.email?.split('@')[0] || '@bobur_user'}</Nickname>
+        <Username>{user.displayName}</Username>
+        <Nickname>@{user.email.split('@')[0]}</Nickname>
       </UserInfo>
     </Wrapper>
   );

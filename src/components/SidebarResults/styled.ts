@@ -8,6 +8,9 @@ export const SearchResults = styled.div`
   padding: 10px;
   background-color: #eff3f4;
   border-radius: 8px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 export const SearchResult = styled.p`

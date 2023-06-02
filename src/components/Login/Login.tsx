@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { Form } from './styled';
+import { Form, LoginWrapper } from './styled';
 import { WelcomeSubtitle } from '../Welcome/styled';
 import { Error, Input } from '../SignUp/styled';
 import Button from '../Button/Button';
@@ -44,17 +44,17 @@ const Login = () => {
   };
 
   return (
-    <>
+    <LoginWrapper>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <WelcomeSubtitle>Log in to Twitter</WelcomeSubtitle>
         <Input type="text" placeholder="Email" {...register('email')} />
         <Error>{errors.email?.message}</Error>
         <Input type="password" placeholder="Password" {...register('password')} />
         <Error>{errors.password?.message}</Error>
-        <Button buttonType="primary">Log In</Button>
+        <Button $buttonType="primary">Log In</Button>
       </Form>
       <SecondaryButton onClick={handleNavigateToWelcomePage}>Sign up to Twitter</SecondaryButton>
-    </>
+    </LoginWrapper>
   );
 };
 

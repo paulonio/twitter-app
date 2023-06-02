@@ -9,7 +9,7 @@ const ProfilePage = () => {
     <Wrapper>
       <Menu />
       <Profile />
-      <Sidebar />
+      <Sidebar type="profile" />
     </Wrapper>
   );
 };

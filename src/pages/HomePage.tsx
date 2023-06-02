@@ -9,7 +9,7 @@ const HomePage = () => {
     <Wrapper>
       <Menu />
       <Home />
-      <Sidebar />
+      <Sidebar type="feed" />
     </Wrapper>
   );
 };

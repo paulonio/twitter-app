@@ -50,3 +50,11 @@ export const isTweetArray = (value: unknown): value is TweetType[] => {
 
   return value.some((item) => !!item.tweet);
 };
+
+export const filterTweets = (tweets: TweetType[], filterValue: string) => {
+  return tweets.filter(({ tweet }) => tweet.includes(filterValue));
+};
+
+export const filterUsers = (users: User[], filterValue: string) => {
+  return users.filter(({ displayName }) => displayName.includes(filterValue));
+};

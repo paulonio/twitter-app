@@ -58,7 +58,7 @@ const SignUp = () => {
         <Input type="password" placeholder="Password" {...register('password')} />
         <Error>{errors.password?.message}</Error>
         <ButtonWrapper>
-          <Button buttonType="primary">Sign up</Button>
+          <Button $buttonType="primary">Sign up</Button>
         </ButtonWrapper>
       </Form>
     </SignUpWrapper>
