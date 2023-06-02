@@ -13,8 +13,8 @@ import {
 import type { User } from '../slices/authSlice';
 import { getDocument, updateDocument } from '../../utils/utils';
 
-const TWITTER = 'twitter';
-const TWEETS = 'tweets';
+export const TWITTER = 'twitter';
+export const TWEETS = 'tweets';
 
 export const addTweetRequest = createAction<TweetType>('tweet/addTweetRequest');
 export const syncTweetsRequest = createAction<User>('tweet/syncTweetsRequest');

@@ -34,3 +34,19 @@ export const updateUsers = async (column: string, document: string, payload: Use
   const docSnap: DocumentSnapshot<DocumentData> = await getDocument(column, document);
   return docSnap;
 };
+
+export const isUserArray = (value: unknown): value is User[] => {
+  if (!Array.isArray(value)) {
+    return false;
+  }
+
+  return value.some((item) => !!item.uid);
+};
+
+export const isTweetArray = (value: unknown): value is TweetType[] => {
+  if (!Array.isArray(value)) {
+    return false;
+  }
+
+  return value.some((item) => !!item.tweet);
+};

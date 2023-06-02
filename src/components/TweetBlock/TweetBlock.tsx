@@ -14,6 +14,7 @@ import { StoreType } from '../../store';
 import type { User } from '../../store/slices/authSlice';
 import { addTweetRequest } from '../../store/saga/tweetSaga';
 import { TweetType } from '../../store/slices/tweetSlice';
+import { StyledButton } from '../Button/styled';
 
 const TweetBlock = () => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);
@@ -48,9 +49,9 @@ const TweetBlock = () => {
         <TweetFooter>
           <ImageIcon />
           <ButtonWrapper>
-            <button type="button" onClick={handleAddTweet}>
+            <StyledButton $buttonType="primary" onClick={handleAddTweet}>
               Tweet
-            </button>
+            </StyledButton>
           </ButtonWrapper>
         </TweetFooter>
       </TweetContent>

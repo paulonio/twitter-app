@@ -17,6 +17,10 @@ export const Navigation = styled.div`
   margin-bottom: 76px;
 `;
 
+export const ButtonWrapper = styled.div`
+  margin-bottom: 76px;
+`;
+
 export const Logo = styled.img.attrs({
   src: '/assets/icons/twitter-logo.svg',
   alt: 'Twitter logo',

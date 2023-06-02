@@ -18,11 +18,13 @@ export interface User {
 
 export interface InitialState {
   user: User | null;
+  allUsers: User[];
   error: FirebaseError | null;
 }
 
 const initialState: InitialState = {
   user: null,
+  allUsers: [],
   error: null,
 };
 
@@ -58,6 +60,9 @@ const authSlice = createSlice({
     getCurrentUser: (state, action) => {
       state.user = action.payload;
     },
+    setAllUsers: (state, action) => {
+      state.allUsers = action.payload;
+    },
   },
 });
 
@@ -70,5 +75,6 @@ export const {
   signUpWithGoogleFailure,
   logout,
   getCurrentUser,
+  setAllUsers,
 } = authSlice.actions;
 export default authSlice.reducer;

@@ -23,12 +23,14 @@ import {
   signUpWithGoogleFailure,
   User,
   logout,
+  setAllUsers,
 } from '../slices/authSlice';
 import type { LoginForm } from '../../components/Login/Login';
 import type { SignUpForm } from '../../components/SignUp/SignUp';
 import type { EditUserForm } from '../../components/EditUser/EditUser';
 import { getDocument, updateUsers } from '../../utils/utils';
 import type { ChangePasswordForm } from '../../components/ChangePassword/ChangePassword';
+import { TWITTER } from './tweetSaga';
 
 export const loginRequest = createAction<LoginForm>('auth/loginRequest');
 export const signUpWithEmailRequest = createAction<SignUpForm>('auth/signUpWithEmailRequest');
@@ -36,6 +38,7 @@ export const signUpWithGoogleRequest = createAction('auth/signUpWithGoogleReques
 export const setCurrentUserRequest = createAction('auth/setCurrentUserRequest');
 export const updateUserRequest = createAction<EditUserForm>('auth/updateUserRequest');
 export const changePasswordRequest = createAction<ChangePasswordForm>('auth/updatePasswordRequest');
+export const syncUsers = createAction('auth/syncUsers');
 
 function* loginWorker({ payload }: ReturnType<typeof loginRequest>) {
   const { email, password } = payload;
@@ -186,6 +189,21 @@ function* updatePasswordRequest({ payload }: ReturnType<typeof changePasswordReq
   }
 }
 
+function* getAllUsers() {
+  try {
+    const docSnap: DocumentSnapshot<DocumentData> = yield call(getDocument, TWITTER, 'users');
+    if (docSnap.exists()) {
+      const users: User[] = yield call(() => docSnap.data().users);
+      yield put(setAllUsers(users));
+    }
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      const { code, message } = error;
+      yield put(loginFailure({ code, message }));
+    }
+  }
+}
+
 export function* authWatcher() {
   yield takeEvery(loginRequest, loginWorker);
   yield takeEvery(signUpWithEmailRequest, signUpWithEmailWorker);
@@ -193,4 +211,5 @@ export function* authWatcher() {
   yield takeEvery(setCurrentUserRequest, setCurrentUserWorker);
   yield takeEvery(updateUserRequest, updateUserInfoWorker);
   yield takeEvery(changePasswordRequest, updatePasswordRequest);
+  yield takeEvery(syncUsers, getAllUsers);
 }

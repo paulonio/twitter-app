@@ -5,11 +5,11 @@ export type ButtonType = 'primary' | 'secondary';
 
 type ButtonProps = {
   children?: string;
-  buttonType: ButtonType;
+  $buttonType: ButtonType;
 } & HTMLAttributes<HTMLButtonElement>;
 
-const Button: FC<ButtonProps> = ({ children, buttonType }) => {
-  return <StyledButton $buttonType={buttonType}>{children}</StyledButton>;
+const Button: FC<ButtonProps> = ({ $buttonType, children }) => {
+  return <StyledButton $buttonType={$buttonType}>{children}</StyledButton>;
 };
 
 export default Button;
