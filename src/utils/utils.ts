@@ -6,6 +6,7 @@ import {
   collection,
   updateDoc,
   arrayUnion,
+  setDoc,
 } from 'firebase/firestore';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { FirebaseError } from 'firebase/app';
@@ -21,9 +22,17 @@ export const getDocument = async (column: string, document: string) => {
 
 export const updateDocument = async (column: string, document: string, payload: TweetType) => {
   const twitterRef = collection(db, column);
-  await updateDoc(doc(twitterRef, document), { tweets: arrayUnion(payload) });
-  const docSnap: DocumentSnapshot<DocumentData> = await getDocument(column, document);
-  return docSnap;
+  const snap = await getDocument(column, document);
+
+  if (snap.exists()) {
+    const res: TweetType[] = snap.data().tweets;
+    const data = [payload, ...res];
+    await setDoc(doc(twitterRef, document), { tweets: data });
+    return data;
+  }
+
+  await setDoc(doc(twitterRef, document), { tweets: [payload] });
+  return [payload];
 };
 
 export const updateUsers = async (column: string, document: string, payload: User | User[]) => {

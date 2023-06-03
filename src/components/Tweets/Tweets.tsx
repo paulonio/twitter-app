@@ -18,9 +18,9 @@ const Tweets: FC<TweetsProps> = ({ type }) => {
     <TweetsWrapper>
       <TweetsHeader>Tweets</TweetsHeader>
       {tweets &&
-        tweets.map(({ tweet, displayName, userEmail, urlToImage }) => (
+        tweets.map(({ tweet, displayName, userEmail, urlToImage }, id) => (
           <Tweet
-            key={urlToImage}
+            key={id}
             tweet={tweet}
             displayName={displayName}
             userEmail={userEmail}

@@ -38,6 +38,7 @@ const TweetBlock = () => {
         userUid: uid,
         image,
       };
+      setTweet('');
       dispatch(addTweetRequest(userTweet));
     }
   };

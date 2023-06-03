@@ -27,21 +27,13 @@ function* addTweetWorker({ payload }: ReturnType<typeof addTweetRequest>) {
   try {
     const urlToImage: string | undefined = yield call(uploadImage, payload.image);
     delete payload.image;
+
     const data: TweetType = { ...payload, urlToImage };
-    const docSnap: DocumentSnapshot<DocumentData> = yield call(
-      updateDocument,
-      TWITTER,
-      TWEETS,
-      data
-    );
-    if (docSnap.exists()) {
-      const result: TweetType[] = yield call(() => docSnap.data().tweets);
-      const profileTweets = result.filter((tweet) => tweet.userEmail === payload.userEmail);
-      yield put(setProfileTweets(profileTweets));
-      yield put(addTweetSuccess(result));
-    } else {
-      yield put(addTweetSuccess([]));
-    }
+    const result: TweetType[] = yield call(updateDocument, TWITTER, TWEETS, data);
+    const profileTweets = result.filter((tweet) => tweet.userEmail === data.userEmail);
+
+    yield put(setProfileTweets(profileTweets));
+    yield put(addTweetSuccess(result));
   } catch (error) {
     if (error instanceof FirebaseError) {
       const { code, message } = error;
