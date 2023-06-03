@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, MouseEvent } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { TweetType } from '../../store/slices/tweetSlice';
 import { User } from '../../store/slices/authSlice';
 import { SearchResult, SearchResults } from './styled';
@@ -10,6 +11,13 @@ interface ResultsProps {
 }
 
 const SidebarResults: FC<ResultsProps> = ({ data }) => {
+  const navigate = useNavigate();
+
+  const handleNavigateToTweetPage = (e: MouseEvent<HTMLDivElement>) => {
+    const id = e.currentTarget.getAttribute('data-id');
+    navigate(`/feed/${id}`);
+  };
+
   if (isUserArray(data)) {
     return (
       <SearchResults>
@@ -20,8 +28,10 @@ const SidebarResults: FC<ResultsProps> = ({ data }) => {
 
   return (
     <SearchResults>
-      {data.map(({ tweet }, id) => (
-        <SearchResult key={id}>{tweet}</SearchResult>
+      {data.map(({ tweet, id }) => (
+        <SearchResult key={id} onClick={handleNavigateToTweetPage} data-id={id}>
+          {tweet}
+        </SearchResult>
       ))}
     </SearchResults>
   );

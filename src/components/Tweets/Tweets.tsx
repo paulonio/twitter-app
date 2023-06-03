@@ -17,16 +17,7 @@ const Tweets: FC<TweetsProps> = ({ type }) => {
   return (
     <TweetsWrapper>
       <TweetsHeader>Tweets</TweetsHeader>
-      {tweets &&
-        tweets.map(({ tweet, displayName, userEmail, urlToImage }, id) => (
-          <Tweet
-            key={id}
-            tweet={tweet}
-            displayName={displayName}
-            userEmail={userEmail}
-            urlToImage={urlToImage}
-          />
-        ))}
+      {tweets && tweets.map((tweet) => <Tweet currentTweet={tweet} />)}
     </TweetsWrapper>
   );
 };

@@ -35,7 +35,9 @@ const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
   const handleAddTweet = async () => {
     if (user && tweet) {
       const { uid, displayName, email } = user;
+      const id = `${new Date().getTime()}`;
       const userTweet: AddTweetRequest = {
+        id,
         tweet,
         userEmail: email,
         displayName,
@@ -45,6 +47,7 @@ const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
       if (setModal) {
         setModal(false);
       }
+      setImage(undefined);
       setTweet('');
       dispatch(addTweetRequest(userTweet));
     }

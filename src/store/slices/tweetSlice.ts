@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { FirebaseError } from './authSlice';
 
 export interface TweetType {
+  id: string;
   tweet: string;
   urlToImage?: string;
   userEmail: string;

@@ -11,4 +11,5 @@ export const routes: Route[] = [
   { path: '/signin', element: lazyLoadRoutes('SignIn') },
   { path: '/signup', element: lazyLoadRoutes('SignUp') },
   { path: '/feed', element: lazyLoadRoutes('Home') },
+  { path: '/feed/:id', element: lazyLoadRoutes('Tweet') },
 ];

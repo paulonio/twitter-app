@@ -21,18 +21,23 @@ export const getDocument = async (column: string, document: string) => {
 };
 
 export const updateDocument = async (column: string, document: string, payload: TweetType) => {
-  const twitterRef = collection(db, column);
-  const snap = await getDocument(column, document);
+  try {
+    const twitterRef = collection(db, column);
+    const snap = await getDocument(column, document);
 
-  if (snap.exists()) {
-    const res: TweetType[] = snap.data().tweets;
-    const data = [payload, ...res];
-    await setDoc(doc(twitterRef, document), { tweets: data });
-    return data;
+    if (snap.exists()) {
+      const res: TweetType[] = snap.data().tweets ? snap.data().tweets : [];
+      const data = [payload, ...res];
+      await setDoc(doc(twitterRef, document), { tweets: data });
+      return data;
+    }
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      throw error;
+    }
   }
 
-  await setDoc(doc(twitterRef, document), { tweets: [payload] });
-  return [payload];
+  return null;
 };
 
 export const updateUsers = async (column: string, document: string, payload: User | User[]) => {
