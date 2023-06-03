@@ -46,6 +46,19 @@ export const ButtonWrapper = styled.div`
   max-width: 108px;
 `;
 
-export const FileInput = styled.input.attrs({ type: 'file' })`
+export const ImageControlsWrapper = styled.div`
+  width: 20%;
+  max-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const FileInput = styled.input.attrs({ accept: 'image/*', type: 'file' })`
   display: none;
+`;
+
+export const PreviewImage = styled.img`
+  width: 70px;
+  height: auto;
 `;

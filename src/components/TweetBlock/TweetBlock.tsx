@@ -5,6 +5,8 @@ import {
   AvatarWrapper,
   ButtonWrapper,
   FileInput,
+  ImageControlsWrapper,
+  PreviewImage,
   TweetContent,
   TweetFooter,
   TweetInput,
@@ -26,6 +28,7 @@ const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
   const dispatch = useDispatch();
   const [tweet, setTweet] = useState<string>('');
   const [image, setImage] = useState<File | undefined>(undefined);
+  const [previewUrl, setPreviewUrl] = useState<string>('');
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChangeTweet = (e: ChangeEvent<HTMLInputElement>) => {
@@ -52,6 +55,7 @@ const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
         setModal(false);
       }
       setImage(undefined);
+      setPreviewUrl('');
       setTweet('');
       dispatch(addTweetRequest(userTweet));
     }
@@ -66,7 +70,9 @@ const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
   const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       const fileImage = e.target.files[0];
+      const url = URL.createObjectURL(fileImage);
       setImage(fileImage);
+      setPreviewUrl(url);
     }
   };
 
@@ -78,8 +84,11 @@ const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
       <TweetContent>
         <TweetInput value={tweet} onChange={handleChangeTweet} />
         <TweetFooter>
-          <ImageIcon onClick={handleAddImage} />
-          <FileInput ref={inputRef} onChange={handleChangeInput} />
+          <ImageControlsWrapper>
+            <ImageIcon onClick={handleAddImage} />
+            <FileInput ref={inputRef} onChange={handleChangeInput} />
+            {previewUrl && <PreviewImage src={previewUrl} alt="Preview" />}
+          </ImageControlsWrapper>
           <ButtonWrapper>
             <StyledButton $buttonType="primary" onClick={handleAddTweet}>
               Tweet

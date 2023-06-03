@@ -27,7 +27,7 @@ const App = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (userAuth) => {
       if (userAuth) {
-        dispatch(setCurrentUserRequest());
+        // dispatch(setCurrentUserRequest());
         dispatch(syncUsers());
       } else {
         dispatch(logout());
