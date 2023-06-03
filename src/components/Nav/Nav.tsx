@@ -7,6 +7,7 @@ import MessagesIcon from '../../icons/MessagesIcon';
 import BookmarksIcon from '../../icons/BookmarksIcon';
 import ProfileIcon from '../../icons/ProfileIcon';
 import MoreIcon from '../../icons/MoreIcon';
+import ListsIcon from '../../icons/ListsIcon';
 
 const Nav = () => {
   return (
@@ -32,7 +33,7 @@ const Nav = () => {
         Bookmarks
       </NavigationLink>
       <NavigationLink to="/feed">
-        <ExploreIcon />
+        <ListsIcon />
         Lists
       </NavigationLink>
       <NavigationLink to="/profile">

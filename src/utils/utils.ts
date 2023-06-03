@@ -7,9 +7,11 @@ import {
   updateDoc,
   arrayUnion,
 } from 'firebase/firestore';
+import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
+import { FirebaseError } from 'firebase/app';
 import { db } from '../../firebase';
-import { TweetType } from '../store/slices/tweetSlice';
-import { User } from '../store/slices/authSlice';
+import type { TweetType } from '../store/slices/tweetSlice';
+import type { User } from '../store/slices/authSlice';
 
 export const getDocument = async (column: string, document: string) => {
   const docRef = doc(db, column, document);
@@ -33,6 +35,24 @@ export const updateUsers = async (column: string, document: string, payload: Use
   }
   const docSnap: DocumentSnapshot<DocumentData> = await getDocument(column, document);
   return docSnap;
+};
+
+export const uploadImage = async (image: File | undefined) => {
+  if (!image) {
+    return '';
+  }
+
+  try {
+    const storage = getStorage();
+    const storageRef = ref(storage, `images/${image.name}`);
+    await uploadBytesResumable(storageRef, image);
+    return await getDownloadURL(storageRef);
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      throw error;
+    }
+  }
+  return '';
 };
 
 export const isUserArray = (value: unknown): value is User[] => {

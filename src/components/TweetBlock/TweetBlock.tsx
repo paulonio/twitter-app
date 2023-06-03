@@ -1,10 +1,10 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '../Avatar/Avatar';
 import {
   AvatarWrapper,
   ButtonWrapper,
-  ImageIcon,
+  FileInput,
   TweetContent,
   TweetFooter,
   TweetInput,
@@ -12,14 +12,16 @@ import {
 } from './styled';
 import { StoreType } from '../../store';
 import type { User } from '../../store/slices/authSlice';
-import { addTweetRequest } from '../../store/saga/tweetSaga';
-import { TweetType } from '../../store/slices/tweetSlice';
+import { AddTweetRequest, addTweetRequest } from '../../store/saga/tweetSaga';
 import { StyledButton } from '../Button/styled';
+import ImageIcon from '../../icons/ImageIcon';
 
 const TweetBlock = () => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);
   const dispatch = useDispatch();
   const [tweet, setTweet] = useState<string>('');
+  const [image, setImage] = useState<File | undefined>(undefined);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChangeTweet = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -29,13 +31,27 @@ const TweetBlock = () => {
   const handleAddTweet = async () => {
     if (user) {
       const { uid, displayName, email } = user;
-      const userTweet: TweetType = {
+      const userTweet: AddTweetRequest = {
         tweet,
         userEmail: email,
         displayName,
         userUid: uid,
+        image,
       };
       dispatch(addTweetRequest(userTweet));
+    }
+  };
+
+  const handleAddImage = () => {
+    if (inputRef.current !== null) {
+      inputRef.current.click();
+    }
+  };
+
+  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const fileImage = e.target.files[0];
+      setImage(fileImage);
     }
   };
 
@@ -47,7 +63,8 @@ const TweetBlock = () => {
       <TweetContent>
         <TweetInput value={tweet} onChange={handleChangeTweet} />
         <TweetFooter>
-          <ImageIcon />
+          <ImageIcon onClick={handleAddImage} />
+          <FileInput ref={inputRef} onChange={handleChangeInput} />
           <ButtonWrapper>
             <StyledButton $buttonType="primary" onClick={handleAddTweet}>
               Tweet

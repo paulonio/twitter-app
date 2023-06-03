@@ -26,6 +26,21 @@ export const TweetText = styled.p`
   font-weight: 400;
 `;
 
+export const ImageWrapper = styled.div`
+  width: 100%;
+  max-width: 679px;
+  height: auto;
+  max-height: 453px;
+  margin-top: 15px;
+  border-radius: 20px;
+  overflow: hidden;
+`;
+
+export const TweetImage = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
 export const TweetLike = styled.div`
   width: 6%;
   max-width: 53px;

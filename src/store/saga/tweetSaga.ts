@@ -11,21 +11,28 @@ import {
   syncTweetsSuccess,
 } from '../slices/tweetSlice';
 import type { User } from '../slices/authSlice';
-import { getDocument, updateDocument } from '../../utils/utils';
+import { getDocument, updateDocument, uploadImage } from '../../utils/utils';
+
+export interface AddTweetRequest extends Omit<TweetType, 'urlToImage'> {
+  image?: File;
+}
 
 export const TWITTER = 'twitter';
 export const TWEETS = 'tweets';
 
-export const addTweetRequest = createAction<TweetType>('tweet/addTweetRequest');
+export const addTweetRequest = createAction<AddTweetRequest>('tweet/addTweetRequest');
 export const syncTweetsRequest = createAction<User>('tweet/syncTweetsRequest');
 
 function* addTweetWorker({ payload }: ReturnType<typeof addTweetRequest>) {
   try {
+    const urlToImage: string | undefined = yield call(uploadImage, payload.image);
+    delete payload.image;
+    const data: TweetType = { ...payload, urlToImage };
     const docSnap: DocumentSnapshot<DocumentData> = yield call(
       updateDocument,
       TWITTER,
       TWEETS,
-      payload
+      data
     );
     if (docSnap.exists()) {
       const result: TweetType[] = yield call(() => docSnap.data().tweets);

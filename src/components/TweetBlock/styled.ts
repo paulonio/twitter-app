@@ -41,18 +41,11 @@ export const TweetFooter = styled.div`
   justify-content: space-between;
 `;
 
-export const ImageIcon = styled.img.attrs({
-  src: '/assets/icons/ImageIcon.svg',
-  alt: 'Image icon',
-})`
-  width: 24px;
-  height: 24px;
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
 export const ButtonWrapper = styled.div`
   width: 13%;
   max-width: 108px;
+`;
+
+export const FileInput = styled.input.attrs({ type: 'file' })`
+  display: none;
 `;

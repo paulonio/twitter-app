@@ -1,6 +1,6 @@
 import React, { FC, SVGProps } from 'react';
 
-const LikeIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
+const ListsIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
       role="img"
@@ -23,4 +23,4 @@ const LikeIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
   );
 };
 
-export default LikeIcon;
+export default ListsIcon;
