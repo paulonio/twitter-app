@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useRef, useState } from 'react';
+import React, { ChangeEvent, FC, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '../Avatar/Avatar';
 import {
@@ -16,7 +16,11 @@ import { AddTweetRequest, addTweetRequest } from '../../store/saga/tweetSaga';
 import { StyledButton } from '../Button/styled';
 import ImageIcon from '../../icons/ImageIcon';
 
-const TweetBlock = () => {
+interface TweetBlockProps {
+  setModal?: (value: boolean) => void;
+}
+
+const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);
   const dispatch = useDispatch();
   const [tweet, setTweet] = useState<string>('');
@@ -29,7 +33,7 @@ const TweetBlock = () => {
   };
 
   const handleAddTweet = async () => {
-    if (user) {
+    if (user && tweet) {
       const { uid, displayName, email } = user;
       const userTweet: AddTweetRequest = {
         tweet,
@@ -38,6 +42,9 @@ const TweetBlock = () => {
         userUid: uid,
         image,
       };
+      if (setModal) {
+        setModal(false);
+      }
       setTweet('');
       dispatch(addTweetRequest(userTweet));
     }
