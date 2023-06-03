@@ -4,6 +4,7 @@ import { FirebaseError } from './authSlice';
 export interface TweetType {
   id: string;
   tweet: string;
+  date: string;
   urlToImage?: string;
   userEmail: string;
   displayName: string;

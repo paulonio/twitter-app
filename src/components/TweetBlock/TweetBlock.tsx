@@ -15,6 +15,7 @@ import type { User } from '../../store/slices/authSlice';
 import { AddTweetRequest, addTweetRequest } from '../../store/saga/tweetSaga';
 import { StyledButton } from '../Button/styled';
 import ImageIcon from '../../icons/ImageIcon';
+import { parseDate } from '../../utils/utils';
 
 interface TweetBlockProps {
   setModal?: (value: boolean) => void;
@@ -35,9 +36,12 @@ const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
   const handleAddTweet = async () => {
     if (user && tweet) {
       const { uid, displayName, email } = user;
-      const id = `${new Date().getTime()}`;
+      const date = new Date();
+      const dateString = parseDate(date);
+      const id = `${date.getTime()}`;
       const userTweet: AddTweetRequest = {
         id,
+        date: dateString,
         tweet,
         userEmail: email,
         displayName,

@@ -13,6 +13,7 @@ import { FirebaseError } from 'firebase/app';
 import { db } from '../../firebase';
 import type { TweetType } from '../store/slices/tweetSlice';
 import type { User } from '../store/slices/authSlice';
+import { MONTH_MAP } from '../constants/constants';
 
 export const getDocument = async (column: string, document: string) => {
   const docRef = doc(db, column, document);
@@ -91,4 +92,10 @@ export const filterTweets = (tweets: TweetType[], filterValue: string) => {
 
 export const filterUsers = (users: User[], filterValue: string) => {
   return users.filter(({ displayName }) => displayName.includes(filterValue));
+};
+
+export const parseDate = (date: Date) => {
+  const day = date.getDate();
+  const month = date.getMonth();
+  return `${MONTH_MAP[month]} ${day}`;
 };

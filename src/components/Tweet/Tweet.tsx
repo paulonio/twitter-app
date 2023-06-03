@@ -19,14 +19,14 @@ interface TweetProps {
 }
 
 const Tweet: FC<TweetProps> = ({ currentTweet }) => {
-  const { tweet, userEmail, displayName, urlToImage } = currentTweet;
+  const { tweet, userEmail, displayName, urlToImage, date } = currentTweet;
   return (
     <TweetWrapper>
       <TweetAvatar>
         <Avatar />
       </TweetAvatar>
       <TweetContent>
-        <TweetHeader userEmail={userEmail} displayName={displayName} />
+        <TweetHeader userEmail={userEmail} displayName={displayName} date={date} />
         <TweetText>{tweet}</TweetText>
         {urlToImage && (
           <ImageWrapper>
