@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import Followers from '@components/Followers/Followers';
 import ProfileUserHeader from '@components/ProfileUserHeader/ProfileUserHeader';
+import ErrorBoundary from '@components/ErrorBoundary/ErrorBoundary';
 
 import type { User } from '@store/slices/authSlice';
 import type { StoreType } from '@store/index.ts';
@@ -14,12 +15,14 @@ const ProfileUser = () => {
 
   return (
     <UserWrapper>
-      <ProfileUserHeader />
-      <Username>{user?.displayName}</Username>
-      <Nickname>@{user?.email?.split('@')[0]}</Nickname>
-      {user?.gender && <UserBio>Gender: {user.gender}</UserBio>}
-      {user?.telegram && <UserBio>Telegram: {user?.telegram}</UserBio>}
-      <Followers />
+      <ErrorBoundary>
+        <ProfileUserHeader />
+        <Username>{user?.displayName}</Username>
+        <Nickname>@{user?.email?.split('@')[0]}</Nickname>
+        {user?.gender && <UserBio>Gender: {user.gender}</UserBio>}
+        {user?.telegram && <UserBio>Telegram: {user?.telegram}</UserBio>}
+        <Followers />
+      </ErrorBoundary>
     </UserWrapper>
   );
 };

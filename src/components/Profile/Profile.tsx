@@ -6,6 +6,7 @@ import Header from '@components/Header/Header';
 import ProfileUser from '@components/ProfileUser/ProfileUser';
 import TweetBlock from '@components/TweetBlock/TweetBlock';
 import Tweets from '@components/Tweets/Tweets';
+import ErrorBoundary from '@components/ErrorBoundary/ErrorBoundary';
 
 import type { StoreType } from '@store/index.ts';
 import type { User } from '@store/slices/authSlice';
@@ -29,14 +30,16 @@ const Profile = () => {
 
   return (
     <ProfileWrapper>
-      <Header>
-        <HeaderTitle>{user?.displayName}</HeaderTitle>
-        <HeaderSubtitle>1,070 Tweets</HeaderSubtitle>
-      </Header>
-      <ProfileImage />
-      <ProfileUser />
-      <TweetBlock />
-      <Tweets type="profile" />
+      <ErrorBoundary>
+        <Header>
+          <HeaderTitle>{user?.displayName}</HeaderTitle>
+          <HeaderSubtitle>1,070 Tweets</HeaderSubtitle>
+        </Header>
+        <ProfileImage />
+        <ProfileUser />
+        <TweetBlock />
+        <Tweets type="profile" />
+      </ErrorBoundary>
     </ProfileWrapper>
   );
 };

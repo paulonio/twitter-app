@@ -11,6 +11,7 @@ import type { StoreType } from '@store/index.ts';
 import type { User } from '@store/slices/authSlice';
 
 import { HeaderSpace, HomeWrapper } from './styled';
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 const Home = () => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);
@@ -21,12 +22,14 @@ const Home = () => {
 
   return (
     <HomeWrapper>
-      <Header>
-        <HeaderTitle>Home</HeaderTitle>
-      </Header>
-      <HeaderSpace />
-      <TweetBlock />
-      <Tweets type="feed" />
+      <ErrorBoundary>
+        <Header>
+          <HeaderTitle>Home</HeaderTitle>
+        </Header>
+        <HeaderSpace />
+        <TweetBlock />
+        <Tweets type="feed" />
+      </ErrorBoundary>
     </HomeWrapper>
   );
 };
