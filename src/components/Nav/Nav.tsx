@@ -6,7 +6,7 @@ const Nav = () => {
   return (
     <Navigation>
       {NAVIGATION.map(({ to, text, Component }) => (
-        <NavigationLink to={to}>
+        <NavigationLink key={text} to={to}>
           <Component />
           {text}
         </NavigationLink>
