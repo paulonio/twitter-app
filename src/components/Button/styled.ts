@@ -1,4 +1,5 @@
 import { css, styled } from 'styled-components';
+
 import type { ButtonType } from './Button';
 
 interface StyledButtonProps {

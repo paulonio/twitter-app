@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
-import { FixedWrapper } from '../Sidebar/styled';
+
+import { FixedWrapper } from '@components/Sidebar/styled';
+import ThemeSwitcher from '@components/ThemeSwitcher/ThemeSwitcher';
+
 import { HeaderTitleWrapper, HeaderWrapper } from './styled';
-import ThemeSwitcher from '../ThemeSwitcher/ThemeSwitcher';
 
 interface HeaderProps {
   children: JSX.Element | JSX.Element[] | string | string[];

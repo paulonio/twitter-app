@@ -1,9 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-import authReducer from './slices/authSlice';
-import tweetReducer from './slices/tweetSlice';
-import themeReducer from './slices/themeSlice';
-import { rootWatcher } from './saga';
+
+import authReducer from '@store/slices/authSlice';
+import tweetReducer from '@store/slices/tweetSlice';
+import themeReducer from '@store/slices/themeSlice';
+import { rootWatcher } from '@store/saga';
 
 const sagaMiddleware = createSagaMiddleware();
 

@@ -1,8 +1,11 @@
 import React, { ChangeEvent, FC } from 'react';
+
+import SidebarResults from '@components/SidebarResults/SidebarResults';
+
+import type { TweetType } from '@store/slices/tweetSlice';
+import type { User } from '@store/slices/authSlice';
+
 import { Label, SearchField, SearchIcon, Wrapper } from './styled';
-import type { TweetType } from '../../store/slices/tweetSlice';
-import type { User } from '../../store/slices/authSlice';
-import SidebarResults from '../SidebarResults/SidebarResults';
 
 interface SidebarInputProps {
   value: string;

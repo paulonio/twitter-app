@@ -1,13 +1,17 @@
 import React, { ChangeEvent, FC, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
+
+import SidebarInput from '@components/SidebarInput/SidebarInput';
+import SidebarPosts from '@components/SidebarPosts/SidebarPosts';
+import SidebarUsers from '@components/SidebarUsers/SidebarUsers';
+
+import type { StoreType } from '@store/index.ts';
+import type { User } from '@store/slices/authSlice';
+import type { TweetType } from '@store/slices/tweetSlice';
+
+import { filterTweets, filterUsers } from '@utils/utils';
+
 import { FixedWrapper, Wrapper } from './styled';
-import SidebarInput from '../SidebarInput/SidebarInput';
-import SidebarPosts from '../SidebarPosts/SidebarPosts';
-import SidebarUsers from '../SidebarUsers/SidebarUsers';
-import { StoreType } from '../../store';
-import type { User } from '../../store/slices/authSlice';
-import type { TweetType } from '../../store/slices/tweetSlice';
-import { filterTweets, filterUsers } from '../../utils/utils';
 
 interface SidebarProps {
   type: 'profile' | 'feed';

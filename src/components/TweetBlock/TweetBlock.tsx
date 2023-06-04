@@ -1,6 +1,17 @@
 import React, { ChangeEvent, FC, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Avatar from '../Avatar/Avatar';
+
+import Avatar from '@components/Avatar/Avatar';
+import { StyledButton } from '@components/Button/styled';
+
+import { StoreType } from '@store/index.ts';
+import type { User } from '@store/slices/authSlice';
+import { AddTweetRequest, addTweetRequest } from '@store/saga/tweetSaga';
+
+import ImageIcon from '@icons/ImageIcon';
+
+import { parseDate } from '@utils/utils';
+
 import {
   AvatarWrapper,
   ButtonWrapper,
@@ -12,12 +23,6 @@ import {
   TweetInput,
   TweetWrapper,
 } from './styled';
-import { StoreType } from '../../store';
-import type { User } from '../../store/slices/authSlice';
-import { AddTweetRequest, addTweetRequest } from '../../store/saga/tweetSaga';
-import { StyledButton } from '../Button/styled';
-import ImageIcon from '../../icons/ImageIcon';
-import { parseDate } from '../../utils/utils';
 
 interface TweetBlockProps {
   setModal?: (value: boolean) => void;

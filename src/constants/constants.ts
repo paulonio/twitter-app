@@ -7,7 +7,7 @@ import {
   More,
   Notifications,
   Profile,
-} from '../components/Nav/styled';
+} from '@components/Nav/styled';
 
 export const MONTH_MAP = [
   'Jan',

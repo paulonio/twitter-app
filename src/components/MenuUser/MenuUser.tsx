@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
+
+import Avatar from '@components/Avatar/Avatar';
+
+import { User } from '@store/slices/authSlice';
+
 import { AvatarWrapper, Nickname, UserInfo, Username, Wrapper } from './styled';
-import Avatar from '../Avatar/Avatar';
-import { User } from '../../store/slices/authSlice';
 
 interface MenuUserProps {
   user: User;

@@ -1,13 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
-import BookmarksIcon from '../../icons/BookmarksIcon';
-import HomeIcon from '../../icons/HomeIcon';
-import ExploreIcon from '../../icons/ExploreIcon';
-import ListsIcon from '../../icons/ListsIcon';
-import MessagesIcon from '../../icons/MessagesIcon';
-import MoreIcon from '../../icons/MoreIcon';
-import NotificationsIcon from '../../icons/NotificationsIcon';
-import ProfileIcon from '../../icons/ProfileIcon';
+
+import BookmarksIcon from '@icons/BookmarksIcon';
+import HomeIcon from '@icons/HomeIcon';
+import ExploreIcon from '@icons/ExploreIcon';
+import ListsIcon from '@icons/ListsIcon';
+import MessagesIcon from '@icons/MessagesIcon';
+import MoreIcon from '@icons/MoreIcon';
+import NotificationsIcon from '@icons/NotificationsIcon';
+import ProfileIcon from '@icons/ProfileIcon';
 
 export const Navigation = styled.nav`
   width: 100%;

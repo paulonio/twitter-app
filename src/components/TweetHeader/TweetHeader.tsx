@@ -1,7 +1,10 @@
 import React, { FC } from 'react';
+
+import { Nickname, Username } from '@components/MenuUser/styled';
+
+import { TweetType } from '@store/slices/tweetSlice';
+
 import { TweetHeaderWrapper, TweetTitle, EditButton, Edit } from './styled';
-import { Nickname, Username } from '../MenuUser/styled';
-import { TweetType } from '../../store/slices/tweetSlice';
 
 type TweetHeaderProps = Pick<TweetType, 'displayName' | 'userEmail' | 'date'>;
 

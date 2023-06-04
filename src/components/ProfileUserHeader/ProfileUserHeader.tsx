@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import Avatar from '../Avatar/Avatar';
+
+import Avatar from '@components/Avatar/Avatar';
+import EditUser from '@components/EditUser/EditUser';
+import { StyledButton } from '@components/Button/styled';
+
 import { AvatarRow, AvatarWrapper, ButtonWrapper } from './styled';
-import EditUser from '../EditUser/EditUser';
-import { StyledButton } from '../Button/styled';
 
 const ProfileUserHeader = () => {
   const [isActive, setActive] = useState<boolean>(false);

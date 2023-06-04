@@ -2,13 +2,17 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
-import Global from './styles/Global';
-import RouterElement from './routes';
-import { User, logout } from './store/slices/authSlice';
-import { syncTweetsRequest } from './store/saga/tweetSaga';
-import { auth } from '../firebase';
-import { StoreType } from './store';
-import { setCurrentUserRequest, syncUsers } from './store/saga/authSaga';
+
+import { auth } from '@src/firebase';
+
+import { User, logout } from '@store/slices/authSlice';
+import { syncTweetsRequest } from '@store/saga/tweetSaga';
+import type { StoreType } from '@store/index';
+import { setCurrentUserRequest, syncUsers } from '@store/saga/authSaga';
+
+import Global from '@styles/Global';
+
+import RouterElement from '@routes/index';
 
 const App = () => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);

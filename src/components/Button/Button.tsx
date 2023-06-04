@@ -1,4 +1,5 @@
 import React, { FC, HTMLAttributes } from 'react';
+
 import { StyledButton } from './styled';
 
 export type ButtonType = 'primary' | 'secondary' | 'bordered' | 'link';

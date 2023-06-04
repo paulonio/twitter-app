@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
-import Modal from '../Modal/Modal';
-import TweetBlock from '../TweetBlock/TweetBlock';
+
+import Modal from '@components/Modal/Modal';
+import TweetBlock from '@components/TweetBlock/TweetBlock';
+
 import { TweetBlockWrapper } from './styled';
 
 interface TweetBlockModalProps {

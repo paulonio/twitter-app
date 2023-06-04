@@ -1,10 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import type { User } from '../../store/slices/authSlice';
+
+import Followers from '@components/Followers/Followers';
+import ProfileUserHeader from '@components/ProfileUserHeader/ProfileUserHeader';
+
+import type { User } from '@store/slices/authSlice';
+import type { StoreType } from '@store/index.ts';
+
 import { Nickname, UserBio, UserWrapper, Username } from './styled';
-import Followers from '../Followers/Followers';
-import ProfileUserHeader from '../ProfileUserHeader/ProfileUserHeader';
-import { StoreType } from '../../store';
 
 const ProfileUser = () => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);

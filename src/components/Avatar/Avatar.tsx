@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { AvatarImage } from './styled';
 
 const Avatar = () => {

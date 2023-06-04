@@ -1,13 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+
+import Header from '@components/Header/Header';
+import TweetBlock from '@components/TweetBlock/TweetBlock';
+import Tweets from '@components/Tweets/Tweets';
+import { HeaderTitle } from '@components/Profile/styled';
+
+import type { StoreType } from '@store/index.ts';
+import type { User } from '@store/slices/authSlice';
+
 import { HeaderSpace, HomeWrapper } from './styled';
-import Header from '../Header/Header';
-import TweetBlock from '../TweetBlock/TweetBlock';
-import Tweets from '../Tweets/Tweets';
-import { StoreType } from '../../store';
-import type { User } from '../../store/slices/authSlice';
-import { HeaderTitle } from '../Profile/styled';
 
 const Home = () => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);

@@ -1,8 +1,10 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from '../../styles/theme';
-import { StoreType } from '../../store';
+
+import type { StoreType } from '@store/index.ts';
+
+import { darkTheme, lightTheme } from '@styles/theme';
 
 interface ThemeProps {
   children: JSX.Element | JSX.Element[] | string | string[];

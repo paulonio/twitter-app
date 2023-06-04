@@ -1,8 +1,11 @@
 import React, { FC } from 'react';
-import Avatar from '../Avatar/Avatar';
-import TweetHeader from '../TweetHeader/TweetHeader';
-import type { TweetType } from '../../store/slices/tweetSlice';
-import LikeIcon from '../../icons/LikeIcon';
+
+import Avatar from '@components/Avatar/Avatar';
+import TweetHeader from '@components/TweetHeader/TweetHeader';
+
+import type { TweetType } from '@store/slices/tweetSlice';
+
+import LikeIcon from '@icons/LikeIcon';
 import {
   ImageWrapper,
   LikeAmount,

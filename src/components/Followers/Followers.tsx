@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { FollowersWrapper, FollowersItem, Amount } from './styled';
 
 const Followers = () => {

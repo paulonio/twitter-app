@@ -1,4 +1,4 @@
-import { lazyLoadRoutes } from '../routes/lazyLoadRoutes';
+import { lazyLoadRoutes } from '@routes/lazyLoadRoutes';
 
 export interface Route {
   path: string;

@@ -1,5 +1,6 @@
 import React, { FC, MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
+
 import { ModalWindow, Overlay } from './styled';
 
 interface ModalProps {

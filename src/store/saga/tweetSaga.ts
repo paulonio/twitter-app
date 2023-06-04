@@ -2,6 +2,7 @@ import { FirebaseError } from 'firebase/app';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { DocumentData, DocumentSnapshot } from 'firebase/firestore';
 import { createAction } from '@reduxjs/toolkit';
+
 import {
   TweetType,
   addTweetFailure,
@@ -9,9 +10,10 @@ import {
   setProfileTweets,
   syncTweetsFailure,
   syncTweetsSuccess,
-} from '../slices/tweetSlice';
-import type { User } from '../slices/authSlice';
-import { getDocument, updateDocument, uploadImage } from '../../utils/utils';
+} from '@store/slices/tweetSlice';
+import type { User } from '@store/slices/authSlice';
+
+import { getDocument, updateDocument, uploadImage } from '@utils/utils';
 
 export interface AddTweetRequest extends Omit<TweetType, 'urlToImage'> {
   image?: File;

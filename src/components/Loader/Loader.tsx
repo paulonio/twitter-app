@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { InnerLoader, OuterLoader } from './styled';
 
 const Loader = () => {

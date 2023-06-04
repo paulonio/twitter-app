@@ -1,9 +1,17 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+
+import Button from '@components/Button/Button';
+import { StyledButton } from '@components/Button/styled';
+
+import { signUpWithEmailRequest } from '@store/saga/authSaga';
+
+import { SELECT_DATE_DATA, SELECT_MONTH_DATA, SELECT_YEAR_DATA } from '@constants/constants';
+
 import {
   ButtonWrapper,
   Error,
@@ -17,10 +25,6 @@ import {
   HalfSelectWrapper,
   QuarterSelectWrapper,
 } from './styled';
-import Button from '../Button/Button';
-import { signUpWithEmailRequest } from '../../store/saga/authSaga';
-import { SELECT_DATE_DATA, SELECT_MONTH_DATA, SELECT_YEAR_DATA } from '../../constants/constants';
-import { StyledButton } from '../Button/styled';
 
 export interface SignUpForm {
   name: string;

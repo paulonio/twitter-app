@@ -1,9 +1,12 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import type { StoreType } from '../../store';
-import type { TweetType } from '../../store/slices/tweetSlice';
-import Tweet from '../Tweet/Tweet';
+
+import Tweet from '@components/Tweet/Tweet';
+
+import type { StoreType } from '@store/index.ts';
+import type { TweetType } from '@store/slices/tweetSlice';
+
 import { TweetWrapper } from './styled';
 
 const TweetSingle = () => {

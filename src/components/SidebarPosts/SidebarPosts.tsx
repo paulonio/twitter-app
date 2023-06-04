@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Post, PostImage, Wrapper } from './styled';
 
 const SidebarPosts = () => {

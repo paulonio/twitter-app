@@ -1,8 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import type { StoreType } from '../../store';
-import { changeTheme } from '../../store/slices/themeSlice';
-import { StyledButton } from '../Button/styled';
+
+import { StyledButton } from '@components/Button/styled';
+
+import type { StoreType } from '@store/index.ts';
+import { changeTheme } from '@store/slices/themeSlice';
 
 const ThemeSwitcher = () => {
   const theme = useSelector<StoreType, 'light' | 'dark'>((state) => state.theme.theme);

@@ -1,9 +1,12 @@
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
+
+import Tweet from '@components/Tweet/Tweet';
+
+import type { StoreType } from '@store/index.ts';
+import { TweetType } from '@store/slices/tweetSlice';
+
 import { TweetsHeader, TweetsWrapper } from './styled';
-import Tweet from '../Tweet/Tweet';
-import { StoreType } from '../../store';
-import { TweetType } from '../../store/slices/tweetSlice';
 
 interface TweetsProps {
   type: 'profile' | 'feed';

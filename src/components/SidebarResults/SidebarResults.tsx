@@ -1,10 +1,14 @@
 import React, { FC, MouseEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { TweetType } from '../../store/slices/tweetSlice';
-import { User } from '../../store/slices/authSlice';
+
+import MenuUser from '@components/MenuUser/MenuUser';
+
+import { TweetType } from '@store/slices/tweetSlice';
+import { User } from '@store/slices/authSlice';
+
+import { isUserArray } from '@utils/utils';
+
 import { SearchResult, SearchResults } from './styled';
-import { isUserArray } from '../../utils/utils';
-import MenuUser from '../MenuUser/MenuUser';
 
 interface ResultsProps {
   data: TweetType[] | User[];

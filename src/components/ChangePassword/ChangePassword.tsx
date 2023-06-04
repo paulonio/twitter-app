@@ -1,10 +1,13 @@
 import React from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { changePasswordRequest } from '../../store/saga/authSaga';
-import { Input } from '../SignUp/styled';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+import { Input } from '@components/SignUp/styled';
+import { StyledButton } from '@components/Button/styled';
+
+import { changePasswordRequest } from '@store/saga/authSaga';
+
 import { PasswordForm, ButtonWrapper } from './styled';
-import { StyledButton } from '../Button/styled';
 
 export interface ChangePasswordForm {
   oldPassword: string;

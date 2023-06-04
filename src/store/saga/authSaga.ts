@@ -13,7 +13,14 @@ import {
 } from 'firebase/auth';
 import { FirebaseError } from 'firebase/app';
 import { DocumentData, DocumentSnapshot } from 'firebase/firestore';
-import { auth, signInWithGoogle } from '../../../firebase';
+
+import { auth, signInWithGoogle } from '@src/firebase';
+
+import type { LoginForm } from '@components/Login/Login';
+import type { SignUpForm } from '@components/SignUp/SignUp';
+import type { EditUserForm } from '@components/EditUser/EditUser';
+import type { ChangePasswordForm } from '@components/ChangePassword/ChangePassword';
+
 import {
   loginFailure,
   loginSuccess,
@@ -24,13 +31,10 @@ import {
   User,
   logout,
   setAllUsers,
-} from '../slices/authSlice';
-import type { LoginForm } from '../../components/Login/Login';
-import type { SignUpForm } from '../../components/SignUp/SignUp';
-import type { EditUserForm } from '../../components/EditUser/EditUser';
-import { getDocument, updateUsers } from '../../utils/utils';
-import type { ChangePasswordForm } from '../../components/ChangePassword/ChangePassword';
-import { TWITTER } from './tweetSaga';
+} from '@store/slices/authSlice';
+import { TWITTER } from '@store/saga/tweetSaga';
+
+import { getDocument, updateUsers } from '@utils/utils';
 
 export const loginRequest = createAction<LoginForm>('auth/loginRequest');
 export const signUpWithEmailRequest = createAction<SignUpForm>('auth/signUpWithEmailRequest');

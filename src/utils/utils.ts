@@ -10,10 +10,13 @@ import {
 } from 'firebase/firestore';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import { FirebaseError } from 'firebase/app';
-import { db } from '../../firebase';
-import type { TweetType } from '../store/slices/tweetSlice';
-import type { User } from '../store/slices/authSlice';
-import { MONTH_MAP } from '../constants/constants';
+
+import { db } from '@src/firebase';
+
+import type { TweetType } from '@store/slices/tweetSlice';
+import type { User } from '@store/slices/authSlice';
+
+import { MONTH_MAP } from '@constants/constants';
 
 export const getDocument = async (column: string, document: string) => {
   const docRef = doc(db, column, document);

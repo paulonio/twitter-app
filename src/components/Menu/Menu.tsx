@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import MenuUser from '../MenuUser/MenuUser';
+
+import MenuUser from '@components/MenuUser/MenuUser';
+import { FixedWrapper } from '@components/Sidebar/styled';
+import Nav from '@components/Nav/Nav';
+import { StyledButton } from '@components/Button/styled';
+import TweetBlockModal from '@components/TweetBlockModal/TweetBlockModal';
+
+import type { StoreType } from '@store/index.ts';
+import { User } from '@store/slices/authSlice';
+
 import { Wrapper, Logo, ButtonWrapper } from './styled';
-import { FixedWrapper } from '../Sidebar/styled';
-import Nav from '../Nav/Nav';
-import { StyledButton } from '../Button/styled';
-import type { StoreType } from '../../store';
-import { User } from '../../store/slices/authSlice';
-import TweetBlockModal from '../TweetBlockModal/TweetBlockModal';
 
 const Menu = () => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);

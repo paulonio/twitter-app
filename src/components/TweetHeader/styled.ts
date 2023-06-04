@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import EditIcon from '../../icons/EditIcon';
+
+import EditIcon from '@icons/EditIcon';
 
 export const TweetHeaderWrapper = styled.div`
   display: flex;

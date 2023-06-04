@@ -1,5 +1,7 @@
 import React from 'react';
-import { NAVIGATION } from '../../constants/constants';
+
+import { NAVIGATION } from '@constants/constants';
+
 import { Navigation, NavigationLink } from './styled';
 
 const Nav = () => {

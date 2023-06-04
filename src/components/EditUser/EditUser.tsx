@@ -1,16 +1,19 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
-import Modal from '../Modal/Modal';
-import { Input } from '../SignUp/styled';
+import * as yup from 'yup';
+
+import Modal from '@components/Modal/Modal';
+import { Input } from '@components/SignUp/styled';
+import ChangePassword from '@components/ChangePassword/ChangePassword';
+import { StyledButton } from '@components/Button/styled';
+
+import { updateUserRequest } from '@store/saga/authSaga';
+import { User, logout } from '@store/slices/authSlice';
+import type { StoreType } from '@store/index.ts';
+
 import { ButtonWrapper, EditForm, RadioLabel, ControlsWrapper } from './styled';
-import ChangePassword from '../ChangePassword/ChangePassword';
-import { updateUserRequest } from '../../store/saga/authSaga';
-import { User, logout } from '../../store/slices/authSlice';
-import { StoreType } from '../../store';
-import { StyledButton } from '../Button/styled';
 
 interface EditUserProps {
   isActive: boolean;

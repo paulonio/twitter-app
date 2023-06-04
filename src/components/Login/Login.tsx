@@ -1,15 +1,18 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
+
+import { WelcomeSubtitle } from '@components/Welcome/styled';
+import { Error, Input } from '@components/SignUp/styled';
+import Button from '@components/Button/Button';
+import { StyledButton } from '@components/Button/styled';
+
+import { loginRequest } from '@store/saga/authSaga';
+
 import { Form, LoginWrapper } from './styled';
-import { WelcomeSubtitle } from '../Welcome/styled';
-import { Error, Input } from '../SignUp/styled';
-import Button from '../Button/Button';
-import { loginRequest } from '../../store/saga/authSaga';
-import { StyledButton } from '../Button/styled';
 
 export interface LoginForm {
   email: string;
