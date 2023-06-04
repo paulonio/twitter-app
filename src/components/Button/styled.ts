@@ -33,10 +33,37 @@ export const StyledButton = styled.button<StyledButtonProps>`
       case 'secondary':
         return css`
           padding: 10px 0;
-          background-color: #000000;
-          color: #ffffff;
+          background-color: ${({ theme }) => theme.colors.backgroundSecondaryButton};
+          color: ${({ theme }) => theme.colors.textSecondaryButton};
           &:hover {
-            background-color: #2f2f2f;
+            background-color: ${({ theme }) => theme.colors.backgroundSecondaryButtonHover};
+          }
+        `;
+      case 'bordered':
+        return css`
+          padding: 10px 15px;
+          color: ${({ theme }) => theme.colors.text};
+          background-color: ${({ theme }) => theme.colors.backgroundBody};
+          border: solid 1px ${({ theme }) => theme.colors.borderButton};
+          line-height: 24px;
+          &:hover {
+            background-color: ${({ theme }) => theme.colors.backgroundborderedButtonHover};
+            cursor: pointer;
+          }
+        `;
+      case 'link':
+        return css`
+          width: max-content;
+          font-size: 18px;
+          line-height: 100%;
+          font-weight: 400;
+          color: #1da1f2;
+          background-color: transparent;
+          border: none;
+          transition: color 0.3s;
+          &:hover {
+            cursor: pointer;
+            color: #4fa9e6;
           }
         `;
       default:

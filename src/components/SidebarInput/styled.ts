@@ -26,8 +26,8 @@ export const SearchIcon = styled.img.attrs({
 
 export const SearchField = styled.input.attrs({ placeholder: 'Search Twitter' })`
   width: 100%;
-  color: #5c6c79;
-  background-color: #eff3f4;
+  color: ${({ theme }) => theme.colors.textInput};
+  background-color: ${({ theme }) => theme.colors.backgroundInput};
   padding: 15px 0;
   padding-left: 64px;
   font-size: 18px;

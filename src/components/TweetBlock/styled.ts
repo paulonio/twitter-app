@@ -4,8 +4,8 @@ export const TweetWrapper = styled.section`
   padding: 15px 11px;
   display: flex;
   justify-content: space-between;
-  border-top: solid 1px #d8d8d8;
-  border-bottom: solid 1px #d8d8d8;
+  border-top: solid 1px ${({ theme }) => theme.colors.border};
+  border-bottom: solid 1px ${({ theme }) => theme.colors.border};
 `;
 
 export const AvatarWrapper = styled.div`
@@ -28,7 +28,8 @@ export const TweetInput = styled.input.attrs({ placeholder: "What's happening" }
   font-size: 22px;
   line-height: 29px;
   font-weight: 600;
-  color: #828282;
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.backgroundBody};
   border: none;
   outline: none;
 `;

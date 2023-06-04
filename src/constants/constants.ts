@@ -1,3 +1,14 @@
+import {
+  Bookmarks,
+  Explore,
+  Home,
+  Lists,
+  Messages,
+  More,
+  Notifications,
+  Profile,
+} from '../components/Nav/styled';
+
 export const MONTH_MAP = [
   'Jan',
   'Feb',
@@ -78,4 +89,15 @@ export const SELECT_YEAR_DATA = [
   '2013',
   '2014',
   '2015',
+];
+
+export const NAVIGATION = [
+  { to: '/feed', text: 'Home', Component: Home },
+  { to: '/feed', text: 'Explore', Component: Explore },
+  { to: '/feed', text: 'Notifications', Component: Notifications },
+  { to: '/feed', text: 'Messages', Component: Messages },
+  { to: '/feed', text: 'Bookmarks', Component: Bookmarks },
+  { to: '/feed', text: 'Lists', Component: Lists },
+  { to: '/profile', text: 'Profile', Component: Profile },
+  { to: '/feed', text: 'More', Component: More },
 ];

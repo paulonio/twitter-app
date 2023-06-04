@@ -18,9 +18,9 @@ import {
   QuarterSelectWrapper,
 } from './styled';
 import Button from '../Button/Button';
-import { SecondaryButton } from '../SidebarUsers/styled';
 import { signUpWithEmailRequest } from '../../store/saga/authSaga';
 import { SELECT_DATE_DATA, SELECT_MONTH_DATA, SELECT_YEAR_DATA } from '../../constants/constants';
+import { StyledButton } from '../Button/styled';
 
 export interface SignUpForm {
   name: string;
@@ -74,12 +74,14 @@ const SignUp = () => {
         <Error>{errors.name?.message}</Error>
         <Input type="text" placeholder="Email" {...register('email')} />
         <Error>{errors.email?.message}</Error>
-        <SecondaryButton onClick={handleNavigateToWelcomePage}>Use email</SecondaryButton>
+        <StyledButton $buttonType="link" onClick={handleNavigateToWelcomePage}>
+          Use email
+        </StyledButton>
         <SelectWrapper>
           <HalfSelectWrapper>
             <Select {...register('month')}>
               {SELECT_MONTH_DATA.map((month, idx) => (
-                <Option value={month} disabled={idx === 0}>
+                <Option key={month} value={month} disabled={idx === 0}>
                   {month}
                 </Option>
               ))}
@@ -89,7 +91,7 @@ const SignUp = () => {
           <QuarterSelectWrapper>
             <Select {...register('date')}>
               {SELECT_DATE_DATA.map((date, idx) => (
-                <Option value={date} disabled={idx === 0}>
+                <Option key={date} value={date} disabled={idx === 0}>
                   {date}
                 </Option>
               ))}
@@ -99,7 +101,7 @@ const SignUp = () => {
           <QuarterSelectWrapper>
             <Select {...register('year')}>
               {SELECT_YEAR_DATA.map((year, idx) => (
-                <Option value={year} disabled={idx === 0}>
+                <Option key={year} value={year} disabled={idx === 0}>
                   {year}
                 </Option>
               ))}

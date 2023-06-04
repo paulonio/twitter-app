@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const HomeWrapper = styled.section`
   width: 57.5%;
   max-width: 910px;
-  border-left: solid 1px #d8d8d8;
-  border-right: solid 1px #d8d8d8;
+  border-left: solid 1px ${({ theme }) => theme.colors.border};
+  border-right: solid 1px ${({ theme }) => theme.colors.border};
 `;
 
 export const HeaderSpace = styled.div`

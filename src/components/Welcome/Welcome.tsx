@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
+  ButtonsWrapper,
   WelcomeContent,
   WelcomeImage,
   WelcomeSubtitle,
@@ -9,13 +10,24 @@ import {
   WelcomeTitle,
   WelcomeWrapper,
 } from './styled';
-import { BorderedButton } from '../ProfileUserHeader/styled';
-import { SecondaryButton } from '../SidebarUsers/styled';
 import { signUpWithGoogleRequest } from '../../store/saga/authSaga';
+import { changeTheme } from '../../store/slices/themeSlice';
+import type { StoreType } from '../../store';
+import { StyledButton } from '../Button/styled';
 
 const Welcome = () => {
+  const theme = useSelector<StoreType, 'light' | 'dark'>((state) => state.theme.theme);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const toggleTheme = () => {
+    if (theme === 'light') {
+      dispatch(changeTheme({ theme: 'dark' }));
+    } else {
+      dispatch(changeTheme({ theme: 'light' }));
+    }
+  };
 
   const handleNavigateToSignUp = () => {
     navigate('/signup');
@@ -25,7 +37,7 @@ const Welcome = () => {
     navigate('/signin');
   };
 
-  const handleSignInWithGoogle = async () => {
+  const handleSignInWithGoogle = () => {
     dispatch(signUpWithGoogleRequest());
   };
 
@@ -33,15 +45,21 @@ const Welcome = () => {
     <WelcomeWrapper>
       <WelcomeImage src="/assets/images/BackTwitter.jpg" alt="Twitter image" />
       <WelcomeContent>
-        <WelcomeTitle>Happening now</WelcomeTitle>
+        <WelcomeTitle onClick={toggleTheme}>Happening now</WelcomeTitle>
         <WelcomeSubtitle>Join Twitter today</WelcomeSubtitle>
-        <BorderedButton onClick={handleSignInWithGoogle}>Sign up with Google</BorderedButton>
-        <BorderedButton onClick={handleNavigateToSignUp}>
-          Sign up with phone or email
-        </BorderedButton>
+        <ButtonsWrapper>
+          <StyledButton $buttonType="bordered" onClick={handleSignInWithGoogle}>
+            Sign up with Google
+          </StyledButton>
+          <StyledButton $buttonType="bordered" onClick={handleNavigateToSignUp}>
+            Sign up with phone or email
+          </StyledButton>
+        </ButtonsWrapper>
         <WelcomeText>
-          Already have an account?{' '}
-          <SecondaryButton onClick={handleNavigateToLogin}>Log in</SecondaryButton>
+          Already have an account?
+          <StyledButton $buttonType="link" onClick={handleNavigateToLogin}>
+            Log in
+          </StyledButton>
         </WelcomeText>
       </WelcomeContent>
     </WelcomeWrapper>

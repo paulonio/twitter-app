@@ -15,13 +15,15 @@ export const Username = styled.h2`
   font-size: 24px;
   line-height: 32px;
   font-weight: 700;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const Nickname = styled.div`
   font-size: 16px;
   line-height: 21px;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.6);
+  color: ${({ theme }) => theme.colors.text};
+  opacity: 0.6;
 `;
 
 export const UserBio = styled.p`
@@ -29,4 +31,5 @@ export const UserBio = styled.p`
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
+  color: ${({ theme }) => theme.colors.text};
 `;

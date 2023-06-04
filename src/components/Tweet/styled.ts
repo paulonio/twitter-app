@@ -5,7 +5,7 @@ export const TweetWrapper = styled.div`
   max-width: 910px;
   padding: 10px 35px 21px;
   display: flex;
-  border-top: solid 1px #d8d8d8;
+  border-top: solid 1px ${({ theme }) => theme.colors.border};
 `;
 
 export const TweetAvatar = styled.div`
@@ -24,6 +24,7 @@ export const TweetText = styled.p`
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const ImageWrapper = styled.div`
@@ -63,5 +64,6 @@ export const LikeAmount = styled.span`
   font-size: 16px;
   line-height: 21px;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.6);
+  color: ${({ theme }) => theme.colors.text};
+  opacity: 0.6;
 `;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { SecondaryButton, UsersTitle, UsersWrapper, UserRow, ButtonWrapper } from './styled';
+import { UsersTitle, UsersWrapper, UserRow, ButtonWrapper } from './styled';
 import MenuUser from '../MenuUser/MenuUser';
 import { StyledButton } from '../Button/styled';
 import { StoreType } from '../../store';
@@ -18,7 +18,7 @@ const SidebarUsers = () => {
           <StyledButton $buttonType="secondary">Follow</StyledButton>
         </ButtonWrapper>
       </UserRow>
-      <SecondaryButton>Show more</SecondaryButton>
+      <StyledButton $buttonType="link">Show more</StyledButton>
     </UsersWrapper>
   );
 };

@@ -7,6 +7,7 @@ import TweetBlock from '../TweetBlock/TweetBlock';
 import Tweets from '../Tweets/Tweets';
 import { StoreType } from '../../store';
 import type { User } from '../../store/slices/authSlice';
+import { HeaderTitle } from '../Profile/styled';
 
 const Home = () => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);
@@ -17,7 +18,9 @@ const Home = () => {
 
   return (
     <HomeWrapper>
-      <Header>Home</Header>
+      <Header>
+        <HeaderTitle>Home</HeaderTitle>
+      </Header>
       <HeaderSpace />
       <TweetBlock />
       <Tweets type="feed" />

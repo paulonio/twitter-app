@@ -25,6 +25,8 @@ export const ModalWindow = styled.div<ModalProps>`
   width: 840px;
   background-color: rgba(255, 255, 255, 1);
   padding: 12px;
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.backgroundBody};
   border-radius: 8px;
   transform: ${({ $isActive }) => ($isActive ? 'scale(1)' : 'scale(0.3)')};
   transition: transform 0.5s;

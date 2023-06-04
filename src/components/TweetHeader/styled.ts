@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import EditIcon from '../../icons/EditIcon';
 
 export const TweetHeaderWrapper = styled.div`
   display: flex;
@@ -18,10 +19,12 @@ export const EditButton = styled.button`
   align-items: center;
   justify-content: center;
   border: none;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.colors.backgroundBody};
   &:hover {
     cursor: pointer;
   }
 `;
 
-export const EditIcon = styled.img.attrs({ src: '/assets/icons/Edit.svg', alt: 'Edit icon' })``;
+export const Edit = styled(EditIcon)`
+  fill: ${({ theme }) => theme.colors.text};
+`;

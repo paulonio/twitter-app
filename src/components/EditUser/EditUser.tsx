@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 import Modal from '../Modal/Modal';
 import { Input } from '../SignUp/styled';
 import { ButtonWrapper, EditForm, RadioLabel, ControlsWrapper } from './styled';
@@ -22,9 +24,18 @@ export interface EditUserForm {
   telegram: string;
 }
 
+const schema = yup
+  .object({
+    name: yup.string().trim().min(3).required(),
+    lastName: yup.string().trim(),
+    telegram: yup.string().trim(),
+  })
+  .required();
+
 const EditUser: FC<EditUserProps> = ({ isActive, setActive }) => {
   const user = useSelector<StoreType, User | null>((state) => state.auth.user);
   const { register, handleSubmit } = useForm<EditUserForm>({
+    resolver: yupResolver(schema),
     defaultValues: {
       name: user?.displayName.split(' ')[0],
       lastName: user?.displayName.split(' ')[1],

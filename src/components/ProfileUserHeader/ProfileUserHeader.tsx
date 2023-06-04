@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Avatar from '../Avatar/Avatar';
-import { AvatarRow, AvatarWrapper, BorderedButton } from './styled';
+import { AvatarRow, AvatarWrapper, ButtonWrapper } from './styled';
 import EditUser from '../EditUser/EditUser';
+import { StyledButton } from '../Button/styled';
 
 const ProfileUserHeader = () => {
   const [isActive, setActive] = useState<boolean>(false);
@@ -16,7 +17,11 @@ const ProfileUserHeader = () => {
       <AvatarWrapper>
         <Avatar />
       </AvatarWrapper>
-      <BorderedButton onClick={handleOpenModal}>Edit profile</BorderedButton>
+      <ButtonWrapper>
+        <StyledButton $buttonType="bordered" onClick={handleOpenModal}>
+          Edit profile
+        </StyledButton>
+      </ButtonWrapper>
     </AvatarRow>
   );
 };

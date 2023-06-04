@@ -8,8 +8,8 @@ import { Form, LoginWrapper } from './styled';
 import { WelcomeSubtitle } from '../Welcome/styled';
 import { Error, Input } from '../SignUp/styled';
 import Button from '../Button/Button';
-import { SecondaryButton } from '../SidebarUsers/styled';
 import { loginRequest } from '../../store/saga/authSaga';
+import { StyledButton } from '../Button/styled';
 
 export interface LoginForm {
   email: string;
@@ -53,7 +53,9 @@ const Login = () => {
         <Error>{errors.password?.message}</Error>
         <Button $buttonType="primary">Log In</Button>
       </Form>
-      <SecondaryButton onClick={handleNavigateToWelcomePage}>Sign up to Twitter</SecondaryButton>
+      <StyledButton $buttonType="link" onClick={handleNavigateToWelcomePage}>
+        Sign up to Twitter
+      </StyledButton>
     </LoginWrapper>
   );
 };

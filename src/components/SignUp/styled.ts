@@ -14,6 +14,7 @@ export const FormTitle = styled.h2`
   font-size: 30px;
   line-height: 40px;
   font-weight: 700;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const Form = styled.form`
@@ -31,8 +32,9 @@ export const Input = styled.input`
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
-  color: rgba(0, 0, 0, 0.6);
-  border: solid 1px rgba(0, 0, 0, 0.2);
+  color: ${({ theme }) => theme.colors.text};
+  background-color: ${({ theme }) => theme.colors.backgroundBody};
+  border: solid 1px ${({ theme }) => theme.colors.border};
   border-radius: 6px;
 `;
 
@@ -52,13 +54,13 @@ export const Select = styled.select`
   width: 100%;
   max-width: 910px;
   padding: 24px 20px;
-  color: rgba(0, 0, 0, 0.6);
+  color: ${({ theme }) => theme.colors.textInput};
+  background-color: transparent;
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
   border-radius: 6px;
-  border: solid 1px rgba(0, 0, 0, 0.2);
-  background-color: transparent;
+  border: solid 1px ${({ theme }) => theme.colors.border};
   &:hover {
     cursor: pointer;
   }

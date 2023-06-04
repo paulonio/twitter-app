@@ -29,22 +29,35 @@ export const WelcomeContent = styled.div`
 `;
 
 export const WelcomeTitle = styled.h1`
+  margin-top: 57px;
   font-size: 84px;
   line-height: 98px;
   font-weight: 700;
-  margin-top: 57px;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const WelcomeSubtitle = styled.h2`
   margin-top: 46px;
+  margin-bottom: 31px;
   font-size: 42px;
   line-height: 49px;
   font-weight: 700;
+  color: ${({ theme }) => theme.colors.text};
 `;
 
 export const WelcomeText = styled.div`
+  display: flex;
+  gap: 4px;
   margin-top: 21px;
   font-size: 16px;
   line-height: 19px;
   font-weight: 400;
+  color: ${({ theme }) => theme.colors.text};
+`;
+
+export const ButtonsWrapper = styled.div`
+  max-width: 403px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 21px;
 `;

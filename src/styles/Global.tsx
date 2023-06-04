@@ -7,6 +7,10 @@ const Global = createGlobalStyle`
     box-sizing: border-box;
     font-family: 'Segoe UI', sans-serif;
   }
+
+  body {
+    background-color: ${({ theme }) => theme.colors.backgroundBody};
+  }
 `;
 
 export default Global;
