@@ -4,6 +4,10 @@ export const WelcomeWrapper = styled.section`
   width: 100%;
   height: calc(100vh - 56px);
   display: flex;
+
+  @media screen and (max-width: 1180px) {
+    justify-content: center;
+  }
 `;
 
 export const FooterLinks = styled.section`
@@ -15,6 +19,10 @@ export const WelcomeImage = styled.img`
   width: 58%;
   max-width: 1121px;
   height: auto;
+
+  @media screen and (max-width: 1180px) {
+    display: none;
+  }
 `;
 
 export const WelcomeContent = styled.div`
@@ -26,6 +34,17 @@ export const WelcomeContent = styled.div`
   flex-direction: column;
   align-items: start;
   justify-content: center;
+
+  @media screen and (max-width: 1180px) {
+    width: 70%;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    padding: 10px 20px;
+    align-items: center;
+  }
 `;
 
 export const WelcomeTitle = styled.h1`
@@ -34,6 +53,16 @@ export const WelcomeTitle = styled.h1`
   line-height: 98px;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.text};
+
+  @media screen and (max-width: 1180px) {
+    font-size: 54px;
+    line-height: 64px;
+  }
+
+  @media screen and (max-width: 470px) {
+    font-size: 25px;
+    line-height: 29px;
+  }
 `;
 
 export const WelcomeSubtitle = styled.h2`
@@ -43,6 +72,16 @@ export const WelcomeSubtitle = styled.h2`
   line-height: 49px;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.text};
+
+  @media screen and (max-width: 1180px) {
+    font-size: 35px;
+    line-height: 42px;
+  }
+
+  @media screen and (max-width: 470px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
 `;
 
 export const WelcomeText = styled.div`

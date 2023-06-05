@@ -6,6 +6,14 @@ export const Wrapper = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: start;
+
+  @media screen and (max-width: 1480px) {
+    width: 220px;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Navigation = styled.div`

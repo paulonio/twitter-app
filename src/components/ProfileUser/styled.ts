@@ -9,6 +9,10 @@ export const UserWrapper = styled.div`
   flex-direction: column;
   align-items: start;
   justify-content: center;
+
+  @media screen and (max-width: 470px) {
+    padding: 0 8px 24px 8px;
+  }
 `;
 
 export const Username = styled.h2`
@@ -16,6 +20,11 @@ export const Username = styled.h2`
   line-height: 32px;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.text};
+
+  @media screen and (max-width: 470px) {
+    font-size: 16px;
+    line-height: 21px;
+  }
 `;
 
 export const Nickname = styled.div`

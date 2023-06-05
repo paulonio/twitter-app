@@ -10,6 +10,11 @@ export const AvatarRow = styled.div`
 export const AvatarWrapper = styled.div`
   height: 150px;
   width: 150px;
+
+  @media screen and (max-width: 768px) {
+    width: 75px;
+    height: 75px;
+  }
 `;
 
 export const ButtonWrapper = styled.div`

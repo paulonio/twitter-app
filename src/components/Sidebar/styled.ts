@@ -9,4 +9,8 @@ export const FixedWrapper = styled.div`
 export const Wrapper = styled.aside`
   width: 373px;
   margin-top: 20px;
+
+  @media screen and (max-width: 1480px) {
+    display: none;
+  }
 `;

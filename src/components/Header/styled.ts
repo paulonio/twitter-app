@@ -14,3 +14,9 @@ export const HeaderTitleWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `;
+
+export const ThemeSwitcherWrapper = styled.div`
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;

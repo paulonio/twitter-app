@@ -17,6 +17,11 @@ export const FollowersItem = styled.div`
   &:first-child {
     margin-left: 0;
   }
+
+  @media screen and (max-width: 470px) {
+    font-size: 16px;
+    line-height: 21px;
+  }
 `;
 
 export const Amount = styled.span`

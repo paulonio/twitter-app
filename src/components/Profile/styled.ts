@@ -6,6 +6,11 @@ export const PageWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 1480px) {
+    justify-content: center;
+    gap: 24px;
+  }
 `;
 
 export const ProfileWrapper = styled.section`
@@ -13,6 +18,15 @@ export const ProfileWrapper = styled.section`
   max-width: 910px;
   border-left: solid 1px ${({ theme }) => theme.colors.border};
   border-right: solid 1px ${({ theme }) => theme.colors.border};
+
+  @media screen and (max-width: 1480px) {
+    width: 70%;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    overflow: hidden;
+  }
 `;
 
 export const HeaderTitle = styled.div`

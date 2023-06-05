@@ -11,6 +11,11 @@ export const TweetHeaderWrapper = styled.div`
 export const TweetTitle = styled.div`
   display: flex;
   align-items: center;
+
+  @media screen and (max-width: 470px) {
+    flex-direction: column;
+    align-items: start;
+  }
 `;
 
 export const EditButton = styled.button`

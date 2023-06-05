@@ -12,4 +12,8 @@ export const TweetsHeader = styled.div`
   line-height: 24px;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.text};
+
+  @media screen and (max-width: 470px) {
+    padding: 16px 24px;
+  }
 `;

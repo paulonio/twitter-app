@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 export const SignUpWrapper = styled.section`
   width: 100%;
   height: 100vh;
+  /* margin: 0 auto; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,6 +24,19 @@ export const Form = styled.form`
   padding: 30px 40px 40px;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 1480px) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 85%;
+    padding: 30px 20px 30px;
+  }
+
+  @media screen and (max-width: 470px) {
+    width: 100%;
+  }
 `;
 
 export const Input = styled.input`
@@ -80,14 +94,25 @@ export const SelectWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 `;
 
 export const HalfSelectWrapper = styled.div`
   width: 46%;
   max-width: 312px;
+
+  @media screen and (max-width: 470px) {
+    width: 100%;
+    max-width: 100%;
+  }
 `;
 
 export const QuarterSelectWrapper = styled.div`
   width: 23%;
   max-width: 159px;
+
+  @media screen and (max-width: 470px) {
+    width: 45%;
+    max-width: 100%;
+  }
 `;

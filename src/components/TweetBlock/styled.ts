@@ -6,12 +6,21 @@ export const TweetWrapper = styled.section`
   justify-content: space-between;
   border-top: solid 1px ${({ theme }) => theme.colors.border};
   border-bottom: solid 1px ${({ theme }) => theme.colors.border};
+
+  @media screen and (max-width: 470px) {
+    padding: 8px;
+    gap: 8px;
+  }
 `;
 
 export const AvatarWrapper = styled.div`
   width: 49px;
   height: 54px;
   margin-left: 17px;
+
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
 `;
 
 export const TweetContent = styled.div`
@@ -43,8 +52,7 @@ export const TweetFooter = styled.div`
 `;
 
 export const ButtonWrapper = styled.div`
-  width: 13%;
-  max-width: 108px;
+  width: 108px;
 `;
 
 export const ImageControlsWrapper = styled.div`
@@ -62,4 +70,8 @@ export const FileInput = styled.input.attrs({ accept: 'image/*', type: 'file' })
 export const PreviewImage = styled.img`
   width: 70px;
   height: auto;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;

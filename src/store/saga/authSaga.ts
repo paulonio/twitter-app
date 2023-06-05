@@ -76,7 +76,7 @@ function* signUpWithEmailWorker({ payload }: ReturnType<typeof signUpWithEmailRe
     );
     const userData: User = {
       email: user.email!,
-      displayName: user.displayName!,
+      displayName: name,
       uid: user.uid,
       gender: 'male',
       telegram: '',

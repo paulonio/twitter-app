@@ -67,10 +67,10 @@ const EditUser: FC<EditUserProps> = ({ isActive, setActive }) => {
             <Input id="female" type="radio" value="female" {...register('gender')} />
             Female
           </RadioLabel>
-          <ButtonWrapper>
-            <StyledButton $buttonType="primary">Submit</StyledButton>
-          </ButtonWrapper>
         </ControlsWrapper>
+        <ButtonWrapper>
+          <StyledButton $buttonType="primary">Submit</StyledButton>
+        </ButtonWrapper>
       </EditForm>
       <button type="button" onClick={() => dispatch(logout())}>
         Log out

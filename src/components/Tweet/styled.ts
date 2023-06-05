@@ -6,6 +6,10 @@ export const TweetWrapper = styled.div`
   padding: 10px 35px 21px;
   display: flex;
   border-top: solid 1px ${({ theme }) => theme.colors.border};
+
+  @media screen and (max-width: 470px) {
+    padding: 10px 8px 21px;
+  }
 `;
 
 export const TweetAvatar = styled.div`
@@ -43,12 +47,10 @@ export const TweetImage = styled.img`
 `;
 
 export const TweetLike = styled.div`
-  width: 6%;
-  max-width: 53px;
+  width: max-content;
   margin-top: 22px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   &:hover {
     cursor: pointer;
   }

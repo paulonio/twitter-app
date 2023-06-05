@@ -7,6 +7,10 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: start;
+
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
 `;
 
 export const LoginWrapper = styled.div`
@@ -16,4 +20,19 @@ export const LoginWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: end;
+
+  @media screen and (max-width: 1480px) {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 75%;
+  }
+
+  @media screen and (max-width: 470px) {
+    width: 100%;
+    height: 100vh;
+    padding: 0 8px;
+    justify-content: center;
+  }
 `;
