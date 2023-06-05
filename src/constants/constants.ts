@@ -114,3 +114,8 @@ export const POSTS_DATA = [
   { id: '5', src: '/assets/images/post-5.jpg' },
   { id: '6', src: '/assets/images/post-6.jpg' },
 ];
+
+export const EMAIL_REGEXP =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+export const NAME_REGEXP = /^[A-Za-z0-9]+$/;

@@ -17,9 +17,10 @@ export const LoginWrapper = styled.div`
   width: 33%;
   max-width: 450px;
   margin: 0 auto;
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
-  align-items: end;
+  justify-content: flex-start;
 
   @media screen and (max-width: 1480px) {
     width: 50%;

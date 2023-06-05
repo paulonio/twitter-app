@@ -7,24 +7,14 @@ import * as yup from 'yup';
 
 import Button from '@components/Button/Button';
 import { StyledButton } from '@components/Button/styled';
+import DatePickers from '@components/SignUp/DatePickers';
 
 import { signUpWithEmailRequest } from '@store/actions/actions';
 
-import { SELECT_DATE_DATA, SELECT_MONTH_DATA, SELECT_YEAR_DATA } from '@constants/constants';
+import { EMAIL_REGEXP, NAME_REGEXP } from '@constants/constants';
 
-import {
-  ButtonWrapper,
-  Error,
-  Form,
-  FormTitle,
-  Input,
-  SignUpWrapper,
-  Select,
-  Option,
-  SelectWrapper,
-  HalfSelectWrapper,
-  QuarterSelectWrapper,
-} from './styled';
+import { Logo } from '../Menu/styled';
+import { ButtonWrapper, Error, Form, FormTitle, Input, SignUpWrapper } from './styled';
 
 export interface SignUpForm {
   name: string;
@@ -35,13 +25,15 @@ export interface SignUpForm {
   year: string;
 }
 
-const regexp =
-  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
 const schema = yup
   .object({
-    name: yup.string().trim().min(3).required(),
-    email: yup.string().trim().email().matches(regexp, 'email must be a valid email').required(),
+    name: yup
+      .string()
+      .trim()
+      .min(3)
+      .matches(NAME_REGEXP, 'name should contain only latin letters or numbers')
+      .required(),
+    email: yup.string().trim().email().matches(EMAIL_REGEXP, 'email must be a valid').required(),
     password: yup.string().trim().min(6).max(20).required(),
     month: yup.string().max(3, 'month is required'),
     date: yup.number().typeError('date is required'),
@@ -72,6 +64,7 @@ const SignUp = () => {
 
   return (
     <SignUpWrapper>
+      <Logo />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormTitle>Create an account</FormTitle>
         <Input type="text" placeholder="Name" {...register('name')} />
@@ -81,38 +74,7 @@ const SignUp = () => {
         <StyledButton $buttonType="link" onClick={handleNavigateToWelcomePage}>
           Use email
         </StyledButton>
-        <SelectWrapper>
-          <HalfSelectWrapper>
-            <Select {...register('month')}>
-              {SELECT_MONTH_DATA.map((month, idx) => (
-                <Option key={month} value={month} disabled={idx === 0}>
-                  {month}
-                </Option>
-              ))}
-            </Select>
-            <Error>{errors.month?.message}</Error>
-          </HalfSelectWrapper>
-          <QuarterSelectWrapper>
-            <Select {...register('date')}>
-              {SELECT_DATE_DATA.map((date, idx) => (
-                <Option key={date} value={date} disabled={idx === 0}>
-                  {date}
-                </Option>
-              ))}
-            </Select>
-            <Error>{errors.date?.message}</Error>
-          </QuarterSelectWrapper>
-          <QuarterSelectWrapper>
-            <Select {...register('year')}>
-              {SELECT_YEAR_DATA.map((year, idx) => (
-                <Option key={year} value={year} disabled={idx === 0}>
-                  {year}
-                </Option>
-              ))}
-            </Select>
-            <Error>{errors.year?.message}</Error>
-          </QuarterSelectWrapper>
-        </SelectWrapper>
+        <DatePickers errors={errors} register={register} />
         <Input type="password" placeholder="Password" {...register('password')} />
         <Error>{errors.password?.message}</Error>
         <ButtonWrapper>

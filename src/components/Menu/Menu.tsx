@@ -8,12 +8,12 @@ import { StyledButton } from '@components/Button/styled';
 import TweetBlockModal from '@src/components/TweetBlock/TweetBlockModal';
 
 import type { StoreType } from '@store/index.ts';
-import { User } from '@store/slices/authSlice';
+import type { UserType } from '@store/slices/authSlice';
 
 import { Wrapper, Logo, ButtonWrapper } from './styled';
 
 const Menu = () => {
-  const user = useSelector<StoreType, User | null>((state) => state.auth.user);
+  const user = useSelector<StoreType, UserType | null>((state) => state.auth.user);
   const [isModalOpen, setModalOpen] = useState<boolean>(false);
 
   const handleOpenModal = () => {

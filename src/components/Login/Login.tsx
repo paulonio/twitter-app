@@ -9,8 +9,11 @@ import { WelcomeSubtitle } from '@components/Welcome/styled';
 import { Error, Input } from '@components/SignUp/styled';
 import Button from '@components/Button/Button';
 import { StyledButton } from '@components/Button/styled';
+import { Logo } from '@components/Menu/styled';
 
 import { loginRequest } from '@store/actions/actions';
+
+import { EMAIL_REGEXP } from '@constants/constants';
 
 import { Form, LoginWrapper } from './styled';
 
@@ -21,7 +24,7 @@ export interface LoginForm {
 
 const schema = yup
   .object({
-    email: yup.string().email().required(),
+    email: yup.string().email().matches(EMAIL_REGEXP, 'email must be a valid').required(),
     password: yup.string().min(6).max(20).required(),
   })
   .required();
@@ -48,6 +51,7 @@ const Login = () => {
 
   return (
     <LoginWrapper>
+      <Logo />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <WelcomeSubtitle>Log in to Twitter</WelcomeSubtitle>
         <Input type="text" placeholder="Email" {...register('email')} />

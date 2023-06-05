@@ -3,14 +3,14 @@ import { styled } from 'styled-components';
 export const SignUpWrapper = styled.section`
   width: 100%;
   height: 100vh;
-  /* margin: 0 auto; */
+  padding-top: 30px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  flex-direction: column;
 `;
 
 export const FormTitle = styled.h2`
-  margin-top: 106px;
   margin-bottom: 35px;
   font-size: 30px;
   line-height: 40px;

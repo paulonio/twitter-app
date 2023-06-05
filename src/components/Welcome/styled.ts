@@ -48,7 +48,6 @@ export const WelcomeContent = styled.div`
 `;
 
 export const WelcomeTitle = styled.h1`
-  margin-top: 57px;
   font-size: 84px;
   line-height: 98px;
   font-weight: 700;

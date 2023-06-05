@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { StyledButton } from '@components/Button/styled';
+import { Logo } from '@components/Menu/styled';
 
 import { signUpWithGoogleRequest } from '@store/actions/actions';
 import {
@@ -35,6 +36,7 @@ const Welcome = () => {
     <WelcomeWrapper>
       <WelcomeImage src="/assets/images/BackTwitter.jpg" alt="Twitter image" />
       <WelcomeContent>
+        <Logo />
         <WelcomeTitle>Happening now</WelcomeTitle>
         <WelcomeSubtitle>Join Twitter today</WelcomeSubtitle>
         <ButtonsWrapper>
