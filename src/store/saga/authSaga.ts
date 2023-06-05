@@ -12,9 +12,10 @@ import {
   signUpWithEmailSuccess,
   signUpWithGoogleSuccess,
   signUpWithGoogleFailure,
-  logout,
   setAllUsers,
   UserType,
+  logoutFailure,
+  logoutSuccess,
 } from '@store/slices/authSlice';
 import {
   loginRequest,
@@ -24,11 +25,13 @@ import {
   signUpWithGoogleRequest,
   setCurrentUserRequest,
   syncUsers,
+  logoutRequest,
 } from '@store/actions/actions';
 import { TWITTER, USERS } from '@constants/constants';
 
 import {
   getDocument,
+  logoutUser,
   signInWithEmail,
   signUpWithEmail,
   signUpWithGoogle,
@@ -70,6 +73,18 @@ function* signUpWithGoogleWorker() {
     if (error instanceof FirebaseError) {
       const { code, message } = error;
       yield put(signUpWithGoogleFailure({ code, message }));
+    }
+  }
+}
+
+function* logoutWorker() {
+  try {
+    yield call(logoutUser);
+    yield put(logoutSuccess());
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      const { code, message } = error;
+      yield put(logoutFailure({ code, message }));
     }
   }
 }
@@ -125,7 +140,7 @@ function* updatePasswordRequest({ payload }: ReturnType<typeof changePasswordReq
   try {
     if (user && user.email) {
       yield call(updateUserPassword, oldPassword, newPassword, user);
-      yield put(logout());
+      yield put(logoutSuccess());
     }
   } catch (error) {
     if (error instanceof FirebaseError) {
@@ -158,4 +173,5 @@ export function* authWatcher() {
   yield takeEvery(updateUserRequest, updateUserInfoWorker);
   yield takeEvery(changePasswordRequest, updatePasswordRequest);
   yield takeEvery(syncUsers, getAllUsers);
+  yield takeEvery(logoutRequest, logoutWorker);
 }

@@ -1,16 +1,10 @@
-import React, { ChangeEvent, FC, useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { FC } from 'react';
 
 import SidebarInput from '@src/components/Sidebar/SidebarInput';
 import SidebarPosts from '@src/components/Sidebar/SidebarPosts';
 import SidebarUsers from '@src/components/Sidebar/SidebarUsers';
 
-import type { StoreType } from '@store/index.ts';
-import type { UserType } from '@store/slices/authSlice';
-import type { TweetType } from '@store/slices/tweetSlice';
-
-import { filterTweets, filterUsers } from '@utils/utils';
-
+import { useSidebarHandlers } from '@src/hooks/useSidebarHandlers';
 import { FixedWrapper, Wrapper } from './styled';
 
 interface SidebarProps {
@@ -18,26 +12,14 @@ interface SidebarProps {
 }
 
 const Sidebar: FC<SidebarProps> = ({ type }) => {
-  const users = useSelector<StoreType, UserType[]>((state) => state.auth.allUsers);
-  const tweets = useSelector<StoreType, TweetType[]>((state) => state.tweet.tweets);
-  const [usersFilterValue, setUsersFilterValue] = useState<string>('');
-  const [tweetsFilterValue, setTweetsFilterValue] = useState<string>('');
-
-  const handleChangeUsersValue = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setUsersFilterValue(value);
-  };
-
-  const handleChangeTweetsValue = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setTweetsFilterValue(value);
-  };
-
-  const filteredUsers = useMemo(() => filterUsers(users, usersFilterValue), [usersFilterValue]);
-  const filteredTweets = useMemo(
-    () => filterTweets(tweets, tweetsFilterValue),
-    [tweetsFilterValue]
-  );
+  const {
+    usersFilterValue,
+    tweetsFilterValue,
+    filteredUsers,
+    filteredTweets,
+    handleChangeUsersValue,
+    handleChangeTweetsValue,
+  } = useSidebarHandlers();
 
   return (
     <Wrapper>

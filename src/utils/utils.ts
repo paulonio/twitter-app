@@ -131,6 +131,16 @@ export const signUpWithEmail = async (email: string, password: string, name: str
   return null;
 };
 
+export const logoutUser = async () => {
+  try {
+    await signOut(auth);
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      throw error;
+    }
+  }
+};
+
 export const signUpWithGoogle = async () => {
   try {
     const { user }: UserCredential = await signInWithGoogle();

@@ -79,7 +79,7 @@ export const SearchResults = styled.div`
   top: calc(100% + 10px);
   left: 0;
   padding: 10px;
-  background-color: #eff3f4;
+  background-color: ${({ theme }) => theme.colors.backgroundInput};
   border-radius: 8px;
   &:hover {
     cursor: pointer;

@@ -54,7 +54,7 @@ const SignUp = () => {
     defaultValues: { month: 'Month', date: 'Date', year: 'Year' },
   });
 
-  const onSubmit: SubmitHandler<SignUpForm> = async (data) => {
+  const onSubmit: SubmitHandler<SignUpForm> = (data) => {
     dispatch(signUpWithEmailRequest(data));
   };
 

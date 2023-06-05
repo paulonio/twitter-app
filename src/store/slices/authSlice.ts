@@ -53,9 +53,12 @@ const authSlice = createSlice({
     signUpWithGoogleFailure: (state, action) => {
       state.error = action.payload;
     },
-    logout: (state) => {
+    logoutSuccess: (state) => {
       state.user = null;
       state.error = null;
+    },
+    logoutFailure: (state, action) => {
+      state.error = action.payload;
     },
     getCurrentUser: (state, action) => {
       state.user = action.payload;
@@ -73,7 +76,8 @@ export const {
   signUpWithEmailFailure,
   signUpWithGoogleSuccess,
   signUpWithGoogleFailure,
-  logout,
+  logoutSuccess,
+  logoutFailure,
   getCurrentUser,
   setAllUsers,
 } = authSlice.actions;

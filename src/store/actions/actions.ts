@@ -14,5 +14,6 @@ export const setCurrentUserRequest = createAction('auth/setCurrentUserRequest');
 export const updateUserRequest = createAction<EditUserForm>('auth/updateUserRequest');
 export const changePasswordRequest = createAction<ChangePasswordForm>('auth/updatePasswordRequest');
 export const syncUsers = createAction('auth/syncUsers');
+export const logoutRequest = createAction('auth/logoutRequest');
 export const addTweetRequest = createAction<AddTweetRequest>('tweet/addTweetRequest');
 export const syncTweetsRequest = createAction<UserType>('tweet/syncTweetsRequest');

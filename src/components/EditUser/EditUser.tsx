@@ -6,11 +6,11 @@ import * as yup from 'yup';
 
 import Modal from '@components/Modal/Modal';
 import { Input } from '@components/SignUp/styled';
-import ChangePassword from '@src/components/EditUser/ChangePassword';
+import ChangePassword from '@components/EditUser/ChangePassword';
 import { StyledButton } from '@components/Button/styled';
 
-import { updateUserRequest } from '@store/actions/actions';
-import { UserType, logout } from '@store/slices/authSlice';
+import { logoutRequest, updateUserRequest } from '@store/actions/actions';
+import type { UserType } from '@store/slices/authSlice';
 import type { StoreType } from '@store/index.ts';
 
 import { ButtonWrapper, EditForm, RadioLabel, ControlsWrapper } from './styled';
@@ -72,7 +72,7 @@ const EditUser: FC<EditUserProps> = ({ isActive, setActive }) => {
           <StyledButton $buttonType="primary">Submit</StyledButton>
         </ButtonWrapper>
       </EditForm>
-      <button type="button" onClick={() => dispatch(logout())}>
+      <button type="button" onClick={() => dispatch(logoutRequest())}>
         Log out
       </button>
       <ChangePassword />

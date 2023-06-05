@@ -1,17 +1,14 @@
-import React, { ChangeEvent, FC, useRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { FC } from 'react';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 import Avatar from '@components/Avatar/Avatar';
 import { StyledButton } from '@components/Button/styled';
 
-import type { StoreType } from '@store/index.ts';
-import type { UserType } from '@store/slices/authSlice';
-import type { AddTweetRequest } from '@store/saga/tweetSaga';
-import { addTweetRequest } from '@store/actions/actions';
-
 import ImageIcon from '@icons/ImageIcon';
 
-import { parseDate } from '@utils/utils';
+import { useTweetBlockHandlers } from '@hooks/useTweetBlockHandlers';
 
 import {
   AvatarWrapper,
@@ -19,7 +16,7 @@ import {
   FileInput,
   ImageControlsWrapper,
   PreviewImage,
-  TweetContent,
+  TweetForm,
   TweetFooter,
   TweetInput,
   TweetWrapper,
@@ -29,79 +26,42 @@ interface TweetBlockProps {
   setModal?: (value: boolean) => void;
 }
 
+export interface TweetFormType {
+  tweet: string;
+}
+
+const schema = yup
+  .object({
+    tweet: yup.string().trim().min(3).required(),
+  })
+  .required();
+
 const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
-  const user = useSelector<StoreType, UserType | null>((state) => state.auth.user);
-  const dispatch = useDispatch();
-  const [tweet, setTweet] = useState<string>('');
-  const [image, setImage] = useState<File | undefined>(undefined);
-  const [previewUrl, setPreviewUrl] = useState<string>('');
-  const inputRef = useRef<HTMLInputElement>(null);
+  const { register, handleSubmit, reset } = useForm<TweetFormType>({
+    resolver: yupResolver(schema),
+  });
 
-  const handleChangeTweet = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    setTweet(value);
-  };
-
-  const handleAddTweet = async () => {
-    if (user && tweet) {
-      const { uid, displayName, email } = user;
-      const date = new Date();
-      const dateString = parseDate(date);
-      const id = `${date.getTime()}`;
-      const userTweet: AddTweetRequest = {
-        id,
-        date: dateString,
-        tweet,
-        userEmail: email,
-        displayName,
-        userUid: uid,
-        image,
-      };
-      if (setModal) {
-        setModal(false);
-      }
-      setImage(undefined);
-      setPreviewUrl('');
-      setTweet('');
-      dispatch(addTweetRequest(userTweet));
-    }
-  };
-
-  const handleAddImage = () => {
-    if (inputRef.current !== null) {
-      inputRef.current.click();
-    }
-  };
-
-  const handleChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      const fileImage = e.target.files[0];
-      const url = URL.createObjectURL(fileImage);
-      setImage(fileImage);
-      setPreviewUrl(url);
-    }
-  };
+  const { previewUrl, inputRef, onSubmit, handleAddImage, handleChangeImage } =
+    useTweetBlockHandlers(reset, setModal);
 
   return (
     <TweetWrapper>
       <AvatarWrapper>
         <Avatar />
       </AvatarWrapper>
-      <TweetContent>
-        <TweetInput value={tweet} onChange={handleChangeTweet} />
+      <TweetForm onSubmit={handleSubmit(onSubmit)}>
+        <TweetInput {...register('tweet')} />
         <TweetFooter>
           <ImageControlsWrapper>
             <ImageIcon onClick={handleAddImage} />
-            <FileInput ref={inputRef} onChange={handleChangeInput} />
+            <FileInput ref={inputRef} onChange={handleChangeImage} />
             {previewUrl && <PreviewImage src={previewUrl} alt="Preview" />}
           </ImageControlsWrapper>
           <ButtonWrapper>
-            <StyledButton $buttonType="primary" onClick={handleAddTweet}>
-              Tweet
-            </StyledButton>
+            <StyledButton $buttonType="primary">Tweet</StyledButton>
           </ButtonWrapper>
         </TweetFooter>
-      </TweetContent>
+      </TweetForm>
     </TweetWrapper>
   );
 };

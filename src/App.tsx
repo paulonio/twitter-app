@@ -5,8 +5,13 @@ import { onAuthStateChanged } from 'firebase/auth';
 
 import { auth } from '@src/firebase';
 
-import { UserType, logout } from '@store/slices/authSlice';
-import { syncTweetsRequest, setCurrentUserRequest, syncUsers } from '@store/actions/actions';
+import type { UserType } from '@store/slices/authSlice';
+import {
+  syncTweetsRequest,
+  setCurrentUserRequest,
+  syncUsers,
+  logoutRequest,
+} from '@store/actions/actions';
 import type { StoreType } from '@store/index';
 
 import Global from '@styles/Global';
@@ -30,10 +35,10 @@ const App = () => {
   useEffect(() => {
     onAuthStateChanged(auth, (userAuth) => {
       if (userAuth) {
-        // dispatch(setCurrentUserRequest());
+        dispatch(setCurrentUserRequest());
         dispatch(syncUsers());
       } else {
-        dispatch(logout());
+        dispatch(logoutRequest());
       }
     });
   }, []);

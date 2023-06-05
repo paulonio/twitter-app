@@ -23,7 +23,7 @@ export const AvatarWrapper = styled.div`
   }
 `;
 
-export const TweetContent = styled.div`
+export const TweetForm = styled.form`
   width: 87%;
   max-width: 794px;
   display: flex;

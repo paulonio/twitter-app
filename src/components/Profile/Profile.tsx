@@ -10,13 +10,16 @@ import ErrorBoundary from '@components/ErrorBoundary/ErrorBoundary';
 
 import type { StoreType } from '@store/index.ts';
 import type { UserType } from '@store/slices/authSlice';
+import type { TweetType } from '@store/slices/tweetSlice';
 import { syncTweetsRequest } from '@store/actions/actions';
 
 import { HeaderSubtitle, HeaderTitle, ProfileImage, ProfileWrapper } from './styled';
 
 const Profile = () => {
   const user = useSelector<StoreType, UserType | null>((state) => state.auth.user);
+  const tweets = useSelector<StoreType, TweetType[]>((state) => state.tweet.profileTweets);
   const dispatch = useDispatch();
+  const profileTweetsAmount = tweets.length;
 
   useEffect(() => {
     if (user) {
@@ -33,7 +36,7 @@ const Profile = () => {
       <ErrorBoundary>
         <Header>
           <HeaderTitle>{user?.displayName}</HeaderTitle>
-          <HeaderSubtitle>1,070 Tweets</HeaderSubtitle>
+          <HeaderSubtitle>{profileTweetsAmount} Tweets</HeaderSubtitle>
         </Header>
         <ProfileImage />
         <ProfileUser />
