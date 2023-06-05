@@ -75,3 +75,7 @@ export const PreviewImage = styled.img`
     display: none;
   }
 `;
+
+export const TweetBlockWrapper = styled.div`
+  padding: 20px;
+`;

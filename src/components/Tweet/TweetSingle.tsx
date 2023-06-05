@@ -7,7 +7,7 @@ import Tweet from '@components/Tweet/Tweet';
 import type { StoreType } from '@store/index.ts';
 import type { TweetType } from '@store/slices/tweetSlice';
 
-import { TweetWrapper } from './styled';
+import { TweetSingleWrapper } from './styled';
 
 const TweetSingle = () => {
   const tweets = useSelector<StoreType, TweetType[]>((state) => state.tweet.tweets);
@@ -15,9 +15,9 @@ const TweetSingle = () => {
   const [currentTweet] = tweets.filter((tweet) => tweet.id === id);
 
   return (
-    <TweetWrapper>
+    <TweetSingleWrapper>
       <Tweet currentTweet={currentTweet} />
-    </TweetWrapper>
+    </TweetSingleWrapper>
   );
 };
 

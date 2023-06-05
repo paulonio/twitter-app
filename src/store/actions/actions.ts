@@ -1,6 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
 
-import type { ChangePasswordForm } from '@src/components/ChangePassword/ChangePassword';
+import type { ChangePasswordForm } from '@src/components/EditUser/ChangePassword';
 import type { EditUserForm } from '@src/components/EditUser/EditUser';
 import type { LoginForm } from '@src/components/Login/Login';
 import type { SignUpForm } from '@src/components/SignUp/SignUp';

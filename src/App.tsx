@@ -5,17 +5,16 @@ import { onAuthStateChanged } from 'firebase/auth';
 
 import { auth } from '@src/firebase';
 
-import { User, logout } from '@store/slices/authSlice';
-import { syncTweetsRequest } from '@store/saga/tweetSaga';
+import { UserType, logout } from '@store/slices/authSlice';
+import { syncTweetsRequest, setCurrentUserRequest, syncUsers } from '@store/actions/actions';
 import type { StoreType } from '@store/index';
-import { setCurrentUserRequest, syncUsers } from '@store/saga/authSaga';
 
 import Global from '@styles/Global';
 
 import RouterElement from '@routes/index';
 
 const App = () => {
-  const user = useSelector<StoreType, User | null>((state) => state.auth.user);
+  const user = useSelector<StoreType, UserType | null>((state) => state.auth.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 

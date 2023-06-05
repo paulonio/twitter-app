@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TweetSingle from '@components/TweetSingle/TweetSingle';
+import TweetSingle from '@src/components/Tweet/TweetSingle';
 
 const TweetPage = () => {
   return <TweetSingle />;

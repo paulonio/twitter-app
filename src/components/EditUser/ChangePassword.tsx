@@ -5,7 +5,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Input } from '@components/SignUp/styled';
 import { StyledButton } from '@components/Button/styled';
 
-import { changePasswordRequest } from '@store/saga/authSaga';
+import { changePasswordRequest } from '@store/actions/actions';
 
 import { PasswordForm, ButtonWrapper } from './styled';
 

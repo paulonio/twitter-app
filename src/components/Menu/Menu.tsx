@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import MenuUser from '@components/MenuUser/MenuUser';
+import MenuUser from '@src/components/Menu/MenuUser';
 import { FixedWrapper } from '@components/Sidebar/styled';
 import Nav from '@components/Nav/Nav';
 import { StyledButton } from '@components/Button/styled';
-import TweetBlockModal from '@components/TweetBlockModal/TweetBlockModal';
+import TweetBlockModal from '@src/components/TweetBlock/TweetBlockModal';
 
 import type { StoreType } from '@store/index.ts';
 import { User } from '@store/slices/authSlice';

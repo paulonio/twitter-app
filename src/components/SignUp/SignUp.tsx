@@ -8,7 +8,7 @@ import * as yup from 'yup';
 import Button from '@components/Button/Button';
 import { StyledButton } from '@components/Button/styled';
 
-import { signUpWithEmailRequest } from '@store/saga/authSaga';
+import { signUpWithEmailRequest } from '@store/actions/actions';
 
 import { SELECT_DATE_DATA, SELECT_MONTH_DATA, SELECT_YEAR_DATA } from '@constants/constants';
 

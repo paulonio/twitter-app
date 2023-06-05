@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 
+import EditIcon from '@icons/EditIcon';
+
 export const TweetWrapper = styled.div`
   width: 100%;
   max-width: 910px;
@@ -68,4 +70,46 @@ export const LikeAmount = styled.span`
   font-weight: 400;
   color: ${({ theme }) => theme.colors.text};
   opacity: 0.6;
+`;
+
+export const TweetHeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+export const TweetTitle = styled.div`
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 470px) {
+    flex-direction: column;
+    align-items: start;
+  }
+`;
+
+export const EditButton = styled.button`
+  width: 17px;
+  height: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: ${({ theme }) => theme.colors.backgroundBody};
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const Edit = styled(EditIcon)`
+  fill: ${({ theme }) => theme.colors.text};
+`;
+
+export const TweetSingleWrapper = styled.div`
+  width: 100%;
+  max-width: 910px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

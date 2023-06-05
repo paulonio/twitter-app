@@ -6,7 +6,8 @@ import { StyledButton } from '@components/Button/styled';
 
 import type { StoreType } from '@store/index.ts';
 import type { UserType } from '@store/slices/authSlice';
-import { AddTweetRequest, addTweetRequest } from '@store/saga/tweetSaga';
+import type { AddTweetRequest } from '@store/saga/tweetSaga';
+import { addTweetRequest } from '@store/actions/actions';
 
 import ImageIcon from '@icons/ImageIcon';
 

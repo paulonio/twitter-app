@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 import Header from '@components/Header/Header';
-import ProfileUser from '@components/ProfileUser/ProfileUser';
+import ProfileUser from '@src/components/Profile/ProfileUser';
 import TweetBlock from '@components/TweetBlock/TweetBlock';
 import Tweets from '@components/Tweets/Tweets';
 import ErrorBoundary from '@components/ErrorBoundary/ErrorBoundary';
 
 import type { StoreType } from '@store/index.ts';
 import type { UserType } from '@store/slices/authSlice';
-import { syncTweetsRequest } from '@store/saga/tweetSaga';
+import { syncTweetsRequest } from '@store/actions/actions';
 
 import { HeaderSubtitle, HeaderTitle, ProfileImage, ProfileWrapper } from './styled';
 

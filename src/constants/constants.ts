@@ -105,3 +105,12 @@ export const NAVIGATION = [
   { to: '/profile', text: 'Profile', Component: Profile },
   { to: '/feed', text: 'More', Component: More },
 ];
+
+export const POSTS_DATA = [
+  { id: '1', src: '/assets/images/post-1.jpg' },
+  { id: '2', src: '/assets/images/post-2.jpg' },
+  { id: '3', src: '/assets/images/post-3.jpg' },
+  { id: '4', src: '/assets/images/post-4.jpg' },
+  { id: '5', src: '/assets/images/post-5.jpg' },
+  { id: '6', src: '/assets/images/post-6.jpg' },
+];

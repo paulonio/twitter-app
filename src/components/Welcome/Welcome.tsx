@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { StyledButton } from '@components/Button/styled';
 
-import { signUpWithGoogleRequest } from '@store/saga/authSaga';
+import { signUpWithGoogleRequest } from '@store/actions/actions';
 import {
   ButtonsWrapper,
   WelcomeContent,

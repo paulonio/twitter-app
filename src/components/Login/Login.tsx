@@ -10,7 +10,7 @@ import { Error, Input } from '@components/SignUp/styled';
 import Button from '@components/Button/Button';
 import { StyledButton } from '@components/Button/styled';
 
-import { loginRequest } from '@store/saga/authSaga';
+import { loginRequest } from '@store/actions/actions';
 
 import { Form, LoginWrapper } from './styled';
 

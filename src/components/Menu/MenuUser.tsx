@@ -2,17 +2,17 @@ import React, { FC } from 'react';
 
 import Avatar from '@components/Avatar/Avatar';
 
-import { User } from '@store/slices/authSlice';
+import { UserType } from '@store/slices/authSlice';
 
-import { AvatarWrapper, Nickname, UserInfo, Username, Wrapper } from './styled';
+import { AvatarWrapper, Nickname, UserInfo, Username, UserWrapper } from './styled';
 
 interface MenuUserProps {
-  user: User;
+  user: UserType;
 }
 
 const MenuUser: FC<MenuUserProps> = ({ user }) => {
   return (
-    <Wrapper>
+    <UserWrapper>
       <AvatarWrapper>
         <Avatar />
       </AvatarWrapper>
@@ -20,7 +20,7 @@ const MenuUser: FC<MenuUserProps> = ({ user }) => {
         <Username>{user.displayName}</Username>
         <Nickname>@{user.email.split('@')[0]}</Nickname>
       </UserInfo>
-    </Wrapper>
+    </UserWrapper>
   );
 };
 

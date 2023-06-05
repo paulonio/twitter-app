@@ -1,17 +1,17 @@
 import React, { FC, MouseEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import MenuUser from '@components/MenuUser/MenuUser';
+import MenuUser from '@src/components/Menu/MenuUser';
 
 import { TweetType } from '@store/slices/tweetSlice';
-import { User } from '@store/slices/authSlice';
+import type { UserType } from '@store/slices/authSlice';
 
 import { isUserArray } from '@utils/utils';
 
 import { SearchResult, SearchResults } from './styled';
 
 interface ResultsProps {
-  data: TweetType[] | User[];
+  data: TweetType[] | UserType[];
 }
 
 const SidebarResults: FC<ResultsProps> = ({ data }) => {

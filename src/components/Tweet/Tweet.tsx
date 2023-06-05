@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import Avatar from '@components/Avatar/Avatar';
-import TweetHeader from '@components/TweetHeader/TweetHeader';
+import TweetHeader from '@src/components/Tweet/TweetHeader';
 import ErrorBoundary from '@components/ErrorBoundary/ErrorBoundary';
 
 import type { TweetType } from '@store/slices/tweetSlice';

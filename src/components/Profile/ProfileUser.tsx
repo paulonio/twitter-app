@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import Followers from '@components/Followers/Followers';
-import ProfileUserHeader from '@components/ProfileUserHeader/ProfileUserHeader';
+import Followers from '@src/components/Profile/Followers';
+import ProfileUserHeader from '@src/components/Profile/ProfileUserHeader';
 import ErrorBoundary from '@components/ErrorBoundary/ErrorBoundary';
 
 import type { UserType } from '@store/slices/authSlice';

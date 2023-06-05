@@ -36,3 +36,11 @@ export const ButtonWrapper = styled.div`
     width: 100%;
   }
 `;
+
+export const PasswordForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  row-gap: 10px;
+`;

@@ -1,9 +1,9 @@
 import React, { ChangeEvent, FC, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import SidebarInput from '@components/SidebarInput/SidebarInput';
-import SidebarPosts from '@components/SidebarPosts/SidebarPosts';
-import SidebarUsers from '@components/SidebarUsers/SidebarUsers';
+import SidebarInput from '@src/components/Sidebar/SidebarInput';
+import SidebarPosts from '@src/components/Sidebar/SidebarPosts';
+import SidebarUsers from '@src/components/Sidebar/SidebarUsers';
 
 import type { StoreType } from '@store/index.ts';
 import type { UserType } from '@store/slices/authSlice';

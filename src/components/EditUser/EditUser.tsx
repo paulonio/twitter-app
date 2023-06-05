@@ -6,11 +6,11 @@ import * as yup from 'yup';
 
 import Modal from '@components/Modal/Modal';
 import { Input } from '@components/SignUp/styled';
-import ChangePassword from '@components/ChangePassword/ChangePassword';
+import ChangePassword from '@src/components/EditUser/ChangePassword';
 import { StyledButton } from '@components/Button/styled';
 
-import { updateUserRequest } from '@store/saga/authSaga';
-import { User, logout } from '@store/slices/authSlice';
+import { updateUserRequest } from '@store/actions/actions';
+import { UserType, logout } from '@store/slices/authSlice';
 import type { StoreType } from '@store/index.ts';
 
 import { ButtonWrapper, EditForm, RadioLabel, ControlsWrapper } from './styled';
@@ -36,7 +36,7 @@ const schema = yup
   .required();
 
 const EditUser: FC<EditUserProps> = ({ isActive, setActive }) => {
-  const user = useSelector<StoreType, User | null>((state) => state.auth.user);
+  const user = useSelector<StoreType, UserType | null>((state) => state.auth.user);
   const { register, handleSubmit } = useForm<EditUserForm>({
     resolver: yupResolver(schema),
     defaultValues: {

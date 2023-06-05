@@ -1,11 +1,11 @@
 import React, { ChangeEvent, FC } from 'react';
 
-import SidebarResults from '@components/SidebarResults/SidebarResults';
+import SidebarResults from '@src/components/Sidebar/SidebarResults';
 
 import type { TweetType } from '@store/slices/tweetSlice';
 import type { UserType } from '@store/slices/authSlice';
 
-import { Label, SearchField, SearchIcon, Wrapper } from './styled';
+import { Label, SearchField, SearchIcon, InputWrapper } from './styled';
 
 interface SidebarInputProps {
   value: string;
@@ -15,13 +15,13 @@ interface SidebarInputProps {
 
 const SidebarInput: FC<SidebarInputProps> = ({ value, onChange, data }) => {
   return (
-    <Wrapper>
+    <InputWrapper>
       <Label>
         <SearchIcon />
         <SearchField value={value} onChange={onChange} />
         {data && value && <SidebarResults data={data} />}
       </Label>
-    </Wrapper>
+    </InputWrapper>
   );
 };
 
