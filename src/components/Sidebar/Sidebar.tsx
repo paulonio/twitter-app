@@ -6,7 +6,7 @@ import SidebarPosts from '@components/SidebarPosts/SidebarPosts';
 import SidebarUsers from '@components/SidebarUsers/SidebarUsers';
 
 import type { StoreType } from '@store/index.ts';
-import type { User } from '@store/slices/authSlice';
+import type { UserType } from '@store/slices/authSlice';
 import type { TweetType } from '@store/slices/tweetSlice';
 
 import { filterTweets, filterUsers } from '@utils/utils';
@@ -18,7 +18,7 @@ interface SidebarProps {
 }
 
 const Sidebar: FC<SidebarProps> = ({ type }) => {
-  const users = useSelector<StoreType, User[]>((state) => state.auth.allUsers);
+  const users = useSelector<StoreType, UserType[]>((state) => state.auth.allUsers);
   const tweets = useSelector<StoreType, TweetType[]>((state) => state.tweet.tweets);
   const [usersFilterValue, setUsersFilterValue] = useState<string>('');
   const [tweetsFilterValue, setTweetsFilterValue] = useState<string>('');

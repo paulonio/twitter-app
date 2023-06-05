@@ -8,7 +8,7 @@ export interface Tweet {
   UrlToImage?: string;
 }
 
-export interface User {
+export interface UserType {
   email: string;
   displayName: string;
   uid: string;
@@ -17,8 +17,8 @@ export interface User {
 }
 
 export interface InitialState {
-  user: User | null;
-  allUsers: User[];
+  user: UserType | null;
+  allUsers: UserType[];
   error: FirebaseError | null;
 }
 

@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Avatar from '@components/Avatar/Avatar';
 import { StyledButton } from '@components/Button/styled';
 
-import { StoreType } from '@store/index.ts';
-import type { User } from '@store/slices/authSlice';
+import type { StoreType } from '@store/index.ts';
+import type { UserType } from '@store/slices/authSlice';
 import { AddTweetRequest, addTweetRequest } from '@store/saga/tweetSaga';
 
 import ImageIcon from '@icons/ImageIcon';
@@ -29,7 +29,7 @@ interface TweetBlockProps {
 }
 
 const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
-  const user = useSelector<StoreType, User | null>((state) => state.auth.user);
+  const user = useSelector<StoreType, UserType | null>((state) => state.auth.user);
   const dispatch = useDispatch();
   const [tweet, setTweet] = useState<string>('');
   const [image, setImage] = useState<File | undefined>(undefined);

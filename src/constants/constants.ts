@@ -9,6 +9,10 @@ import {
   Profile,
 } from '@components/Nav/styled';
 
+export const TWITTER = 'twitter';
+export const TWEETS = 'tweets';
+export const USERS = 'users';
+
 export const MONTH_MAP = [
   'Jan',
   'Feb',

@@ -3,14 +3,14 @@ import React, { ChangeEvent, FC } from 'react';
 import SidebarResults from '@components/SidebarResults/SidebarResults';
 
 import type { TweetType } from '@store/slices/tweetSlice';
-import type { User } from '@store/slices/authSlice';
+import type { UserType } from '@store/slices/authSlice';
 
 import { Label, SearchField, SearchIcon, Wrapper } from './styled';
 
 interface SidebarInputProps {
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  data: TweetType[] | User[];
+  data: TweetType[] | UserType[];
 }
 
 const SidebarInput: FC<SidebarInputProps> = ({ value, onChange, data }) => {

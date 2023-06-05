@@ -8,13 +8,13 @@ import Tweets from '@components/Tweets/Tweets';
 import { HeaderTitle } from '@components/Profile/styled';
 
 import type { StoreType } from '@store/index.ts';
-import type { User } from '@store/slices/authSlice';
+import type { UserType } from '@store/slices/authSlice';
 
 import { HeaderSpace, HomeWrapper } from './styled';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 
 const Home = () => {
-  const user = useSelector<StoreType, User | null>((state) => state.auth.user);
+  const user = useSelector<StoreType, UserType | null>((state) => state.auth.user);
 
   if (!user) {
     return <Navigate to="/" replace />;

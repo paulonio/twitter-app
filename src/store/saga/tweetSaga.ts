@@ -1,7 +1,6 @@
 import { FirebaseError } from 'firebase/app';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { DocumentData, DocumentSnapshot } from 'firebase/firestore';
-import { createAction } from '@reduxjs/toolkit';
 
 import {
   TweetType,
@@ -11,19 +10,15 @@ import {
   syncTweetsFailure,
   syncTweetsSuccess,
 } from '@store/slices/tweetSlice';
-import type { User } from '@store/slices/authSlice';
+import { addTweetRequest, syncTweetsRequest } from '@store/actions/actions';
+
+import { TWITTER, TWEETS } from '@constants/constants';
 
 import { getDocument, updateDocument, uploadImage } from '@utils/utils';
 
 export interface AddTweetRequest extends Omit<TweetType, 'urlToImage'> {
   image?: File;
 }
-
-export const TWITTER = 'twitter';
-export const TWEETS = 'tweets';
-
-export const addTweetRequest = createAction<AddTweetRequest>('tweet/addTweetRequest');
-export const syncTweetsRequest = createAction<User>('tweet/syncTweetsRequest');
 
 function* addTweetWorker({ payload }: ReturnType<typeof addTweetRequest>) {
   try {

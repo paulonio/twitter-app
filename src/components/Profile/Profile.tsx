@@ -9,13 +9,13 @@ import Tweets from '@components/Tweets/Tweets';
 import ErrorBoundary from '@components/ErrorBoundary/ErrorBoundary';
 
 import type { StoreType } from '@store/index.ts';
-import type { User } from '@store/slices/authSlice';
+import type { UserType } from '@store/slices/authSlice';
 import { syncTweetsRequest } from '@store/saga/tweetSaga';
 
 import { HeaderSubtitle, HeaderTitle, ProfileImage, ProfileWrapper } from './styled';
 
 const Profile = () => {
-  const user = useSelector<StoreType, User | null>((state) => state.auth.user);
+  const user = useSelector<StoreType, UserType | null>((state) => state.auth.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
