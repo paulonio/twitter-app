@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import MenuUser from '@src/components/Menu/MenuUser';
 import { FixedWrapper } from '@components/Sidebar/styled';
 import Nav from '@components/Nav/Nav';
-import { StyledButton } from '@components/Button/styled';
+import Button from '@components/Button/Button';
 import TweetBlockModal from '@src/components/TweetBlock/TweetBlockModal';
 
 import type { StoreType } from '@store/index.ts';
@@ -27,9 +27,9 @@ const Menu = () => {
         <Nav />
         <TweetBlockModal isActive={isModalOpen} setActive={setModalOpen} />
         <ButtonWrapper>
-          <StyledButton $buttonType="primary" onClick={handleOpenModal}>
+          <Button $buttonType="primary" onClick={handleOpenModal}>
             Tweet
-          </StyledButton>
+          </Button>
         </ButtonWrapper>
         {user && <MenuUser user={user} />}
       </FixedWrapper>

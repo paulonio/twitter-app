@@ -9,8 +9,8 @@ type ButtonProps = {
   $buttonType: ButtonType;
 } & HTMLAttributes<HTMLButtonElement>;
 
-const Button: FC<ButtonProps> = ({ $buttonType, children }) => {
-  return <StyledButton $buttonType={$buttonType}>{children}</StyledButton>;
+const Button: FC<ButtonProps> = (props) => {
+  return <StyledButton {...props} />;
 };
 
 export default Button;

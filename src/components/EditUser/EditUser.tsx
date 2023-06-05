@@ -7,7 +7,7 @@ import * as yup from 'yup';
 import Modal from '@components/Modal/Modal';
 import { Input } from '@components/SignUp/styled';
 import ChangePassword from '@components/EditUser/ChangePassword';
-import { StyledButton } from '@components/Button/styled';
+import Button from '@components/Button/Button';
 
 import { logoutRequest, updateUserRequest } from '@store/actions/actions';
 import type { UserType } from '@store/slices/authSlice';
@@ -55,12 +55,23 @@ const EditUser: FC<EditUserProps> = ({ isActive, setActive }) => {
   return (
     <Modal isActive={isActive} setActive={setActive}>
       <EditForm onSubmit={handleSubmit(onSubmit)}>
-        <Input type="text" placeholder="Write your name" {...register('name')} />
+        <Input
+          type="text"
+          placeholder="Write your name"
+          {...register('name')}
+          data-test-id="input-name"
+        />
         <Input type="text" placeholder="Write your last name" {...register('lastName')} />
         <Input type="text" placeholder="Your telegram link" {...register('telegram')} />
         <ControlsWrapper>
           <RadioLabel>
-            <Input id="male" type="radio" value="male" {...register('gender')} />
+            <Input
+              id="male"
+              type="radio"
+              value="male"
+              {...register('gender')}
+              data-test-id="radio-button"
+            />
             Male
           </RadioLabel>
           <RadioLabel>
@@ -69,7 +80,7 @@ const EditUser: FC<EditUserProps> = ({ isActive, setActive }) => {
           </RadioLabel>
         </ControlsWrapper>
         <ButtonWrapper>
-          <StyledButton $buttonType="primary">Submit</StyledButton>
+          <Button $buttonType="primary">Submit</Button>
         </ButtonWrapper>
       </EditForm>
       <button type="button" onClick={() => dispatch(logoutRequest())}>

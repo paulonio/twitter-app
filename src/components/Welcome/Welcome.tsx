@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { StyledButton } from '@components/Button/styled';
+import Button from '@components/Button/Button';
 import { Logo } from '@components/Menu/styled';
 
 import { signUpWithGoogleRequest } from '@store/actions/actions';
@@ -40,18 +40,18 @@ const Welcome = () => {
         <WelcomeTitle>Happening now</WelcomeTitle>
         <WelcomeSubtitle>Join Twitter today</WelcomeSubtitle>
         <ButtonsWrapper>
-          <StyledButton $buttonType="bordered" onClick={handleSignInWithGoogle}>
+          <Button $buttonType="bordered" onClick={handleSignInWithGoogle}>
             Sign up with Google
-          </StyledButton>
-          <StyledButton $buttonType="bordered" onClick={handleNavigateToSignUp}>
+          </Button>
+          <Button $buttonType="bordered" onClick={handleNavigateToSignUp}>
             Sign up with phone or email
-          </StyledButton>
+          </Button>
         </ButtonsWrapper>
         <WelcomeText>
           Already have an account?
-          <StyledButton $buttonType="link" onClick={handleNavigateToLogin}>
+          <Button $buttonType="link" onClick={handleNavigateToLogin}>
             Log in
-          </StyledButton>
+          </Button>
         </WelcomeText>
       </WelcomeContent>
     </WelcomeWrapper>

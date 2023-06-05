@@ -8,7 +8,6 @@ import * as yup from 'yup';
 import { WelcomeSubtitle } from '@components/Welcome/styled';
 import { Error, Input } from '@components/SignUp/styled';
 import Button from '@components/Button/Button';
-import { StyledButton } from '@components/Button/styled';
 import { Logo } from '@components/Menu/styled';
 
 import { loginRequest } from '@store/actions/actions';
@@ -60,9 +59,9 @@ const Login = () => {
         <Error>{errors.password?.message}</Error>
         <Button $buttonType="primary">Log In</Button>
       </Form>
-      <StyledButton $buttonType="link" onClick={handleNavigateToWelcomePage}>
+      <Button $buttonType="link" onClick={handleNavigateToWelcomePage}>
         Sign up to Twitter
-      </StyledButton>
+      </Button>
     </LoginWrapper>
   );
 };

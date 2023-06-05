@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import Avatar from '@components/Avatar/Avatar';
-import { StyledButton } from '@components/Button/styled';
+import Button from '@components/Button/Button';
 
 import ImageIcon from '@icons/ImageIcon';
 
@@ -58,7 +58,7 @@ const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
             {previewUrl && <PreviewImage src={previewUrl} alt="Preview" />}
           </ImageControlsWrapper>
           <ButtonWrapper>
-            <StyledButton $buttonType="primary">Tweet</StyledButton>
+            <Button $buttonType="primary">Tweet</Button>
           </ButtonWrapper>
         </TweetFooter>
       </TweetForm>

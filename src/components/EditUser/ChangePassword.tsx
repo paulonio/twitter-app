@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { Input } from '@components/SignUp/styled';
-import { StyledButton } from '@components/Button/styled';
+import Button from '@components/Button/Button';
 
 import { changePasswordRequest } from '@store/actions/actions';
 
@@ -27,7 +27,7 @@ const ChangePassword = () => {
       <Input type="password" placeholder="Old password" {...register('oldPassword')} />
       <Input type="password" placeholder="New password" {...register('newPassword')} />
       <ButtonWrapper>
-        <StyledButton $buttonType="primary">Change password</StyledButton>
+        <Button $buttonType="primary">Change password</Button>
       </ButtonWrapper>
     </PasswordForm>
   );

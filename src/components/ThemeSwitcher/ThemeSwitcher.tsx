@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { StyledButton } from '@components/Button/styled';
+import Button from '@components/Button/Button';
 
 import type { StoreType } from '@store/index.ts';
 import { changeTheme } from '@store/slices/themeSlice';
@@ -19,9 +19,9 @@ const ThemeSwitcher = () => {
   };
 
   return (
-    <StyledButton $buttonType="link" onClick={toggleTheme}>
+    <Button $buttonType="link" onClick={toggleTheme}>
       Switch theme
-    </StyledButton>
+    </Button>
   );
 };
 

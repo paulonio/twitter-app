@@ -2,10 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import MenuUser from '@src/components/Menu/MenuUser';
-import { StyledButton } from '@components/Button/styled';
+import Button from '@components/Button/Button';
 
 import type { StoreType } from '@store/index.ts';
-import { UserType } from '@store/slices/authSlice';
+import type { UserType } from '@store/slices/authSlice';
 
 import { UsersTitle, UsersWrapper, UserRow, ButtonWrapper } from './styled';
 
@@ -18,10 +18,10 @@ const SidebarUsers = () => {
       <UserRow>
         {user && <MenuUser user={user} />}
         <ButtonWrapper>
-          <StyledButton $buttonType="secondary">Follow</StyledButton>
+          <Button $buttonType="secondary">Follow</Button>
         </ButtonWrapper>
       </UserRow>
-      <StyledButton $buttonType="link">Show more</StyledButton>
+      <Button $buttonType="link">Show more</Button>
     </UsersWrapper>
   );
 };

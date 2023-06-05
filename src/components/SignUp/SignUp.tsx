@@ -6,7 +6,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import Button from '@components/Button/Button';
-import { StyledButton } from '@components/Button/styled';
 import DatePickers from '@components/SignUp/DatePickers';
 
 import { signUpWithEmailRequest } from '@store/actions/actions';
@@ -71,9 +70,9 @@ const SignUp = () => {
         <Error>{errors.name?.message}</Error>
         <Input type="text" placeholder="Email" {...register('email')} />
         <Error>{errors.email?.message}</Error>
-        <StyledButton $buttonType="link" onClick={handleNavigateToWelcomePage}>
+        <Button $buttonType="link" onClick={handleNavigateToWelcomePage}>
           Use email
-        </StyledButton>
+        </Button>
         <DatePickers errors={errors} register={register} />
         <Input type="password" placeholder="Password" {...register('password')} />
         <Error>{errors.password?.message}</Error>
