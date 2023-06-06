@@ -2,12 +2,6 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export type FirebaseError = { code: string; message: string };
 
-export interface Tweet {
-  userUid: string;
-  text: string;
-  UrlToImage?: string;
-}
-
 export interface UserType {
   email: string;
   displayName: string;

@@ -50,15 +50,17 @@ const TweetBlock: FC<TweetBlockProps> = ({ setModal }) => {
         <Avatar />
       </AvatarWrapper>
       <TweetForm onSubmit={handleSubmit(onSubmit)}>
-        <TweetInput {...register('tweet')} />
+        <TweetInput {...register('tweet')} data-testid="tweet-input" />
         <TweetFooter>
           <ImageControlsWrapper>
             <ImageIcon onClick={handleAddImage} />
-            <FileInput ref={inputRef} onChange={handleChangeImage} />
+            <FileInput ref={inputRef} onChange={handleChangeImage} data-testid="image-input" />
             {previewUrl && <PreviewImage src={previewUrl} alt="Preview" />}
           </ImageControlsWrapper>
           <ButtonWrapper>
-            <Button $buttonType="primary">Tweet</Button>
+            <Button $buttonType="primary" data-testid="tweet-button">
+              Tweet
+            </Button>
           </ButtonWrapper>
         </TweetFooter>
       </TweetForm>

@@ -1,0 +1,545 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sign up should render sign up component 1`] = `
+<div>
+  <section
+    class="sc-hzJlrQ qlouH"
+  >
+    <img
+      alt="Twitter logo"
+      class="sc-cQdTPf epjNjn"
+      src="/assets/icons/twitter-logo.svg"
+    />
+    <form
+      class="sc-hlCNGy bdhUby"
+    >
+      <h2
+        class="sc-hBNyCF dooLDi"
+      >
+        Create an account
+      </h2>
+      <input
+        class="sc-hnHaRn eKyvOD"
+        data-testid="name"
+        name="name"
+        placeholder="Name"
+        type="text"
+      />
+      <p
+        class="sc-SYvCl csQMFq"
+      />
+      <input
+        class="sc-hnHaRn eKyvOD"
+        data-testid="email"
+        name="email"
+        placeholder="Email"
+        type="text"
+      />
+      <p
+        class="sc-SYvCl csQMFq"
+      />
+      <button
+        class="sc-erFrCC fpyDud"
+      >
+        Use email
+      </button>
+      <div
+        class="sc-cEPTvB ilOSst"
+      >
+        <div
+          class="sc-fPKvMM jRDJCo"
+        >
+          <select
+            class="sc-goDJBy iWXaNu"
+            data-testid="select"
+            name="month"
+          >
+            <option
+              class="sc-gqHWMn gwEFlI"
+              disabled=""
+              value="Month"
+            >
+              Month
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="Jan"
+            >
+              Jan
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="Feb"
+            >
+              Feb
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="Mar"
+            >
+              Mar
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="Apr"
+            >
+              Apr
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="May"
+            >
+              May
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="Jun"
+            >
+              Jun
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="Jul"
+            >
+              Jul
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="Aug"
+            >
+              Aug
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="Sep"
+            >
+              Sep
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="Oct"
+            >
+              Oct
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="Nov"
+            >
+              Nov
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="Dec"
+            >
+              Dec
+            </option>
+          </select>
+          <p
+            class="sc-SYvCl csQMFq"
+          />
+        </div>
+        <div
+          class="sc-jySWPz honjzI"
+        >
+          <select
+            class="sc-goDJBy iWXaNu"
+            name="date"
+          >
+            <option
+              class="sc-gqHWMn gwEFlI"
+              disabled=""
+              value="Date"
+            >
+              Date
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="1"
+            >
+              1
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2"
+            >
+              2
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="3"
+            >
+              3
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="4"
+            >
+              4
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="5"
+            >
+              5
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="6"
+            >
+              6
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="7"
+            >
+              7
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="8"
+            >
+              8
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="9"
+            >
+              9
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="10"
+            >
+              10
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="11"
+            >
+              11
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="12"
+            >
+              12
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="13"
+            >
+              13
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="14"
+            >
+              14
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="15"
+            >
+              15
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="16"
+            >
+              16
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="17"
+            >
+              17
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="18"
+            >
+              18
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="19"
+            >
+              19
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="20"
+            >
+              20
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="21"
+            >
+              21
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="22"
+            >
+              22
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="23"
+            >
+              23
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="24"
+            >
+              24
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="25"
+            >
+              25
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="26"
+            >
+              26
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="27"
+            >
+              27
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="28"
+            >
+              28
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="29"
+            >
+              29
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="30"
+            >
+              30
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="31"
+            >
+              31
+            </option>
+          </select>
+          <p
+            class="sc-SYvCl csQMFq"
+          />
+        </div>
+        <div
+          class="sc-jySWPz honjzI"
+        >
+          <select
+            class="sc-goDJBy iWXaNu"
+            name="year"
+          >
+            <option
+              class="sc-gqHWMn gwEFlI"
+              disabled=""
+              value="Year"
+            >
+              Year
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="1990"
+            >
+              1990
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="1991"
+            >
+              1991
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="1992"
+            >
+              1992
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="1993"
+            >
+              1993
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="1994"
+            >
+              1994
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="1995"
+            >
+              1995
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="1996"
+            >
+              1996
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="1997"
+            >
+              1997
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="1998"
+            >
+              1998
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="1999"
+            >
+              1999
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2000"
+            >
+              2000
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2001"
+            >
+              2001
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2002"
+            >
+              2002
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2003"
+            >
+              2003
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2004"
+            >
+              2004
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2005"
+            >
+              2005
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2006"
+            >
+              2006
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2007"
+            >
+              2007
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2008"
+            >
+              2008
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2009"
+            >
+              2009
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2010"
+            >
+              2010
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2011"
+            >
+              2011
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2012"
+            >
+              2012
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2013"
+            >
+              2013
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2014"
+            >
+              2014
+            </option>
+            <option
+              class="sc-gqHWMn gwEFlI"
+              value="2015"
+            >
+              2015
+            </option>
+          </select>
+          <p
+            class="sc-SYvCl csQMFq"
+          />
+        </div>
+      </div>
+      <input
+        class="sc-hnHaRn eKyvOD"
+        data-testid="password"
+        name="password"
+        placeholder="Password"
+        type="password"
+      />
+      <p
+        class="sc-SYvCl csQMFq"
+      />
+      <div
+        class="sc-QUirw jnedLj"
+      >
+        <button
+          class="sc-erFrCC iFaZZO"
+          data-testid="submit-button"
+        >
+          Sign up
+        </button>
+      </div>
+    </form>
+  </section>
+</div>
+`;

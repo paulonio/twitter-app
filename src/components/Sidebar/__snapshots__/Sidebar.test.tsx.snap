@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile should render profile component 1`] = `
+<div>
+  <aside
+    class="sc-burPHO dEhgfc"
+  >
+    <div
+      class="sc-jySWPz jApgcW"
+    >
+      <div
+        class="sc-hlwzUd hloTfY"
+      >
+        <label
+          class="sc-kwrclo eSVPPH"
+        >
+          <img
+            alt="Search icon"
+            class="sc-cQdTPf gCjdhq"
+            src="/assets/icons/Search.svg"
+          />
+          <input
+            class="sc-gaYwgq fpPeUK"
+            data-testid="search"
+            placeholder="Search Twitter"
+            value=""
+          />
+        </label>
+      </div>
+      <div
+        class="sc-goxvPd hDYMYy"
+      >
+        <div
+          class="sc-jzrYgo dcYMkf"
+        >
+          <img
+            alt="Post"
+            class="sc-cSiKfk eGJwyE"
+            src="/assets/images/post-1.jpg"
+          />
+        </div>
+        <div
+          class="sc-jzrYgo dcYMkf"
+        >
+          <img
+            alt="Post"
+            class="sc-cSiKfk eGJwyE"
+            src="/assets/images/post-2.jpg"
+          />
+        </div>
+        <div
+          class="sc-jzrYgo dcYMkf"
+        >
+          <img
+            alt="Post"
+            class="sc-cSiKfk eGJwyE"
+            src="/assets/images/post-3.jpg"
+          />
+        </div>
+        <div
+          class="sc-jzrYgo dcYMkf"
+        >
+          <img
+            alt="Post"
+            class="sc-cSiKfk eGJwyE"
+            src="/assets/images/post-4.jpg"
+          />
+        </div>
+        <div
+          class="sc-jzrYgo dcYMkf"
+        >
+          <img
+            alt="Post"
+            class="sc-cSiKfk eGJwyE"
+            src="/assets/images/post-5.jpg"
+          />
+        </div>
+        <div
+          class="sc-jzrYgo dcYMkf"
+        >
+          <img
+            alt="Post"
+            class="sc-cSiKfk eGJwyE"
+            src="/assets/images/post-6.jpg"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-hoAVFr fbrdgx"
+      >
+        <h3
+          class="sc-fEjTkZ imBqkP"
+        >
+          You might like
+        </h3>
+        <div
+          class="sc-hyPqDM gOhtLu"
+        >
+          <div
+            class="sc-cArpXK jglOxl"
+          >
+            <button
+              class="sc-FLSEX gXiFGZ"
+            >
+              Follow
+            </button>
+          </div>
+        </div>
+        <button
+          class="sc-FLSEX ldXsti"
+        >
+          Show more
+        </button>
+      </div>
+    </div>
+  </aside>
+</div>
+`;

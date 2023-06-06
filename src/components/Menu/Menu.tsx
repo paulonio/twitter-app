@@ -27,7 +27,7 @@ const Menu = () => {
         <Nav />
         <TweetBlockModal isActive={isModalOpen} setActive={setModalOpen} />
         <ButtonWrapper>
-          <Button $buttonType="primary" onClick={handleOpenModal}>
+          <Button $buttonType="primary" onClick={handleOpenModal} data-testid="menu-button">
             Tweet
           </Button>
         </ButtonWrapper>

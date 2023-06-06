@@ -24,7 +24,12 @@ const ChangePassword = () => {
 
   return (
     <PasswordForm onSubmit={handleSubmit(onSubmit)}>
-      <Input type="password" placeholder="Old password" {...register('oldPassword')} />
+      <Input
+        type="password"
+        placeholder="Old password"
+        {...register('oldPassword')}
+        data-testid="password-input"
+      />
       <Input type="password" placeholder="New password" {...register('newPassword')} />
       <ButtonWrapper>
         <Button $buttonType="primary">Change password</Button>

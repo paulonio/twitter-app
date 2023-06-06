@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Edit user should render change password component 1`] = `
+<div>
+  <form
+    class="sc-gqHWMn gWWPnR"
+  >
+    <input
+      class="sc-jxAitF ezSBjs"
+      data-testid="password-input"
+      name="oldPassword"
+      placeholder="Old password"
+      type="password"
+    />
+    <input
+      class="sc-jxAitF ezSBjs"
+      name="newPassword"
+      placeholder="New password"
+      type="password"
+    />
+    <div
+      class="sc-goDJBy jzJqRf"
+    >
+      <button
+        class="sc-hlCNGy dPvINu"
+      >
+        Change password
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Edit user should render edit user component 1`] = `<div />`;

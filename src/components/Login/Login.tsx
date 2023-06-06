@@ -53,11 +53,18 @@ const Login = () => {
       <Logo />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <WelcomeSubtitle>Log in to Twitter</WelcomeSubtitle>
-        <Input type="text" placeholder="Email" {...register('email')} />
+        <Input type="text" placeholder="Email" {...register('email')} data-testid="email" />
         <Error>{errors.email?.message}</Error>
-        <Input type="password" placeholder="Password" {...register('password')} />
+        <Input
+          type="password"
+          placeholder="Password"
+          {...register('password')}
+          data-testid="password"
+        />
         <Error>{errors.password?.message}</Error>
-        <Button $buttonType="primary">Log In</Button>
+        <Button $buttonType="primary" data-testid="submit-button">
+          Log In
+        </Button>
       </Form>
       <Button $buttonType="link" onClick={handleNavigateToWelcomePage}>
         Sign up to Twitter

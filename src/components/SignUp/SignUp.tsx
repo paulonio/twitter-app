@@ -66,18 +66,25 @@ const SignUp = () => {
       <Logo />
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormTitle>Create an account</FormTitle>
-        <Input type="text" placeholder="Name" {...register('name')} />
+        <Input type="text" placeholder="Name" {...register('name')} data-testid="name" />
         <Error>{errors.name?.message}</Error>
-        <Input type="text" placeholder="Email" {...register('email')} />
+        <Input type="text" placeholder="Email" {...register('email')} data-testid="email" />
         <Error>{errors.email?.message}</Error>
         <Button $buttonType="link" onClick={handleNavigateToWelcomePage}>
           Use email
         </Button>
         <DatePickers errors={errors} register={register} />
-        <Input type="password" placeholder="Password" {...register('password')} />
+        <Input
+          type="password"
+          placeholder="Password"
+          {...register('password')}
+          data-testid="password"
+        />
         <Error>{errors.password?.message}</Error>
         <ButtonWrapper>
-          <Button $buttonType="primary">Sign up</Button>
+          <Button $buttonType="primary" data-testid="submit-button">
+            Sign up
+          </Button>
         </ButtonWrapper>
       </Form>
     </SignUpWrapper>

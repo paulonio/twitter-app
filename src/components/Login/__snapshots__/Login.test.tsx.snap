@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should render login component 1`] = `
+<div>
+  <div
+    class="sc-bGbknN bMWdwO"
+  >
+    <img
+      alt="Twitter logo"
+      class="sc-hlwzUd egxnlX"
+      src="/assets/icons/twitter-logo.svg"
+    />
+    <form
+      class="sc-kIyXsW ceryGg"
+    >
+      <h2
+        class="sc-jxAitF dxAOsA"
+      >
+        Log in to Twitter
+      </h2>
+      <input
+        class="sc-hzJlrQ jUPwRT"
+        data-testid="email"
+        name="email"
+        placeholder="Email"
+        type="text"
+      />
+      <p
+        class="sc-hlCNGy kUiYVS"
+      />
+      <input
+        class="sc-hzJlrQ jUPwRT"
+        data-testid="password"
+        name="password"
+        placeholder="Password"
+        type="password"
+      />
+      <p
+        class="sc-hlCNGy kUiYVS"
+      />
+      <button
+        class="sc-cEPTvB eFzckz"
+        data-testid="submit-button"
+      >
+        Log In
+      </button>
+    </form>
+    <button
+      class="sc-cEPTvB cdTOtA"
+    >
+      Sign up to Twitter
+    </button>
+  </div>
+</div>
+`;

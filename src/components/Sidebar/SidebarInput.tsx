@@ -18,7 +18,7 @@ const SidebarInput: FC<SidebarInputProps> = ({ value, onChange, data }) => {
     <InputWrapper>
       <Label>
         <SearchIcon />
-        <SearchField value={value} onChange={onChange} />
+        <SearchField value={value} onChange={onChange} data-testid="search" />
         {data && value && <SidebarResults data={data} />}
       </Label>
     </InputWrapper>

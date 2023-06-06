@@ -17,7 +17,7 @@ import tweetReducer from '@store/slices/tweetSlice';
 import themeReducer from '@store/slices/themeSlice';
 import { rootWatcher } from '@store/saga';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
   auth: authReducer,
   tweet: tweetReducer,
   theme: themeReducer,

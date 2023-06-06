@@ -59,7 +59,7 @@ const EditUser: FC<EditUserProps> = ({ isActive, setActive }) => {
           type="text"
           placeholder="Write your name"
           {...register('name')}
-          data-test-id="input-name"
+          data-testid="input-name"
         />
         <Input type="text" placeholder="Write your last name" {...register('lastName')} />
         <Input type="text" placeholder="Your telegram link" {...register('telegram')} />
@@ -70,7 +70,7 @@ const EditUser: FC<EditUserProps> = ({ isActive, setActive }) => {
               type="radio"
               value="male"
               {...register('gender')}
-              data-test-id="radio-button"
+              data-testid="radio-button"
             />
             Male
           </RadioLabel>

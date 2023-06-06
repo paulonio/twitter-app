@@ -8,7 +8,7 @@ import { Select, Option } from './styled';
 
 const MonthSelect: FC<SelectProps> = ({ register }) => {
   return (
-    <Select {...register('month')}>
+    <Select {...register('month')} data-testid="select">
       {SELECT_MONTH_DATA.map((month, idx) => (
         <Option key={month} value={month} disabled={idx === 0}>
           {month}
