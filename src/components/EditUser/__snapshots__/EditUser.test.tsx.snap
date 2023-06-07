@@ -3,7 +3,7 @@
 exports[`Edit user should render change password component 1`] = `
 <div>
   <form
-    class="sc-jySWPz gIDFdC"
+    class="sc-burPHO QhFRB"
   >
     <input
       class="sc-hcxXMm cQbYlz"
@@ -19,7 +19,7 @@ exports[`Edit user should render change password component 1`] = `
       type="password"
     />
     <div
-      class="sc-fPKvMM jYTyGx"
+      class="sc-jySWPz kmkKzT"
     >
       <button
         class="sc-SYvCl bqLUHW"

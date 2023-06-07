@@ -67,6 +67,21 @@ export const StyledButton = styled.button<StyledButtonProps>`
             color: #4fa9e6;
           }
         `;
+      case 'danger':
+        return css`
+          padding: 10px 15px;
+          color: red;
+          background-color: transparent;
+          border: solid 1px red;
+          border-radius: 8px;
+          line-height: 24px;
+          transition: 0.3s;
+          &:hover {
+            color: orange;
+            border: solid 1px orange;
+            cursor: pointer;
+          }
+        `;
       default:
         return css``;
     }

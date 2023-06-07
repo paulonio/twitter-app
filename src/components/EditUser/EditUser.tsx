@@ -13,7 +13,7 @@ import { logoutRequest, updateUserRequest } from '@store/actions/actions';
 import type { UserType } from '@store/slices/authSlice';
 import type { StoreType } from '@store/index.ts';
 
-import { ButtonWrapper, EditForm, RadioLabel, ControlsWrapper } from './styled';
+import { ButtonWrapper, EditForm, RadioLabel, ControlsWrapper, ButtonsWrapper } from './styled';
 
 interface EditUserProps {
   isActive: boolean;
@@ -48,13 +48,17 @@ const EditUser: FC<EditUserProps> = ({ isActive, setActive }) => {
   });
   const dispatch = useDispatch();
 
+  const handleLoguot = () => {
+    dispatch(logoutRequest());
+  };
+
   const onSubmit: SubmitHandler<EditUserForm> = (data) => {
     dispatch(updateUserRequest(data));
   };
 
   return (
     <Modal isActive={isActive} setActive={setActive}>
-      <EditForm onSubmit={handleSubmit(onSubmit)}>
+      <EditForm>
         <Input
           type="text"
           placeholder="Write your name"
@@ -79,13 +83,19 @@ const EditUser: FC<EditUserProps> = ({ isActive, setActive }) => {
             Female
           </RadioLabel>
         </ControlsWrapper>
-        <ButtonWrapper>
-          <Button $buttonType="primary">Submit</Button>
-        </ButtonWrapper>
+        <ButtonsWrapper>
+          <ButtonWrapper>
+            <Button $buttonType="primary" onClick={handleSubmit(onSubmit)}>
+              Submit
+            </Button>
+          </ButtonWrapper>
+          <ButtonWrapper>
+            <Button $buttonType="danger" onClick={handleLoguot}>
+              Log out
+            </Button>
+          </ButtonWrapper>
+        </ButtonsWrapper>
       </EditForm>
-      <button type="button" onClick={() => dispatch(logoutRequest())}>
-        Log out
-      </button>
       <ChangePassword />
     </Modal>
   );

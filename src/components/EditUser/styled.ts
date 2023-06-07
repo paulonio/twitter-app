@@ -23,6 +23,15 @@ export const ControlsWrapper = styled.div`
   gap: 12px;
 `;
 
+export const ButtonsWrapper = styled.div`
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+`;
+
 export const ButtonWrapper = styled.div`
   width: 30%;
 

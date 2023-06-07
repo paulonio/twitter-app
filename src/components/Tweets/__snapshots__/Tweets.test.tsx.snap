@@ -5,11 +5,11 @@ exports[`Profile should render profile component 1`] = `<div />`;
 exports[`Tweet should render tweet component 1`] = `
 <div>
   <div
-    class="sc-kmGeMp eLVztW"
+    class="sc-jWvtQi dtcjjE"
     data-testid="tweet-item"
   >
     <div
-      class="sc-jWvtQi eSpNru"
+      class="sc-jYzHaX hPWkBR"
     >
       <img
         alt="Avatar"
@@ -18,22 +18,22 @@ exports[`Tweet should render tweet component 1`] = `
       />
     </div>
     <div
-      class="sc-jYzHaX djGlQZ"
+      class="sc-dBMOBg gNZKzE"
     >
       <div
-        class="sc-fHHHLk gqPSRf"
+        class="sc-jpwBOV bYdoHk"
       >
         <div
-          class="sc-jpwBOV cqAPZx"
+          class="sc-ikjVyi gdZXbx"
         >
           <h4
-            class="sc-frTaCv dIxmyl"
+            class="sc-kkBRBA gkIjOC"
             data-testid="username"
           >
             test
           </h4>
           <div
-            class="sc-kkBRBA iicZGK"
+            class="sc-kmGeMp byNfqo"
             data-testid="nickname"
           >
             @
@@ -43,10 +43,10 @@ exports[`Tweet should render tweet component 1`] = `
           </div>
         </div>
         <button
-          class="sc-ikjVyi igsKmQ"
+          class="sc-CDgcX hupwip"
         >
           <svg
-            class="sc-CDgcX cqbUmM"
+            class="sc-fxKICk cBfsmP"
             fill="currentColor"
             focusable="false"
             height="4"
@@ -67,13 +67,13 @@ exports[`Tweet should render tweet component 1`] = `
         </button>
       </div>
       <p
-        class="sc-dBMOBg ctTpqj"
+        class="sc-dDRbLV iCvWxM"
         data-testid="tweet-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
       <div
-        class="sc-dFPqCD edBXUM"
+        class="sc-iugUHi bVACuv"
       >
         <svg
           fill="currentColor"
@@ -89,7 +89,7 @@ exports[`Tweet should render tweet component 1`] = `
           />
         </svg>
         <span
-          class="sc-MAflX fkLsGt"
+          class="sc-fHHHLk eyFRKK"
         >
           8
         </span>
@@ -102,10 +102,10 @@ exports[`Tweet should render tweet component 1`] = `
 exports[`Tweets should render tweets component 1`] = `
 <div>
   <section
-    class="sc-jfzCFV eKhAuc"
+    class="sc-kvzYQS lalEUZ"
   >
     <div
-      class="sc-kvzYQS kWAFWq"
+      class="sc-cNTjvH iFiGQP"
     >
       Tweets
     </div>
