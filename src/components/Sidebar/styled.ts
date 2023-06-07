@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
 
+import SearchIcon from '@src/icons/SearchIcon';
+
 export const FixedWrapper = styled.div`
   width: inherit;
   position: fixed;
@@ -27,10 +29,19 @@ export const Label = styled.label`
   border-radius: 50px;
 `;
 
-export const SearchIcon = styled.img.attrs({
+export const SearchIconcc = styled.img.attrs({
   src: '/assets/icons/Search.svg',
   alt: 'Search icon',
 })`
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+`;
+
+export const Search = styled(SearchIcon)`
   position: absolute;
   width: 24px;
   height: 24px;

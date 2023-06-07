@@ -19,9 +19,9 @@ export interface SignUpForm {
   name: string;
   email: string;
   password: string;
-  month: string;
-  date: string;
-  year: string;
+  month?: string;
+  date?: string;
+  year?: string;
 }
 
 const schema = yup

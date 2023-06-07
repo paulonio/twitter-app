@@ -3,26 +3,26 @@
 exports[`Edit user should render change password component 1`] = `
 <div>
   <form
-    class="sc-gqHWMn gWWPnR"
+    class="sc-jySWPz gIDFdC"
   >
     <input
-      class="sc-jxAitF ezSBjs"
+      class="sc-hcxXMm cQbYlz"
       data-testid="password-input"
       name="oldPassword"
       placeholder="Old password"
       type="password"
     />
     <input
-      class="sc-jxAitF ezSBjs"
+      class="sc-hcxXMm cQbYlz"
       name="newPassword"
       placeholder="New password"
       type="password"
     />
     <div
-      class="sc-goDJBy jzJqRf"
+      class="sc-fPKvMM jYTyGx"
     >
       <button
-        class="sc-hlCNGy dPvINu"
+        class="sc-SYvCl bqLUHW"
       >
         Change password
       </button>

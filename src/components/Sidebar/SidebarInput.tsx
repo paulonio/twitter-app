@@ -5,7 +5,7 @@ import SidebarResults from '@src/components/Sidebar/SidebarResults';
 import type { TweetType } from '@store/slices/tweetSlice';
 import type { UserType } from '@store/slices/authSlice';
 
-import { Label, SearchField, SearchIcon, InputWrapper } from './styled';
+import { Label, SearchField, Search, InputWrapper } from './styled';
 
 interface SidebarInputProps {
   value: string;
@@ -17,7 +17,7 @@ const SidebarInput: FC<SidebarInputProps> = ({ value, onChange, data }) => {
   return (
     <InputWrapper>
       <Label>
-        <SearchIcon />
+        <Search />
         <SearchField value={value} onChange={onChange} data-testid="search" />
         {data && value && <SidebarResults data={data} />}
       </Label>

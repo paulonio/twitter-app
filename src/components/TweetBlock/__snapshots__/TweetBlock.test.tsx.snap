@@ -11,7 +11,7 @@ exports[`TweetBlock should render tweet block component 1`] = `
       <img
         alt="Avatar"
         class="sc-erFrCC bFvuip"
-        src="/assets/icons/Avatar.svg"
+        src="/assets/images/Avatar.svg"
       />
     </div>
     <form

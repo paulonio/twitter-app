@@ -27,13 +27,13 @@ const Tweet: FC<TweetProps> = ({ currentTweet }) => {
 
   return (
     <ErrorBoundary>
-      <TweetWrapper>
+      <TweetWrapper data-testid="tweet-item">
         <TweetAvatar>
           <Avatar />
         </TweetAvatar>
         <TweetContent>
           <TweetHeader userEmail={userEmail} displayName={displayName} date={date} />
-          <TweetText>{tweet}</TweetText>
+          <TweetText data-testid="tweet-text">{tweet}</TweetText>
           {urlToImage && (
             <ImageWrapper>
               <TweetImage src={urlToImage} alt="Tweet" />

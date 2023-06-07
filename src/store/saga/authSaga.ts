@@ -39,7 +39,7 @@ import {
   updateUsers,
 } from '@utils/utils';
 
-function* loginWorker({ payload }: ReturnType<typeof loginRequest>) {
+export function* loginWorker({ payload }: ReturnType<typeof loginRequest>) {
   const { email, password } = payload;
   try {
     const userData: UserType = yield call(signInWithEmail, email, password);
@@ -52,7 +52,7 @@ function* loginWorker({ payload }: ReturnType<typeof loginRequest>) {
   }
 }
 
-function* signUpWithEmailWorker({ payload }: ReturnType<typeof signUpWithEmailRequest>) {
+export function* signUpWithEmailWorker({ payload }: ReturnType<typeof signUpWithEmailRequest>) {
   const { email, password, name } = payload;
   try {
     const { uid }: UserType = yield call(signUpWithEmail, email, password, name);
@@ -65,7 +65,7 @@ function* signUpWithEmailWorker({ payload }: ReturnType<typeof signUpWithEmailRe
   }
 }
 
-function* signUpWithGoogleWorker() {
+export function* signUpWithGoogleWorker() {
   try {
     const { email, displayName, uid }: UserType = yield call(signUpWithGoogle);
     yield put(signUpWithGoogleSuccess({ email, displayName, uid }));
@@ -77,7 +77,7 @@ function* signUpWithGoogleWorker() {
   }
 }
 
-function* logoutWorker() {
+export function* logoutWorker() {
   try {
     yield call(logoutUser);
     yield put(logoutSuccess());
@@ -89,7 +89,7 @@ function* logoutWorker() {
   }
 }
 
-function* setCurrentUserWorker() {
+export function* setCurrentUserWorker() {
   const userAuth = auth.currentUser;
   const docSnap: DocumentSnapshot<DocumentData> = yield call(getDocument, TWITTER, USERS);
   const users: UserType[] = docSnap.exists() && docSnap.data().users;
@@ -106,10 +106,10 @@ function* setCurrentUserWorker() {
   }
 }
 
-function* updateUserInfoWorker({ payload }: ReturnType<typeof updateUserRequest>) {
+export function* updateUserInfoWorker({ payload }: ReturnType<typeof updateUserRequest>) {
   const { name, lastName, gender, telegram } = payload;
   const userAuth = auth.currentUser;
-  const docSnap: DocumentSnapshot<DocumentData> = yield call(getDocument, 'twitter', USERS);
+  const docSnap: DocumentSnapshot<DocumentData> = yield call(getDocument, TWITTER, USERS);
   const users: UserType[] = docSnap.exists() && docSnap.data().users;
   const [currentUser] = users.filter((user) => user.uid === userAuth?.uid);
   const restUsers = users.filter((user) => user.uid !== userAuth?.uid);
@@ -134,7 +134,7 @@ function* updateUserInfoWorker({ payload }: ReturnType<typeof updateUserRequest>
   }
 }
 
-function* updatePasswordRequest({ payload }: ReturnType<typeof changePasswordRequest>) {
+export function* updatePasswordRequest({ payload }: ReturnType<typeof changePasswordRequest>) {
   const user = auth.currentUser;
   const { oldPassword, newPassword } = payload;
   try {
@@ -150,7 +150,7 @@ function* updatePasswordRequest({ payload }: ReturnType<typeof changePasswordReq
   }
 }
 
-function* getAllUsers() {
+export function* getAllUsers() {
   try {
     const docSnap: DocumentSnapshot<DocumentData> = yield call(getDocument, TWITTER, USERS);
     if (docSnap.exists()) {

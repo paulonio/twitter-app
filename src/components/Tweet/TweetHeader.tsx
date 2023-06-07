@@ -11,8 +11,8 @@ const TweetHeader: FC<TweetHeaderProps> = ({ displayName, userEmail, date }) => 
   return (
     <TweetHeaderWrapper>
       <TweetTitle>
-        <Username>{displayName}</Username>
-        <Nickname>
+        <Username data-testid="username">{displayName}</Username>
+        <Nickname data-testid="nickname">
           @{userEmail.split('@')[0]} · {date}
         </Nickname>
       </TweetTitle>

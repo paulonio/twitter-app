@@ -1,3 +1,4 @@
+import CloseIcon from '@src/icons/CloseIcon';
 import { styled } from 'styled-components';
 
 interface ModalProps {
@@ -38,4 +39,27 @@ export const ModalWindow = styled.div<ModalProps>`
     border-radius: 0;
     overflow-y: scroll;
   }
+`;
+
+export const CloseButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+export const CloseButton = styled.button`
+  width: 17px;
+  height: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: ${({ theme }) => theme.colors.backgroundBody};
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const Close = styled(CloseIcon)`
+  fill: ${({ theme }) => theme.colors.text};
 `;

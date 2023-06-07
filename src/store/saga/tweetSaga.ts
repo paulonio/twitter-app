@@ -20,7 +20,7 @@ export interface AddTweetRequest extends Omit<TweetType, 'urlToImage'> {
   image?: File;
 }
 
-function* addTweetWorker({ payload }: ReturnType<typeof addTweetRequest>) {
+export function* addTweetWorker({ payload }: ReturnType<typeof addTweetRequest>) {
   try {
     const urlToImage: string | undefined = yield call(uploadImage, payload.image);
     delete payload.image;

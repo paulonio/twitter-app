@@ -17,8 +17,8 @@ const MenuUser: FC<MenuUserProps> = ({ user }) => {
         <Avatar />
       </AvatarWrapper>
       <UserInfo>
-        <Username>{user.displayName}</Username>
-        <Nickname>@{user.email.split('@')[0]}</Nickname>
+        <Username data-testid="username">{user.displayName}</Username>
+        <Nickname data-testid="nickname">@{user.email.split('@')[0]}</Nickname>
       </UserInfo>
     </UserWrapper>
   );

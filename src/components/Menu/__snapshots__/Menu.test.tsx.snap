@@ -14,15 +14,15 @@ exports[`Menu should render Menu component 1`] = `
         src="/assets/icons/twitter-logo.svg"
       />
       <nav
-        class="sc-gaYwgq kHJUQn"
+        class="sc-goxvPd kGTNkb"
       >
         <a
-          class="sc-goxvPd hZXmvF"
+          class="sc-jzrYgo SDtKI"
           data-testid="nav-link"
           href="/feed"
         >
           <svg
-            class="sc-jzrYgo bsOHvk"
+            class="sc-cSiKfk gRWESc"
             fill="currentColor"
             focusable="false"
             height="29"
@@ -40,12 +40,12 @@ exports[`Menu should render Menu component 1`] = `
           Home
         </a>
         <a
-          class="sc-goxvPd hZXmvF"
+          class="sc-jzrYgo SDtKI"
           data-testid="nav-link"
           href="/feed"
         >
           <svg
-            class="sc-cSiKfk gRWESc"
+            class="sc-XDmMx bptlqz"
             fill="currentColor"
             focusable="false"
             height="29"
@@ -60,12 +60,12 @@ exports[`Menu should render Menu component 1`] = `
           Explore
         </a>
         <a
-          class="sc-goxvPd hZXmvF"
+          class="sc-jzrYgo SDtKI"
           data-testid="nav-link"
           href="/feed"
         >
           <svg
-            class="sc-XDmMx bptlqz"
+            class="sc-jjgsYe cxyaif"
             fill="currentColor"
             focusable="false"
             height="29"
@@ -80,12 +80,12 @@ exports[`Menu should render Menu component 1`] = `
           Notifications
         </a>
         <a
-          class="sc-goxvPd hZXmvF"
+          class="sc-jzrYgo SDtKI"
           data-testid="nav-link"
           href="/feed"
         >
           <svg
-            class="sc-jjgsYe cxyaif"
+            class="sc-hoAVFr emsmQb"
             fill="currentColor"
             focusable="false"
             height="25"
@@ -100,12 +100,12 @@ exports[`Menu should render Menu component 1`] = `
           Messages
         </a>
         <a
-          class="sc-goxvPd hZXmvF"
+          class="sc-jzrYgo SDtKI"
           data-testid="nav-link"
           href="/feed"
         >
           <svg
-            class="sc-hoAVFr emsmQb"
+            class="sc-hyPqDM dtxtnG"
             fill="currentColor"
             focusable="false"
             height="25"
@@ -120,12 +120,12 @@ exports[`Menu should render Menu component 1`] = `
           Bookmarks
         </a>
         <a
-          class="sc-goxvPd hZXmvF"
+          class="sc-jzrYgo SDtKI"
           data-testid="nav-link"
           href="/feed"
         >
           <svg
-            class="sc-hyPqDM dtxtnG"
+            class="sc-fEjTkZ aXZTT"
             fill="currentColor"
             focusable="false"
             height="25"
@@ -143,12 +143,12 @@ exports[`Menu should render Menu component 1`] = `
           Lists
         </a>
         <a
-          class="sc-goxvPd hZXmvF"
+          class="sc-jzrYgo SDtKI"
           data-testid="nav-link"
           href="/profile"
         >
           <svg
-            class="sc-fEjTkZ aXZTT"
+            class="sc-cArpXK dPldkM"
             fill="currentColor"
             focusable="false"
             height="29"
@@ -163,12 +163,12 @@ exports[`Menu should render Menu component 1`] = `
           Profile
         </a>
         <a
-          class="sc-goxvPd hZXmvF"
+          class="sc-jzrYgo SDtKI"
           data-testid="nav-link"
           href="/feed"
         >
           <svg
-            class="sc-cArpXK dPldkM"
+            class="sc-FLSEX hKpewr"
             fill="currentColor"
             focusable="false"
             height="29"
@@ -190,7 +190,7 @@ exports[`Menu should render Menu component 1`] = `
         class="sc-jknFwr XZUcq"
       >
         <button
-          class="sc-FLSEX bmpOKJ"
+          class="sc-gBQmyM hdyaks"
           data-testid="menu-button"
         >
           Tweet

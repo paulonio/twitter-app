@@ -6,42 +6,42 @@ exports[`Header should render header 1`] = `
     class="sc-erFrCC cYrPzI"
   >
     <header
-      class="sc-cSiKfk bheDgU"
+      class="sc-XDmMx iuVsJX"
     >
       <div
-        class="sc-XDmMx lojSEY"
+        class="sc-jjgsYe jkKWPs"
       >
         Home
       </div>
       <div
-        class="sc-jjgsYe gpWxyz"
+        class="sc-hoAVFr iAhAfH"
       >
         <button
-          class="sc-QUirw bAhTHK"
+          class="sc-SYvCl hnLSSJ"
         >
           Switch theme
         </button>
       </div>
       <span
-        class="sc-goDJBy cxFSaY"
+        class="sc-gqHWMn cwXmPr"
       >
         <span
-          class="sc-SYvCl cKgVkJ"
+          class="sc-goDJBy enwpev"
         />
       </span>
       <div
-        class="sc-gqHWMn dCHzQi"
+        class="sc-cEPTvB gQWOiC"
       >
         <nav
-          class="sc-cEPTvB jAOa-D"
+          class="sc-fPKvMM hbqdYi"
         >
           <a
-            class="sc-fPKvMM glTxJU"
+            class="sc-jySWPz gUjNXi"
             data-testid="nav-link"
             href="/feed"
           >
             <svg
-              class="sc-jySWPz DEeG"
+              class="sc-burPHO jOSBbB"
               fill="currentColor"
               focusable="false"
               height="29"
@@ -59,12 +59,12 @@ exports[`Header should render header 1`] = `
             Home
           </a>
           <a
-            class="sc-fPKvMM glTxJU"
+            class="sc-jySWPz gUjNXi"
             data-testid="nav-link"
             href="/feed"
           >
             <svg
-              class="sc-burPHO jOSBbB"
+              class="sc-hlwzUd bzirWL"
               fill="currentColor"
               focusable="false"
               height="29"
@@ -79,12 +79,12 @@ exports[`Header should render header 1`] = `
             Explore
           </a>
           <a
-            class="sc-fPKvMM glTxJU"
+            class="sc-jySWPz gUjNXi"
             data-testid="nav-link"
             href="/feed"
           >
             <svg
-              class="sc-hlwzUd bzirWL"
+              class="sc-kwrclo dBtBit"
               fill="currentColor"
               focusable="false"
               height="29"
@@ -99,12 +99,12 @@ exports[`Header should render header 1`] = `
             Notifications
           </a>
           <a
-            class="sc-fPKvMM glTxJU"
+            class="sc-jySWPz gUjNXi"
             data-testid="nav-link"
             href="/feed"
           >
             <svg
-              class="sc-kwrclo dBtBit"
+              class="sc-cQdTPf chwHsH"
               fill="currentColor"
               focusable="false"
               height="25"
@@ -119,12 +119,12 @@ exports[`Header should render header 1`] = `
             Messages
           </a>
           <a
-            class="sc-fPKvMM glTxJU"
+            class="sc-jySWPz gUjNXi"
             data-testid="nav-link"
             href="/feed"
           >
             <svg
-              class="sc-cQdTPf chwHsH"
+              class="sc-gaYwgq Mohol"
               fill="currentColor"
               focusable="false"
               height="25"
@@ -139,12 +139,12 @@ exports[`Header should render header 1`] = `
             Bookmarks
           </a>
           <a
-            class="sc-fPKvMM glTxJU"
+            class="sc-jySWPz gUjNXi"
             data-testid="nav-link"
             href="/feed"
           >
             <svg
-              class="sc-gaYwgq Mohol"
+              class="sc-goxvPd hXvirR"
               fill="currentColor"
               focusable="false"
               height="25"
@@ -162,12 +162,12 @@ exports[`Header should render header 1`] = `
             Lists
           </a>
           <a
-            class="sc-fPKvMM glTxJU"
+            class="sc-jySWPz gUjNXi"
             data-testid="nav-link"
             href="/profile"
           >
             <svg
-              class="sc-goxvPd hXvirR"
+              class="sc-jzrYgo bsOHvk"
               fill="currentColor"
               focusable="false"
               height="29"
@@ -182,12 +182,12 @@ exports[`Header should render header 1`] = `
             Profile
           </a>
           <a
-            class="sc-fPKvMM glTxJU"
+            class="sc-jySWPz gUjNXi"
             data-testid="nav-link"
             href="/feed"
           >
             <svg
-              class="sc-jzrYgo bsOHvk"
+              class="sc-cSiKfk gRWESc"
               fill="currentColor"
               focusable="false"
               height="29"
@@ -206,7 +206,7 @@ exports[`Header should render header 1`] = `
           </a>
         </nav>
         <button
-          class="sc-QUirw bAhTHK"
+          class="sc-SYvCl hnLSSJ"
         >
           Switch theme
         </button>

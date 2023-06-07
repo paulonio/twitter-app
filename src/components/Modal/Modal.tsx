@@ -1,7 +1,7 @@
 import React, { FC, MouseEvent } from 'react';
 import { createPortal } from 'react-dom';
 
-import { ModalWindow, Overlay } from './styled';
+import { Close, CloseButton, CloseButtonWrapper, ModalWindow, Overlay } from './styled';
 
 interface ModalProps {
   children: JSX.Element | JSX.Element[] | string | string[];
@@ -23,9 +23,11 @@ const Modal: FC<ModalProps> = ({ children, isActive, setActive }) => {
       {createPortal(
         <Overlay $isActive={isActive} onClick={handleCloseModal}>
           <ModalWindow $isActive={isActive} onClick={handleModalClick}>
-            <button type="button" onClick={handleCloseModal}>
-              Close
-            </button>
+            <CloseButtonWrapper>
+              <CloseButton onClick={handleCloseModal}>
+                <Close />
+              </CloseButton>
+            </CloseButtonWrapper>
             {children}
           </ModalWindow>
         </Overlay>,

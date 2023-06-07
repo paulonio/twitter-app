@@ -17,8 +17,8 @@ const ProfileUser = () => {
     <UserWrapper>
       <ErrorBoundary>
         <ProfileUserHeader />
-        <Username>{user?.displayName}</Username>
-        <Nickname>@{user?.email?.split('@')[0]}</Nickname>
+        <Username data-testid="username">{user?.displayName}</Username>
+        <Nickname data-testid="nickname">@{user?.email?.split('@')[0]}</Nickname>
         {user?.gender && <UserBio>Gender: {user.gender}</UserBio>}
         {user?.telegram && <UserBio>Telegram: {user?.telegram}</UserBio>}
         <Followers />
