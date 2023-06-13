@@ -16,4 +16,8 @@ export const changePasswordRequest = createAction<ChangePasswordForm>('auth/upda
 export const syncUsers = createAction('auth/syncUsers');
 export const logoutRequest = createAction('auth/logoutRequest');
 export const addTweetRequest = createAction<AddTweetRequest>('tweet/addTweetRequest');
+export const deleteTweetRequest = createAction<{ tweetId: string }>('tweet/deleteTweetRequest');
+export const addLikeRequest = createAction<{ uid: string; tweetId: string }>(
+  'tweet/addLikeRequest'
+);
 export const syncTweetsRequest = createAction<UserType>('tweet/syncTweetsRequest');

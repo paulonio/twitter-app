@@ -33,6 +33,7 @@ export const useTweetBlockHandlers = (reset: () => void, setModal?: (value: bool
         displayName,
         userUid: uid,
         image,
+        likes: [],
       };
       if (setModal) {
         setModal(false);

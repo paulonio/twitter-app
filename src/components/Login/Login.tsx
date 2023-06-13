@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,7 +14,10 @@ import { loginRequest } from '@store/actions/actions';
 
 import { EMAIL_REGEXP } from '@constants/constants';
 
+import type { StoreType } from '@src/store';
+import type { FirebaseError } from '@src/store/slices/authSlice';
 import { Form, LoginWrapper } from './styled';
+import LoginError from './LoginError';
 
 export interface LoginForm {
   email: string;
@@ -29,6 +32,7 @@ const schema = yup
   .required();
 
 const Login = () => {
+  const error = useSelector<StoreType, FirebaseError | null>((state) => state.auth.error);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -69,6 +73,7 @@ const Login = () => {
       <Button $buttonType="link" onClick={handleNavigateToWelcomePage}>
         Sign up to Twitter
       </Button>
+      {error && error.code && <LoginError error={error.code.split('auth/').join('')} />}
     </LoginWrapper>
   );
 };

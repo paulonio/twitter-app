@@ -11,6 +11,7 @@ export interface TweetType {
   displayName: string;
   urlToAvatar?: string;
   userUid: string;
+  likes: string[];
 }
 
 export type InitialState = {
@@ -35,6 +36,12 @@ const tweetSlice = createSlice({
     addTweetFailure: (state, action) => {
       state.error = action.payload;
     },
+    addLikeSuccess: (state, action) => {
+      state.tweets = action.payload;
+    },
+    addLikeFailure: (state, action) => {
+      state.error = action.payload;
+    },
     syncTweetsSuccess: (state, action) => {
       state.tweets = action.payload;
     },
@@ -50,6 +57,8 @@ const tweetSlice = createSlice({
 export const {
   addTweetSuccess,
   addTweetFailure,
+  addLikeSuccess,
+  addLikeFailure,
   syncTweetsSuccess,
   syncTweetsFailure,
   setProfileTweets,

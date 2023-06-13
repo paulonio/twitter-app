@@ -16,7 +16,7 @@ import { auth, db, signInWithGoogle } from '@src/firebase';
 import type { TweetType } from '@store/slices/tweetSlice';
 import type { UserType } from '@store/slices/authSlice';
 
-import { MONTH_MAP, TWITTER, USERS } from '@constants/constants';
+import { MONTH_MAP, TWEETS, TWITTER, USERS } from '@constants/constants';
 import {
   EmailAuthCredential,
   EmailAuthProvider,
@@ -54,6 +54,43 @@ export const updateDocument = async (column: string, document: string, payload: 
   }
 
   return null;
+};
+
+export const addLike = async (uid: string, tweetId: string) => {
+  const twitterRef = collection(db, TWITTER);
+  const snap = await getDocument(TWITTER, TWEETS);
+  const tweets: TweetType[] = snap.exists() ? snap.data().tweets : [];
+
+  if (tweets.length) {
+    const index = tweets.findIndex(({ id }) => id === tweetId);
+    if (index === -1) {
+      return null;
+    }
+
+    const likes = tweets[index].likes;
+    const updatedLikes = likes.includes(uid)
+      ? likes.filter((userUid) => userUid !== uid)
+      : [...likes, uid];
+
+    const updatedTweet = { ...tweets[index], likes: updatedLikes };
+    const updatedTweets = [...tweets.slice(0, index), updatedTweet, ...tweets.slice(index + 1)];
+    await setDoc(doc(twitterRef, TWEETS), { tweets: updatedTweets });
+
+    return updatedTweets;
+  }
+
+  return [];
+};
+
+export const deleteTweet = async (tweetId: string) => {
+  const twitterRef = collection(db, TWITTER);
+  const snap = await getDocument(TWITTER, TWEETS);
+  const tweets: TweetType[] = snap.exists() ? snap.data().tweets : [];
+
+  const updatedTweets = tweets.filter(({ id }) => id !== tweetId);
+  await setDoc(doc(twitterRef, TWEETS), { tweets: updatedTweets });
+
+  return updatedTweets;
 };
 
 export const updateUsers = async (

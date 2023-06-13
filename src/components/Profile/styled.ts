@@ -16,6 +16,7 @@ export const PageWrapper = styled.div`
 export const ProfileWrapper = styled.section`
   width: 57.5%;
   max-width: 910px;
+  min-height: 100vh;
   border-left: solid 1px ${({ theme }) => theme.colors.border};
   border-right: solid 1px ${({ theme }) => theme.colors.border};
 

@@ -1,9 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Profile should render profile component 1`] = `<div />`;
+
 exports[`Tweet should render tweet component 1`] = `
 <div>
   <div
-    class="sc-jySWPz dhyrvK"
+    class="sc-jySWPz jdYTEn"
     data-testid="tweet-item"
   >
     <div
@@ -19,19 +21,19 @@ exports[`Tweet should render tweet component 1`] = `
       class="sc-hlwzUd TjVjh"
     >
       <div
-        class="sc-XDmMx fZWpeS"
+        class="sc-cSiKfk hgSWWx"
       >
         <div
-          class="sc-jjgsYe coYsJH"
+          class="sc-XDmMx fMEVXn"
         >
           <h4
-            class="sc-cEPTvB knBcr"
+            class="sc-cEPTvB cYkEJT"
             data-testid="username"
           >
             test
           </h4>
           <div
-            class="sc-fPKvMM jappeS"
+            class="sc-fPKvMM bcEDGC"
             data-testid="nickname"
           >
             @
@@ -41,10 +43,10 @@ exports[`Tweet should render tweet component 1`] = `
           </div>
         </div>
         <button
-          class="sc-hoAVFr bxqzGG"
+          class="sc-jjgsYe bBTPvg"
         >
           <svg
-            class="sc-hyPqDM dtxtnG"
+            class="sc-hyPqDM gFcnaK"
             fill="currentColor"
             focusable="false"
             height="4"
@@ -65,13 +67,13 @@ exports[`Tweet should render tweet component 1`] = `
         </button>
       </div>
       <p
-        class="sc-kwrclo jrfDXY"
+        class="sc-kwrclo ejFizI"
         data-testid="tweet-text"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
       </p>
       <div
-        class="sc-goxvPd ftfERC"
+        class="sc-goxvPd gQyRde"
       >
         <svg
           fill="currentColor"
@@ -83,13 +85,12 @@ exports[`Tweet should render tweet component 1`] = `
         >
           <path
             d="M12.8 21.914H12.786C10.203 21.866 2.75 15.132 2.75 8.754C2.75 5.69 5.275 3 8.153 3C10.443 3 11.983 4.58 12.799 5.73C13.613 4.582 15.153 3 17.444 3C20.324 3 22.848 5.69 22.848 8.755C22.848 15.131 15.394 21.865 12.811 21.912H12.8V21.914ZM8.154 4.501C6.074 4.501 4.251 6.489 4.251 8.756C4.251 14.496 11.285 20.352 12.801 20.414C14.319 20.352 21.351 14.497 21.351 8.756C21.351 6.489 19.528 4.501 17.448 4.501C14.92 4.501 13.508 7.437 13.496 7.466C13.266 8.028 12.34 8.028 12.109 7.466C12.095 7.436 10.684 4.501 8.15501 4.501H8.154Z"
-            fill="#536471"
           />
         </svg>
         <span
-          class="sc-cSiKfk gTDNyI"
+          class="sc-jzrYgo Aefmq"
         >
-          8
+          0
         </span>
       </div>
     </div>

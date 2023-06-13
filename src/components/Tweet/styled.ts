@@ -2,6 +2,10 @@ import { styled } from 'styled-components';
 
 import EditIcon from '@icons/EditIcon';
 
+interface Like {
+  $isLiked: boolean;
+}
+
 export const TweetWrapper = styled.div`
   width: 100%;
   max-width: 910px;
@@ -48,28 +52,28 @@ export const TweetImage = styled.img`
   height: 100%;
 `;
 
-export const TweetLike = styled.div`
+export const TweetLike = styled.div<Like>`
   width: max-content;
   margin-top: 22px;
   display: flex;
   align-items: center;
+  gap: 8px;
+
+  & svg {
+    fill: ${({ $isLiked, theme }) => ($isLiked ? '#ef233c' : theme.colors.text)};
+  }
+
   &:hover {
     cursor: pointer;
   }
 `;
 
-export const LikeIcon = styled.img.attrs({ src: '/assets/icons/Like.svg', alt: 'Like icon' })`
-  width: 24px;
-  height: 24px;
-`;
-
-export const LikeAmount = styled.span`
-  margin-left: 10px;
-  font-size: 16px;
-  line-height: 21px;
+export const LikeAmount = styled.span<Like>`
+  font-size: 19px;
+  line-height: 24px;
   font-weight: 400;
-  color: ${({ theme }) => theme.colors.text};
-  opacity: 0.6;
+  color: ${({ theme, $isLiked }) => ($isLiked ? '#ef233c' : theme.colors.text)};
+  opacity: 0.8;
 `;
 
 export const TweetHeaderWrapper = styled.div`
@@ -91,11 +95,27 @@ export const TweetTitle = styled.div`
 export const EditButton = styled.button`
   width: 17px;
   height: 6px;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   background-color: ${({ theme }) => theme.colors.backgroundBody};
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const DeleteConfirmation = styled.div`
+  width: 100px;
+  position: absolute;
+  top: 200%;
+  right: 0;
+  border-radius: 6px;
+  border: none;
+  color: red;
+  background-color: ${({ theme }) => theme.colors.backgroundInput};
+
   &:hover {
     cursor: pointer;
   }

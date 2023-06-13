@@ -4,17 +4,23 @@ import { DocumentData, DocumentSnapshot } from 'firebase/firestore';
 
 import {
   TweetType,
+  addLikeFailure,
   addTweetFailure,
   addTweetSuccess,
   setProfileTweets,
   syncTweetsFailure,
   syncTweetsSuccess,
 } from '@store/slices/tweetSlice';
-import { addTweetRequest, syncTweetsRequest } from '@store/actions/actions';
+import {
+  addLikeRequest,
+  addTweetRequest,
+  deleteTweetRequest,
+  syncTweetsRequest,
+} from '@store/actions/actions';
 
 import { TWITTER, TWEETS } from '@constants/constants';
 
-import { getDocument, updateDocument, uploadImage } from '@utils/utils';
+import { addLike, deleteTweet, getDocument, updateDocument, uploadImage } from '@utils/utils';
 
 export interface AddTweetRequest extends Omit<TweetType, 'urlToImage'> {
   image?: File;
@@ -39,6 +45,32 @@ export function* addTweetWorker({ payload }: ReturnType<typeof addTweetRequest>)
   }
 }
 
+export function* addLikeWorker({ payload }: ReturnType<typeof addLikeRequest>) {
+  const { uid, tweetId } = payload;
+  try {
+    const tweets: TweetType[] = yield call(addLike, uid, tweetId);
+    yield put(addTweetSuccess(tweets));
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      const { code, message } = error;
+      yield put(addLikeFailure({ code, message }));
+    }
+  }
+}
+
+export function* deleteTweetWorker({ payload }: ReturnType<typeof deleteTweetRequest>) {
+  const { tweetId } = payload;
+  try {
+    const tweets: TweetType[] = yield call(deleteTweet, tweetId);
+    yield put(addTweetSuccess(tweets));
+  } catch (error) {
+    if (error instanceof FirebaseError) {
+      const { code, message } = error;
+      yield put(addLikeFailure({ code, message }));
+    }
+  }
+}
+
 function* syncTweetsWorker({ payload }: ReturnType<typeof syncTweetsRequest>) {
   try {
     const docSnap: DocumentSnapshot<DocumentData> = yield call(getDocument, TWITTER, TWEETS);
@@ -58,5 +90,7 @@ function* syncTweetsWorker({ payload }: ReturnType<typeof syncTweetsRequest>) {
 
 export function* tweetWatcher() {
   yield takeEvery(addTweetRequest, addTweetWorker);
+  yield takeEvery(addLikeRequest, addLikeWorker);
+  yield takeEvery(deleteTweetRequest, deleteTweetWorker);
   yield takeEvery(syncTweetsRequest, syncTweetsWorker);
 }

@@ -37,3 +37,12 @@ export const LoginWrapper = styled.div`
     justify-content: center;
   }
 `;
+
+export const Error = styled.p`
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 19px;
+  line-height: 24px;
+  font-weight: 400;
+  color: red;
+`;
