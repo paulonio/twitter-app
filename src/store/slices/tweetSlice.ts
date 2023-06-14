@@ -1,0 +1,67 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+import type { FirebaseError } from './authSlice';
+
+export interface TweetType {
+  id: string;
+  tweet: string;
+  date: string;
+  urlToImage?: string;
+  userEmail: string;
+  displayName: string;
+  urlToAvatar?: string;
+  userUid: string;
+  likes: string[];
+}
+
+export type InitialState = {
+  tweets: TweetType[];
+  profileTweets: TweetType[];
+  error: FirebaseError | null;
+};
+
+const initialState: InitialState = {
+  tweets: [],
+  profileTweets: [],
+  error: null,
+};
+
+const tweetSlice = createSlice({
+  name: 'tweet',
+  initialState,
+  reducers: {
+    addTweetSuccess: (state, action) => {
+      state.tweets = action.payload;
+    },
+    addTweetFailure: (state, action) => {
+      state.error = action.payload;
+    },
+    addLikeSuccess: (state, action) => {
+      state.tweets = action.payload;
+    },
+    addLikeFailure: (state, action) => {
+      state.error = action.payload;
+    },
+    syncTweetsSuccess: (state, action) => {
+      state.tweets = action.payload;
+    },
+    syncTweetsFailure: (state, action) => {
+      state.error = action.payload;
+    },
+    setProfileTweets: (state, action) => {
+      state.profileTweets = action.payload;
+    },
+  },
+});
+
+export const {
+  addTweetSuccess,
+  addTweetFailure,
+  addLikeSuccess,
+  addLikeFailure,
+  syncTweetsSuccess,
+  syncTweetsFailure,
+  setProfileTweets,
+} = tweetSlice.actions;
+
+export default tweetSlice.reducer;

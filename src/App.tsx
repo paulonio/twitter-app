@@ -1,8 +1,20 @@
 import React from 'react';
-import Profile from './components/Profile/Profile';
+
+import Global from '@styles/Global';
+
+import { useAuthObserver } from '@hooks/useAuthObserver';
+
+import RouterElement from '@routes/index';
 
 const App = () => {
-  return <Profile />;
+  useAuthObserver();
+
+  return (
+    <>
+      <Global />
+      <RouterElement />
+    </>
+  );
 };
 
 export default App;

@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile should render profile component 1`] = `
+<div>
+  <aside
+    class="sc-burPHO dEhgfc"
+  >
+    <div
+      class="sc-jySWPz jApgcW"
+    >
+      <div
+        class="sc-hlwzUd hloTfY"
+      >
+        <label
+          class="sc-kwrclo eSVPPH"
+        >
+          <svg
+            class="sc-gaYwgq ciCPNQ"
+            fill="currentColor"
+            focusable="false"
+            height="24"
+            role="img"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M21.53 20.47L17.87 16.81C19.195 15.24 20 13.214 20 11C20 6.03 15.97 2 11 2C6.03 2 2 6.03 2 11C2 15.97 6.03 20 11 20C13.215 20 15.24 19.196 16.808 17.87L20.468 21.53C20.615 21.676 20.808 21.75 20.998 21.75C21.188 21.75 21.383 21.677 21.528 21.53C21.823 21.237 21.823 20.763 21.53 20.47ZM3.5 11C3.5 6.865 6.865 3.5 11 3.5C15.135 3.5 18.5 6.865 18.5 11C18.5 15.135 15.135 18.5 11 18.5C6.865 18.5 3.5 15.135 3.5 11Z"
+              fill="#5C6C79"
+            />
+          </svg>
+          <input
+            class="sc-goxvPd kPxVJK"
+            data-testid="search"
+            placeholder="Search Twitter"
+            value=""
+          />
+        </label>
+      </div>
+      <div
+        class="sc-jzrYgo evmPBv"
+      >
+        <div
+          class="sc-cSiKfk hgmRfT"
+        >
+          <img
+            alt="Post"
+            class="sc-XDmMx ktECaL"
+            src="/assets/images/post-1.jpg"
+          />
+        </div>
+        <div
+          class="sc-cSiKfk hgmRfT"
+        >
+          <img
+            alt="Post"
+            class="sc-XDmMx ktECaL"
+            src="/assets/images/post-2.jpg"
+          />
+        </div>
+        <div
+          class="sc-cSiKfk hgmRfT"
+        >
+          <img
+            alt="Post"
+            class="sc-XDmMx ktECaL"
+            src="/assets/images/post-3.jpg"
+          />
+        </div>
+        <div
+          class="sc-cSiKfk hgmRfT"
+        >
+          <img
+            alt="Post"
+            class="sc-XDmMx ktECaL"
+            src="/assets/images/post-4.jpg"
+          />
+        </div>
+        <div
+          class="sc-cSiKfk hgmRfT"
+        >
+          <img
+            alt="Post"
+            class="sc-XDmMx ktECaL"
+            src="/assets/images/post-5.jpg"
+          />
+        </div>
+        <div
+          class="sc-cSiKfk hgmRfT"
+        >
+          <img
+            alt="Post"
+            class="sc-XDmMx ktECaL"
+            src="/assets/images/post-6.jpg"
+          />
+        </div>
+      </div>
+      <div
+        class="sc-hyPqDM bXpQbo"
+      >
+        <h3
+          class="sc-cArpXK kSfmxI"
+        >
+          You might like
+        </h3>
+        <div
+          class="sc-fEjTkZ VsgPP"
+        >
+          <div
+            class="sc-FLSEX htyKW"
+          >
+            <button
+              class="sc-gBQmyM ithDjM"
+            >
+              Follow
+            </button>
+          </div>
+        </div>
+        <button
+          class="sc-gBQmyM fdWkEv"
+        >
+          Show more
+        </button>
+      </div>
+    </div>
+  </aside>
+</div>
+`;
